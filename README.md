@@ -12,6 +12,14 @@ echo "\x1b[34mHello world" | shellfie -w 200 -h 200 -n hello
 ```
 ![](https://github.com/tool3/shellfie-cli/blob/master/shellfies/hello.png?raw=true)   
 
+
+### Apple Silicon
+```bash
+# NOTE! if you are running on Apple Silicon you may need to set the following env variables: 
+export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ ```
+
 # useful examples
 ```bash
 lolcat --help > help.txt
