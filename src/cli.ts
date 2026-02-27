@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 import { readFileSync, writeFileSync } from 'node:fs';
-import { resolve, basename, dirname } from 'node:path';
+import { resolve } from 'node:path';
 import { shellfieAsync, themes, type shellfieOptions, type Theme } from 'shellfie';
 import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
 import { createSpinner } from './spinner';
 import { readStdin, parsePadding, getOutputPath } from './utils';
 
@@ -12,23 +11,11 @@ const THEME_NAMES = Object.keys(themes) as (keyof typeof themes)[];
 const TEMPLATE_NAMES = ['macos', 'windows', 'minimal'] as const;
 
 async function run(): Promise<void> {
-  const argv = await yargs(hideBin(process.argv))
+  const argv = await yargs
     .scriptName('shellfie')
     .usage('$0 [options] [file]')
     .usage('')
     .usage('Transform terminal output into beautiful SVG images')
-    .usage('')
-    .usage('Examples:')
-    .usage('  cat output.txt | shellfie -o screenshot.svg')
-    .usage('  npm test 2>&1 | shellfie --title "Test Results" --theme dracula')
-    .usage('  git log --oneline -10 | shellfie --template minimal')
-    .usage('  shellfie terminal-output.txt -o ~/Desktop/output.svg')
-
-    // Input options
-    .positional('file', {
-      describe: 'Input file to read (reads from stdin if not provided)',
-      type: 'string',
-    })
 
     // Output options
     .option('output', {
@@ -143,11 +130,19 @@ async function run(): Promise<void> {
       describe: 'List all available templates',
     })
 
+    // Examples at the end
+    .example('cat output.txt | $0 -o screenshot.svg', 'Create SVG from piped input')
+    .example('$0 terminal.txt --theme dracula', 'Create SVG from file with theme')
+    .example('npm test 2>&1 | $0 --title "Tests"', 'Capture command output with title')
+    .example('$0 --list-themes', 'List all available themes')
+
+    .demandCommand(0)
     .help()
     .alias('help', 'h')
     .version()
     .alias('version', 'v')
     .wrap(Math.min(100, process.stdout.columns || 80))
+    .showHelpOnFail(true)
     .parse();
 
   // Handle list commands
@@ -180,14 +175,9 @@ async function run(): Promise<void> {
     // Read from stdin (piped input)
     input = await readStdin();
   } else {
-    console.error('Error: No input provided. Pipe data or provide a file path.');
-    console.error('');
-    console.error('Usage:');
-    console.error('  command | shellfie [options]');
-    console.error('  shellfie [options] <file>');
-    console.error('');
-    console.error('Run "shellfie --help" for more information.');
-    process.exit(1);
+    // No input provided - show help
+    yargs.showHelp();
+    process.exit(0);
   }
 
   if (!input.trim()) {
