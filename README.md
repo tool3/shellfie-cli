@@ -44,6 +44,12 @@ git log --oneline -10 | shellfie --title "Recent Commits" -o commits.svg
 ls -la --color=always | shellfie --theme nord
 ```
 
+```sh
+lolcat --help | shellfie -o lolcat
+```
+
+![npm test](examples/lolcat.svg)
+
 ### Read from a file
 
 ```sh
