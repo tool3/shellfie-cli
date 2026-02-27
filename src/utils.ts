@@ -1,29 +1,74 @@
-import { resolve, basename, dirname } from 'node:path';
-import type { shellfieOptions } from 'shellfie';
+import { readFileSync } from 'node:fs';
+import { resolve, basename } from 'node:path';
 
-/**
- * Read all data from stdin.
- */
-export async function readStdin(): Promise<string> {
-  const chunks: Buffer[] = [];
+export interface CliArgs {
+  _: (string | number)[];
+  output?: string;
+  name?: string;
+  stdout: boolean;
+  template: string;
+  theme?: string;
+  title?: string;
+  width?: number;
+  padding?: string;
+  'font-size': number;
+  'line-height': number;
+  watermark?: string;
+  'no-controls': boolean;
+  'no-custom-glyphs': boolean;
+  'font-family'?: string;
+  'embed-font': boolean;
+  'header-height'?: number;
+  'header-color'?: string;
+  'footer-height'?: number;
+  'footer-color'?: string;
+  'list-themes'?: boolean;
+  'list-templates'?: boolean;
+}
 
-  return new Promise((resolve, reject) => {
+export interface BuildOptionsResult {
+  template: 'macos' | 'windows' | 'minimal';
+  themeName?: string;
+  title?: string;
+  width?: number;
+  padding?: number | [number, number] | [number, number, number, number];
+  fontSize: number;
+  lineHeight: number;
+  watermark?: string;
+  controls: boolean;
+  customGlyphs: boolean;
+  fontFamily?: string;
+  embedFont: boolean;
+  header?: { height?: number; backgroundColor?: string };
+  footer?: { height?: number; backgroundColor?: string };
+}
+
+type Padding = number | [number, number] | [number, number, number, number];
+
+const ESCAPE_REPLACEMENTS: [RegExp, string][] = [
+  [/\\033/g, '\x1b'],
+  [/\\x1[bB]/g, '\x1b'],
+  [/\\e/g, '\x1b'],
+];
+
+export const parseEscapeSequences = (input: string): string =>
+  ESCAPE_REPLACEMENTS.reduce((str, [pattern, replacement]) => str.replace(pattern, replacement), input);
+
+export const readStdin = (): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const chunks: Buffer[] = [];
     process.stdin.on('data', (chunk) => chunks.push(chunk));
     process.stdin.on('end', () => resolve(Buffer.concat(chunks).toString('utf-8')));
     process.stdin.on('error', reject);
   });
-}
 
-/**
- * Parse padding string into shellfie-compatible format.
- * Supports:
- *   - Single value: "16" -> 16
- *   - Two values: "10,20" or "10 20" -> [10, 20]
- *   - Four values: "10,20,15,25" or "10 20 15 25" -> [10, 20, 15, 25]
- */
-export function parsePadding(
-  input: string
-): number | [number, number] | [number, number, number, number] {
+export const readInput = async (inputFile?: string): Promise<string> => {
+  if (inputFile) return readFileSync(resolve(inputFile), 'utf-8');
+  if (!process.stdin.isTTY) return readStdin();
+  return '';
+};
+
+export const parsePadding = (input: string): Padding => {
   const values = input
     .split(/[,\s]+/)
     .map((v) => v.trim())
@@ -34,153 +79,63 @@ export function parsePadding(
     throw new Error(`Invalid padding value: "${input}". Use numbers only.`);
   }
 
-  if (values.length === 1) {
-    return values[0];
+  const paddingByLength: Record<number, () => Padding> = {
+    1: () => values[0],
+    2: () => values as [number, number],
+    4: () => values as [number, number, number, number],
+  };
+
+  const toPadding = paddingByLength[values.length];
+  if (!toPadding) {
+    throw new Error(
+      `Invalid padding format: "${input}". Use 1, 2, or 4 values (e.g., "16", "10,20", "10,20,15,25").`
+    );
   }
 
-  if (values.length === 2) {
-    return values as [number, number];
-  }
+  return toPadding();
+};
 
-  if (values.length === 4) {
-    return values as [number, number, number, number];
-  }
+const ensureSvgExtension = (path: string): string =>
+  path.endsWith('.svg') ? path : `${path}.svg`;
 
-  throw new Error(
-    `Invalid padding format: "${input}". Use 1, 2, or 4 values (e.g., "16", "10,20", "10,20,15,25").`
-  );
-}
-
-/**
- * Determine the output file path.
- */
-export function getOutputPath(options: {
+export const getOutputPath = (options: {
   output?: string;
   name?: string;
   inputFile?: string;
-}): string {
+}): string => {
   const { output, name, inputFile } = options;
 
-  // Explicit output path takes priority
-  if (output) {
-    let outputPath = resolve(output);
-    // Ensure .svg extension
-    if (!outputPath.endsWith('.svg')) {
-      outputPath += '.svg';
-    }
-    return outputPath;
-  }
+  if (output) return ensureSvgExtension(resolve(output));
+  if (name) return resolve(process.cwd(), ensureSvgExtension(name));
+  if (inputFile) return resolve(process.cwd(), `${basename(inputFile).replace(/\.[^.]+$/, '')}.svg`);
 
-  // Use name option with current directory
-  if (name) {
-    const filename = name.endsWith('.svg') ? name : `${name}.svg`;
-    return resolve(process.cwd(), filename);
-  }
-
-  // Derive from input file name
-  if (inputFile) {
-    const base = basename(inputFile).replace(/\.[^.]+$/, '');
-    return resolve(process.cwd(), `${base}.svg`);
-  }
-
-  // Default
   return resolve(process.cwd(), 'shellfie.svg');
-}
+};
 
-/**
- * Build shellfie options from CLI arguments.
- * Exported for testing purposes.
- */
-export function buildOptions(argv: {
-  template?: string;
-  theme?: string;
-  title?: string;
-  width?: number;
-  padding?: string;
-  'font-size'?: number;
-  'line-height'?: number;
-  watermark?: string;
-  'no-controls'?: boolean;
-  'no-custom-glyphs'?: boolean;
-  'font-family'?: string;
-  'embed-font'?: boolean;
-  'header-height'?: number;
-  'header-color'?: string;
-  'footer-height'?: number;
-  'footer-color'?: string;
-}): { options: Partial<shellfieOptions>; themeName?: string } {
-  const options: Partial<shellfieOptions> = {};
-  let themeName: string | undefined;
+const buildHeaderFooter = (
+  height: number | undefined,
+  color: string | undefined
+): { height?: number; backgroundColor?: string } | undefined => {
+  if (height === undefined && color === undefined) return undefined;
+  return {
+    ...(height !== undefined && { height }),
+    ...(color !== undefined && { backgroundColor: color }),
+  };
+};
 
-  if (argv.template) {
-    options.template = argv.template as 'macos' | 'windows' | 'minimal';
-  }
-
-  if (argv.theme) {
-    themeName = argv.theme;
-  }
-
-  if (argv.title !== undefined) {
-    options.title = argv.title;
-  }
-
-  if (argv.width !== undefined) {
-    options.width = argv.width;
-  }
-
-  if (argv.padding !== undefined) {
-    options.padding = parsePadding(argv.padding);
-  }
-
-  if (argv['font-size'] !== undefined) {
-    options.fontSize = argv['font-size'];
-  }
-
-  if (argv['line-height'] !== undefined) {
-    options.lineHeight = argv['line-height'];
-  }
-
-  if (argv.watermark !== undefined) {
-    options.watermark = argv.watermark;
-  }
-
-  if (argv['no-controls']) {
-    options.controls = false;
-  }
-
-  if (argv['no-custom-glyphs']) {
-    options.customGlyphs = false;
-  }
-
-  if (argv['font-family'] !== undefined) {
-    options.fontFamily = argv['font-family'];
-  }
-
-  if (argv['embed-font']) {
-    options.embedFont = true;
-  }
-
-  // Header configuration
-  if (argv['header-height'] !== undefined || argv['header-color'] !== undefined) {
-    options.header = {};
-    if (argv['header-height'] !== undefined) {
-      options.header.height = argv['header-height'];
-    }
-    if (argv['header-color'] !== undefined) {
-      options.header.backgroundColor = argv['header-color'];
-    }
-  }
-
-  // Footer configuration
-  if (argv['footer-height'] !== undefined || argv['footer-color'] !== undefined) {
-    options.footer = {};
-    if (argv['footer-height'] !== undefined) {
-      options.footer.height = argv['footer-height'];
-    }
-    if (argv['footer-color'] !== undefined) {
-      options.footer.backgroundColor = argv['footer-color'];
-    }
-  }
-
-  return { options, themeName };
-}
+export const buildOptions = (argv: Partial<CliArgs>): BuildOptionsResult => ({
+  template: (argv.template as 'macos' | 'windows' | 'minimal') ?? 'macos',
+  fontSize: argv['font-size'] ?? 14,
+  lineHeight: argv['line-height'] ?? 1.4,
+  embedFont: argv['embed-font'] ?? false,
+  controls: !argv['no-controls'],
+  customGlyphs: !argv['no-custom-glyphs'],
+  ...(argv.theme && { themeName: argv.theme }),
+  ...(argv.title !== undefined && { title: argv.title }),
+  ...(argv.width !== undefined && { width: argv.width }),
+  ...(argv.padding !== undefined && { padding: parsePadding(argv.padding) }),
+  ...(argv.watermark !== undefined && { watermark: parseEscapeSequences(argv.watermark) }),
+  ...(argv['font-family'] !== undefined && { fontFamily: argv['font-family'] }),
+  ...({ header: buildHeaderFooter(argv['header-height'], argv['header-color']) }),
+  ...({ footer: buildHeaderFooter(argv['footer-height'], argv['footer-color']) }),
+});

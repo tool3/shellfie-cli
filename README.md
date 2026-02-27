@@ -3,7 +3,7 @@
 Transform your terminal output into beautiful SVG screenshots, directly from the command line.
 
 ```sh
-npm test | npx shellfie --title "Test Results" --theme dracula -o tests.svg
+npm test | npx shellfie --title "Test Results" -o tests.svg
 ```
 
 ![npm test](examples/tests.svg)
@@ -190,6 +190,21 @@ ls -la | shellfie --embed-font -o portable.svg
 
 ```sh
 neofetch | shellfie --watermark "@username" --theme nord
+```
+
+### Colored watermark
+
+Watermarks support ANSI escape sequences for colors and styles:
+
+```sh
+# Red watermark using octal notation
+echo "test" | shellfie --watermark '\033[31m@username\033[0m'
+
+# Green watermark using hex notation
+echo "test" | shellfie --watermark '\x1b[32m@username\x1b[0m'
+
+# Bold blue watermark using shorthand notation
+echo "test" | shellfie --watermark '\e[1;34m@username\e[0m'
 ```
 
 ### Windows-style output

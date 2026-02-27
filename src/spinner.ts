@@ -53,12 +53,12 @@ export function createSpinner(text: string): Spinner {
 
     success(message: string): void {
       this.stop();
-      console.log(`\x1b[32m✓\x1b[0m ${message}`);
+      console.log(`\x1b[32m✓ ${message}\x1b[0m`);
     },
 
     fail(message: string): void {
       this.stop();
-      console.log(`\x1b[31m✗\x1b[0m ${message}`);
+      console.log(`\x1b[31m✗ ${message}\x1b[0m`);
     },
   };
 }
