@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 771.2 365.99999999999994" width="771.2" height="365.99999999999994">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="771.2" height="365.99999999999994" fill="#282a36" rx="10" ry="10" filter="url(#shadow)"/>
+  <g class="title-bar">
+    <rect x="0" y="0" width="771.2" height="39" fill="#282a36" rx="10" ry="10"/>
+    <rect x="0" y="29" width="771.2" height="10" fill="#282a36"/>
+    <line x1="0" y1="39.5" x2="771.2" y2="39.5" stroke="#f8f8f21a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+    <text x="385.6" y="24.166666666666668" fill="#f8f8f2" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="12" text-anchor="middle" opacity="0.8">Unit Tests</text>
+  </g>
+  <g class="backgrounds">
+    <rect x="16" y="154" width="42" height="19.599999999999998" fill="#8be9fd"/>
+  </g>
+  <g class="text">
+    <text y="89.6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">&gt; shellfie-cli@2.0.0 test</tspan></text>
+    <text y="109.19999999999999" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">&gt; vitest run</tspan></text>
+    <text y="168" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2" font-weight="bold"> RUN </tspan><tspan x="58" fill="#f8f8f2"> </tspan><tspan x="66.4" fill="#8be9fd">v4.0.18 </tspan><tspan x="133.60000000000002" fill="#6272a4">/Users/talhayut/projects/shellfie-cli</tspan></text>
+    <text y="207.2" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2"> </tspan><tspan x="24.4" fill="#50fa7b">✓</tspan><tspan x="32.8" fill="#f8f8f2"> src/spinner.test.ts </tspan><tspan x="209.2" fill="#7c7c79">(</tspan><tspan x="217.6" fill="#7c7c79">8 tests</tspan><tspan x="276.4" fill="#7c7c79">)</tspan><tspan x="284.79999999999995" fill="#50fa7b"> 5</tspan><tspan x="301.59999999999997" fill="#287d3d">ms</tspan></text>
+    <text y="226.79999999999998" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2"> </tspan><tspan x="24.4" fill="#50fa7b">✓</tspan><tspan x="32.8" fill="#f8f8f2"> src/utils.test.ts </tspan><tspan x="192.39999999999998" fill="#7c7c79">(</tspan><tspan x="200.79999999999998" fill="#7c7c79">46 tests</tspan><tspan x="268" fill="#7c7c79">)</tspan><tspan x="276.4" fill="#50fa7b"> 4</tspan><tspan x="293.2" fill="#287d3d">ms</tspan></text>
+    <text y="266" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#7c7c79"> Test Files </tspan><tspan x="116.80000000000001" fill="#f8f8f2"> </tspan><tspan x="125.20000000000002" fill="#50fa7b" font-weight="bold">2 passed</tspan><tspan x="192.40000000000003" fill="#6272a4"> (2)</tspan></text>
+    <text y="285.59999999999997" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#7c7c79">      Tests </tspan><tspan x="116.80000000000001" fill="#f8f8f2"> </tspan><tspan x="125.20000000000002" fill="#50fa7b" font-weight="bold">54 passed</tspan><tspan x="200.8" fill="#6272a4"> (54)</tspan></text>
+    <text y="305.2" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#7c7c79">   Start at </tspan><tspan x="116.80000000000001" fill="#f8f8f2"> 13:57:35</tspan></text>
+    <text y="324.79999999999995" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#7c7c79">   Duration </tspan><tspan x="116.80000000000001" fill="#f8f8f2"> 117ms</tspan><tspan x="167.20000000000002" fill="#7c7c79"> (transform 93ms, setup 0ms, import 106ms, tests 9ms, environment 0ms)</tspan></text>
+  </g>
+</svg>

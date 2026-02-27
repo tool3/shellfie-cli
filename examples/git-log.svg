@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 368 130" width="368" height="130">
+  <rect x="0" y="0" width="368" height="130" fill="#0d1117" rx="6" ry="6"/>
+  <g class="text">
+    <text y="30" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#c9d1d9">* </tspan><tspan x="32.8" fill="#d29922">85380d1</tspan><tspan x="91.6" fill="#c9d1d9"> chore: refactor</tspan></text>
+    <text y="49.599999999999994" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#c9d1d9">* </tspan><tspan x="32.8" fill="#d29922">69286c0</tspan><tspan x="91.6" fill="#c9d1d9"> docs: lolcat</tspan></text>
+    <text y="69.19999999999999" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#c9d1d9">* </tspan><tspan x="32.8" fill="#d29922">8894369</tspan><tspan x="91.6" fill="#c9d1d9"> docs: enable examples</tspan></text>
+    <text y="88.8" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#c9d1d9">* </tspan><tspan x="32.8" fill="#d29922">75c61db</tspan><tspan x="91.6" fill="#c9d1d9"> docs: examples</tspan></text>
+    <text y="108.39999999999999" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#c9d1d9">* </tspan><tspan x="32.8" fill="#d29922">9dcd24c</tspan><tspan x="91.6" fill="#c9d1d9"> chore: initial</tspan></text>
+  </g>
+</svg>
