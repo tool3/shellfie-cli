@@ -1,14 +1,12 @@
 # shellfie-cli
 
-> Transform your terminal output into beautiful SVG screenshots, directly from the command line.
+Transform your terminal output into beautiful SVG screenshots, directly from the command line.
 
 ```sh
-npm test | npx shellfie-cli --title "Test Results" --theme dracula -o tests.svg
+npm test | npx shellfie --title "Test Results" --theme dracula -o tests.svg
 ```
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/shellfie-example.svg" width="600" alt="shellfie example" />
-</p>
+![npm test](examples/tests.svg)
 
 ## Why shellfie-cli?
 
@@ -255,7 +253,6 @@ npm test 2>&1 | shellfie -o output.svg
 ## Related
 
 - [shellfie](https://github.com/tool3/shellfie) - The core library for programmatic use
-- [carbon](https://carbon.now.sh) - Web-based code screenshots (different approach)
 
 ## License
 
