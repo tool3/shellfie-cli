@@ -20,7 +20,7 @@ const createParser = () =>
     .scriptName('shellfie')
     .usage('$0 [options] [file]')
     .usage('')
-    .usage('Transform terminal output into beautiful SVG images')
+    .usage('Terminal output to beautiful SVGs')
     .option('output', {
       alias: 'o',
       type: 'string',
