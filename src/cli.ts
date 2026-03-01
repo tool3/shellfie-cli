@@ -32,6 +32,7 @@ const createParser = () =>
       describe: 'Output filename (without extension)',
     })
     .option('stdout', {
+      alias: 's',
       type: 'boolean',
       describe: 'Output SVG to stdout instead of file',
       default: false,
@@ -50,6 +51,7 @@ const createParser = () =>
       describe: 'Color theme',
     })
     .option('title', {
+      alias: 'i',
       type: 'string',
       describe: 'Window title text',
     })
@@ -64,59 +66,72 @@ const createParser = () =>
       describe: 'Padding in pixels (single value or "top,right,bottom,left")',
     })
     .option('font-size', {
+      alias: 'f',
       type: 'number',
       describe: 'Font size in pixels',
       default: 14,
     })
     .option('line-height', {
+      alias: 'l',
       type: 'number',
       describe: 'Line height multiplier',
       default: 1.4,
     })
     .option('watermark', {
+      alias: 'W',
       type: 'string',
       describe: 'Watermark text (bottom-right corner)',
     })
     .option('no-controls', {
+      alias: 'C',
       type: 'boolean',
       describe: 'Hide window control buttons',
       default: false,
     })
     .option('no-custom-glyphs', {
+      alias: 'G',
       type: 'boolean',
       describe: 'Use font glyphs instead of pixel-perfect box drawing',
       default: false,
     })
     .option('font-family', {
+      alias: 'F',
       type: 'string',
       describe: 'CSS font-family string',
     })
     .option('embed-font', {
+      alias: 'e',
       type: 'boolean',
       describe: 'Embed system font in SVG (for portability)',
       default: false,
     })
     .option('header-height', {
+      alias: 'H',
       type: 'number',
       describe: 'Custom header bar height (enables header)',
     })
     .option('header-color', {
+      alias: 'c',
       type: 'string',
       describe: 'Header background color (hex)',
     })
     .option('footer-height', {
+      alias: 'r',
       type: 'number',
       describe: 'Footer bar height (enables footer)',
     })
     .option('footer-color', {
+      alias: 'R',
       type: 'string',
       describe: 'Footer background color (hex)',
     })
     .option('list-themes', {
+      alias: 'L',
       type: 'boolean',
       describe: 'List all available themes',
     })
     .option('list-templates', {
+      alias: 'P',
       type: 'boolean',
       describe: 'List all available templates',
     })
