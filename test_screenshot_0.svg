@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7712 228" width="7712" height="228">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="7712" height="228" fill="#282a36" rx="10" ry="10" filter="url(#shadow)"/>
+  <g class="title-bar">
+    <rect x="0" y="0" width="7712" height="39" fill="#282a36" rx="10" ry="10"/>
+    <rect x="0" y="29" width="7712" height="10" fill="#282a36"/>
+    <line x1="0" y1="39.5" x2="7712" y2="39.5" stroke="#f8f8f21a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="text">
+    <text y="72" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"><tspan x="16" fill="#ff92df">❯</tspan><tspan x="25.6" fill="#f8f8f2"> echo &#39;Testing screenshot feature&#39;</tspan></text>
+    <text y="94.4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"><tspan x="16" fill="#f8f8f2">Testing screenshot feature</tspan></text>
+    <text y="116.8" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"><tspan x="16" fill="#ff92df">❯</tspan><tspan x="25.6" fill="#f8f8f2"> echo &#39;Second command&#39;</tspan></text>
+    <text y="139.2" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"><tspan x="16" fill="#f8f8f2">Second command</tspan></text>
+    <text y="161.6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"><tspan x="16" fill="#ff92df">❯</tspan><tspan x="25.6" fill="#f8f8f2"> </tspan></text>
+  </g>
+  <text y="212" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="12" xml:space="preserve"><tspan x="7544.8" fill="#f8f8f2">Created with shellfie</tspan></text>
+</svg>

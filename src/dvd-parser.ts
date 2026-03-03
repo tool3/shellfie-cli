@@ -8,14 +8,14 @@ export type DVDCommand =
   | { type: 'Output'; path: string }
   | { type: 'Require'; program: string }
   | { type: 'Set'; setting: string; value: string }
-  | { type: 'Type'; text: string; speed?: number }
-  | { type: 'Key'; key: 'Left' | 'Right' | 'Up' | 'Down' | 'Backspace' | 'Enter' | 'Tab' | 'Space' }
+  | { type: 'Type'; text: string; speed?: number; prefix?: string }
+  | { type: 'Key'; key: 'Left' | 'Right' | 'Up' | 'Down' | 'Backspace' | 'Enter' | 'Tab' | 'Space'; count?: number }
   | { type: 'Shortcut'; ctrl: boolean; alt: boolean; shift: boolean; key: string }
   | { type: 'Sleep'; duration: number }
   | { type: 'Wait'; condition?: 'Screen' | 'Line'; pattern?: RegExp }
   | { type: 'Hide' }
   | { type: 'Show' }
-  | { type: 'Screenshot'; name?: string }
+  | { type: 'Screenshot'; path?: string }
   | { type: 'Copy'; text: string }
   | { type: 'Paste' }
   | { type: 'Source'; file: string }
@@ -174,7 +174,12 @@ export const parseCommand = (line: string, lineNumber: number): DVDCommand => {
       if (tokens.length < 3) {
         throw new Error('Set command requires a setting name and value');
       }
-      return { type: 'Set', setting: tokens[1], value: tokens.slice(2).join(' ') };
+      const rawValue = tokens.slice(2).join(' ');
+      // Parse as quoted string if it starts and ends with quotes
+      const value = rawValue.startsWith('"') && rawValue.endsWith('"')
+        ? parseQuotedString(rawValue)
+        : rawValue;
+      return { type: 'Set', setting: tokens[1], value };
     }
 
     // Type command with optional speed override
@@ -195,12 +200,14 @@ export const parseCommand = (line: string, lineNumber: number): DVDCommand => {
 
     // Arrow keys
     if (['Left', 'Right', 'Up', 'Down'].includes(command)) {
-      return { type: 'Key', key: command as 'Left' | 'Right' | 'Up' | 'Down' };
+      const count = tokens.length > 1 ? parseInt(tokens[1], 10) : undefined;
+      return { type: 'Key', key: command as 'Left' | 'Right' | 'Up' | 'Down', count };
     }
 
     // Special keys
     if (['Backspace', 'Enter', 'Tab', 'Space'].includes(command)) {
-      return { type: 'Key', key: command as 'Backspace' | 'Enter' | 'Tab' | 'Space' };
+      const count = tokens.length > 1 ? parseInt(tokens[1], 10) : undefined;
+      return { type: 'Key', key: command as 'Backspace' | 'Enter' | 'Tab' | 'Space', count };
     }
 
     // Ctrl/Alt/Shift combinations
@@ -252,8 +259,8 @@ export const parseCommand = (line: string, lineNumber: number): DVDCommand => {
 
     // Screenshot command
     if (command === 'Screenshot') {
-      const name = tokens[1];
-      return { type: 'Screenshot', name };
+      const path = tokens[1];
+      return { type: 'Screenshot', path };
     }
 
     // Copy command

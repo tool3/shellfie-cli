@@ -1,0 +1,1409 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    
+    @keyframes frame-0-anim {
+      0% { opacity: 1; }
+      100.00% { opacity: 1; }
+      100.01% { opacity: 0; }
+      100% { opacity: 0; }
+    }@keyframes frame-1-anim {
+      0% { opacity: 0; }
+      0.00% { opacity: 0; }
+      0.00% { opacity: 1; }
+      6.80% { opacity: 1; }
+      6.81% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-2-anim {
+      0% { opacity: 0; }
+      0.00% { opacity: 0; }
+      6.80% { opacity: 1; }
+      10.20% { opacity: 1; }
+      10.21% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-3-anim {
+      0% { opacity: 0; }
+      6.80% { opacity: 0; }
+      10.20% { opacity: 1; }
+      13.60% { opacity: 1; }
+      13.61% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-4-anim {
+      0% { opacity: 0; }
+      10.20% { opacity: 0; }
+      13.60% { opacity: 1; }
+      17.01% { opacity: 1; }
+      17.02% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-5-anim {
+      0% { opacity: 0; }
+      13.60% { opacity: 0; }
+      17.01% { opacity: 1; }
+      20.41% { opacity: 1; }
+      20.42% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-6-anim {
+      0% { opacity: 0; }
+      17.01% { opacity: 0; }
+      20.41% { opacity: 1; }
+      23.80% { opacity: 1; }
+      23.81% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-7-anim {
+      0% { opacity: 0; }
+      20.41% { opacity: 0; }
+      23.80% { opacity: 1; }
+      27.20% { opacity: 1; }
+      27.21% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-8-anim {
+      0% { opacity: 0; }
+      23.80% { opacity: 0; }
+      27.20% { opacity: 1; }
+      30.59% { opacity: 1; }
+      30.60% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-9-anim {
+      0% { opacity: 0; }
+      27.20% { opacity: 0; }
+      30.59% { opacity: 1; }
+      33.99% { opacity: 1; }
+      34.00% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-10-anim {
+      0% { opacity: 0; }
+      30.59% { opacity: 0; }
+      33.99% { opacity: 1; }
+      37.38% { opacity: 1; }
+      37.39% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-11-anim {
+      0% { opacity: 0; }
+      33.99% { opacity: 0; }
+      37.38% { opacity: 1; }
+      40.78% { opacity: 1; }
+      40.79% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-12-anim {
+      0% { opacity: 0; }
+      37.38% { opacity: 0; }
+      40.78% { opacity: 1; }
+      44.17% { opacity: 1; }
+      44.18% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-13-anim {
+      0% { opacity: 0; }
+      40.78% { opacity: 0; }
+      44.17% { opacity: 1; }
+      47.57% { opacity: 1; }
+      47.58% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-14-anim {
+      0% { opacity: 0; }
+      44.17% { opacity: 0; }
+      47.57% { opacity: 1; }
+      50.98% { opacity: 1; }
+      50.99% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-15-anim {
+      0% { opacity: 0; }
+      47.57% { opacity: 0; }
+      50.98% { opacity: 1; }
+      54.37% { opacity: 1; }
+      54.38% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-16-anim {
+      0% { opacity: 0; }
+      50.98% { opacity: 0; }
+      54.37% { opacity: 1; }
+      57.77% { opacity: 1; }
+      57.78% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-17-anim {
+      0% { opacity: 0; }
+      54.37% { opacity: 0; }
+      57.77% { opacity: 1; }
+      61.18% { opacity: 1; }
+      61.19% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-18-anim {
+      0% { opacity: 0; }
+      57.77% { opacity: 0; }
+      61.18% { opacity: 1; }
+      64.57% { opacity: 1; }
+      64.58% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-19-anim {
+      0% { opacity: 0; }
+      61.18% { opacity: 0; }
+      64.57% { opacity: 1; }
+      67.97% { opacity: 1; }
+      67.98% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-20-anim {
+      0% { opacity: 0; }
+      64.57% { opacity: 0; }
+      67.97% { opacity: 1; }
+      71.37% { opacity: 1; }
+      71.38% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-21-anim {
+      0% { opacity: 0; }
+      67.97% { opacity: 0; }
+      71.37% { opacity: 1; }
+      74.77% { opacity: 1; }
+      74.78% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-22-anim {
+      0% { opacity: 0; }
+      71.37% { opacity: 0; }
+      74.77% { opacity: 1; }
+      78.17% { opacity: 1; }
+      78.18% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-23-anim {
+      0% { opacity: 0; }
+      74.77% { opacity: 0; }
+      78.17% { opacity: 1; }
+      81.57% { opacity: 1; }
+      81.58% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-24-anim {
+      0% { opacity: 0; }
+      78.17% { opacity: 0; }
+      81.57% { opacity: 1; }
+      84.97% { opacity: 1; }
+      84.98% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-25-anim {
+      0% { opacity: 0; }
+      81.57% { opacity: 0; }
+      84.97% { opacity: 1; }
+      88.37% { opacity: 1; }
+      88.38% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-26-anim {
+      0% { opacity: 0; }
+      84.97% { opacity: 0; }
+      88.37% { opacity: 1; }
+      91.77% { opacity: 1; }
+      91.78% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-27-anim {
+      0% { opacity: 0; }
+      88.37% { opacity: 0; }
+      91.77% { opacity: 1; }
+      91.78% { opacity: 1; }
+      91.79% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-28-anim {
+      0% { opacity: 0; }
+      91.77% { opacity: 0; }
+      91.78% { opacity: 1; }
+      92.47% { opacity: 1; }
+      92.48% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-29-anim {
+      0% { opacity: 0; }
+      91.78% { opacity: 0; }
+      92.47% { opacity: 1; }
+      93.21% { opacity: 1; }
+      93.22% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-30-anim {
+      0% { opacity: 0; }
+      92.47% { opacity: 0; }
+      93.21% { opacity: 1; }
+      100.00% { opacity: 1; }
+      100.01% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-31-anim {
+      0% { opacity: 0; }
+      93.21% { opacity: 0; }
+      100.00% { opacity: 1; }
+      100.00% { opacity: 1; }
+      100.01% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes frame-32-anim {
+      0% { opacity: 0; }
+      100.00% { opacity: 0; }
+      100.00% { opacity: 1; }
+      100.00% { opacity: 1; }
+      100.01% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .frame {
+      animation-duration: 15.75s;
+      animation-timing-function: step-end;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+    }
+
+    
+    .frame-0 {
+      animation-name: frame-0-anim;
+    }
+    .frame-1 {
+      animation-name: frame-1-anim;
+    }
+    .frame-2 {
+      animation-name: frame-2-anim;
+    }
+    .frame-3 {
+      animation-name: frame-3-anim;
+    }
+    .frame-4 {
+      animation-name: frame-4-anim;
+    }
+    .frame-5 {
+      animation-name: frame-5-anim;
+    }
+    .frame-6 {
+      animation-name: frame-6-anim;
+    }
+    .frame-7 {
+      animation-name: frame-7-anim;
+    }
+    .frame-8 {
+      animation-name: frame-8-anim;
+    }
+    .frame-9 {
+      animation-name: frame-9-anim;
+    }
+    .frame-10 {
+      animation-name: frame-10-anim;
+    }
+    .frame-11 {
+      animation-name: frame-11-anim;
+    }
+    .frame-12 {
+      animation-name: frame-12-anim;
+    }
+    .frame-13 {
+      animation-name: frame-13-anim;
+    }
+    .frame-14 {
+      animation-name: frame-14-anim;
+    }
+    .frame-15 {
+      animation-name: frame-15-anim;
+    }
+    .frame-16 {
+      animation-name: frame-16-anim;
+    }
+    .frame-17 {
+      animation-name: frame-17-anim;
+    }
+    .frame-18 {
+      animation-name: frame-18-anim;
+    }
+    .frame-19 {
+      animation-name: frame-19-anim;
+    }
+    .frame-20 {
+      animation-name: frame-20-anim;
+    }
+    .frame-21 {
+      animation-name: frame-21-anim;
+    }
+    .frame-22 {
+      animation-name: frame-22-anim;
+    }
+    .frame-23 {
+      animation-name: frame-23-anim;
+    }
+    .frame-24 {
+      animation-name: frame-24-anim;
+    }
+    .frame-25 {
+      animation-name: frame-25-anim;
+    }
+    .frame-26 {
+      animation-name: frame-26-anim;
+    }
+    .frame-27 {
+      animation-name: frame-27-anim;
+    }
+    .frame-28 {
+      animation-name: frame-28-anim;
+    }
+    .frame-29 {
+      animation-name: frame-29-anim;
+    }
+    .frame-30 {
+      animation-name: frame-30-anim;
+    }
+    .frame-31 {
+      animation-name: frame-31-anim;
+    }
+    .frame-32 {
+      animation-name: frame-32-anim;
+    }
+  </style>
+
+  <defs>
+    
+    <g id="frame-0">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f0">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f0">
+    <rect class="cursor f0" x="16" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-1">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f1">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f1">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> </text>
+    <rect class="cursor-active f1" x="35.2" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-2">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f2">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f2">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> e</text>
+    <rect class="cursor-active f2" x="44.8" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-3">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f3">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f3">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> ec</text>
+    <rect class="cursor-active f3" x="54.4" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-4">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f4">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f4">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> ech</text>
+    <rect class="cursor-active f4" x="64" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-5">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f5">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f5">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo</text>
+    <rect class="cursor-active f5" x="73.6" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-6">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f6">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f6">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo </text>
+    <rect class="cursor-active f6" x="83.2" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-7">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f7">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f7">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;</text>
+    <rect class="cursor-active f7" x="92.8" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-8">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f8">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f8">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;T</text>
+    <rect class="cursor-active f8" x="102.39999999999999" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-9">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f9">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f9">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Te</text>
+    <rect class="cursor-active f9" x="112" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-10">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f10">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f10">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Tes</text>
+    <rect class="cursor-active f10" x="121.6" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-11">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f11">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f11">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Test</text>
+    <rect class="cursor-active f11" x="131.2" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-12">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f12">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f12">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testi</text>
+    <rect class="cursor-active f12" x="140.8" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-13">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f13">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f13">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testin</text>
+    <rect class="cursor-active f13" x="150.4" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-14">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f14">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f14">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing</text>
+    <rect class="cursor-active f14" x="160" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-15">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f15">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f15">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing </text>
+    <rect class="cursor-active f15" x="169.6" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-16">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f16">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f16">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing s</text>
+    <rect class="cursor-active f16" x="179.2" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-17">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f17">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f17">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing sl</text>
+    <rect class="cursor-active f17" x="188.79999999999998" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-18">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f18">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f18">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slo</text>
+    <rect class="cursor-active f18" x="198.4" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-19">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f19">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f19">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow</text>
+    <rect class="cursor-active f19" x="208" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-20">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f20">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f20">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow </text>
+    <rect class="cursor-active f20" x="217.6" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-21">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f21">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f21">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow t</text>
+    <rect class="cursor-active f21" x="227.2" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-22">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f22">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f22">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow ty</text>
+    <rect class="cursor-active f22" x="236.79999999999998" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-23">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f23">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f23">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow typ</text>
+    <rect class="cursor-active f23" x="246.39999999999998" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-24">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f24">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f24">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow typi</text>
+    <rect class="cursor-active f24" x="256" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-25">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f25">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f25">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow typin</text>
+    <rect class="cursor-active f25" x="265.6" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-26">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f26">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f26">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow typing</text>
+    <rect class="cursor-active f26" x="275.2" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-27">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f27">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f27">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow typing&apos;</text>
+    <rect class="cursor-active f27" x="284.8" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-28">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f28">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f28">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow typing&apos;</text>
+    <rect class="cursor f28" x="284.8" y="55" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-29">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f29">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f29">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow typing&apos;</text>
+    <rect class="cursor f29" x="16" y="77.4" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-30">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f30">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f30">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow typing&apos;</text>
+    <text x="16" y="93.4" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">Testing slow typing</text>
+    <text x="16" y="115.8" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="115.8" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> </text>
+    <rect class="cursor f30" x="35.2" y="99.8" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-31">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f31">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f31">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow typing&apos;</text>
+    <text x="16" y="93.4" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">Testing slow typing</text>
+    <text x="16" y="115.8" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="115.8" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> </text>
+    <rect class="cursor f31" x="35.2" y="99.8" width="9.6" height="22.4" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+    </g>
+    <g id="frame-32">
+      
+  <style>
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+  <rect width="800" height="400" fill="#1e1e1e" rx="10" ry="10"/>
+  <g class="title-bar f32">
+    <rect width="800" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect y="29" width="800" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="800" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="content f32">
+    <text x="16" y="71" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="71" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> echo &apos;Testing slow typing&apos;</text>
+    <text x="16" y="93.4" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">Testing slow typing</text>
+    <text x="16" y="115.8" fill="#d670d6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve">❯</text>
+    <text x="25.6" y="115.8" fill="#d4d4d4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"> </text>
+  </g>
+
+    </g>
+  </defs>
+
+  
+  <use href="#frame-0" class="frame frame-0" />
+  <use href="#frame-1" class="frame frame-1" />
+  <use href="#frame-2" class="frame frame-2" />
+  <use href="#frame-3" class="frame frame-3" />
+  <use href="#frame-4" class="frame frame-4" />
+  <use href="#frame-5" class="frame frame-5" />
+  <use href="#frame-6" class="frame frame-6" />
+  <use href="#frame-7" class="frame frame-7" />
+  <use href="#frame-8" class="frame frame-8" />
+  <use href="#frame-9" class="frame frame-9" />
+  <use href="#frame-10" class="frame frame-10" />
+  <use href="#frame-11" class="frame frame-11" />
+  <use href="#frame-12" class="frame frame-12" />
+  <use href="#frame-13" class="frame frame-13" />
+  <use href="#frame-14" class="frame frame-14" />
+  <use href="#frame-15" class="frame frame-15" />
+  <use href="#frame-16" class="frame frame-16" />
+  <use href="#frame-17" class="frame frame-17" />
+  <use href="#frame-18" class="frame frame-18" />
+  <use href="#frame-19" class="frame frame-19" />
+  <use href="#frame-20" class="frame frame-20" />
+  <use href="#frame-21" class="frame frame-21" />
+  <use href="#frame-22" class="frame frame-22" />
+  <use href="#frame-23" class="frame frame-23" />
+  <use href="#frame-24" class="frame frame-24" />
+  <use href="#frame-25" class="frame frame-25" />
+  <use href="#frame-26" class="frame frame-26" />
+  <use href="#frame-27" class="frame frame-27" />
+  <use href="#frame-28" class="frame frame-28" />
+  <use href="#frame-29" class="frame frame-29" />
+  <use href="#frame-30" class="frame frame-30" />
+  <use href="#frame-31" class="frame frame-31" />
+  <use href="#frame-32" class="frame frame-32" />
+</svg>

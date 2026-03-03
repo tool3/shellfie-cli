@@ -5,10 +5,10 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { parseDVD } from './dvd-parser';
-import { DVDExecutorV2 } from './dvd-executor-v2';
-import { createAnimatedSVG, getAnimationMetadata } from './svg-animator-v2';
+import { DVDExecutor } from './dvd-executor';
+import { createAnimatedSVG, getAnimationMetadata } from './svg-animator';
 import { createSpinner } from './spinner';
-import type { AnimationOptions } from './svg-animator-v2';
+import type { AnimationOptions } from './svg-animator';
 
 export interface DVDOptions extends AnimationOptions {
   verbose?: boolean;
@@ -113,17 +113,18 @@ export const executeDVD = async (
     spinner.update('Executing DVD script');
   }
 
-  const executor = new DVDExecutorV2({
+  const executor = new DVDExecutor({
     width: executorOptions.width,
     height: executorOptions.height,
     fontSize: executorOptions.fontSize,
     title: executorOptions.title,
     template: executorOptions.template,
-    onProgress: (current, total) => {
+    onProgress: (current: number, total: number, description?: string) => {
+      const descText = description ? ` \x1b[2m${description}\x1b[0m` : '';
       if (options.verbose) {
-        console.log(`Executing command ${current}/${total}`);
+        console.log(`Executing command ${current}/${total}${descText}`);
       } else {
-        spinner.update(`Executing commands (${current}/${total})`);
+        spinner.update(`Executing commands (${current}/${total})${descText}`);
       }
     },
   });

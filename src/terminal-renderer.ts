@@ -14,6 +14,7 @@ export interface TerminalState {
   fontSize: number;
   fontFamily: string;
   showCursor: boolean;
+  activeCursor?: boolean; // true = solid cursor (typing/moving), false = blinking cursor (idle)
 }
 
 export interface RenderOptions {
@@ -59,10 +60,14 @@ export function renderTerminalSVG(state: TerminalState, options: RenderOptions =
   let svg = `<svg width="${svgWidth}" height="${svgHeight}" xmlns="http://www.w3.org/2000/svg">`;
 
   // Add styles
+  const cursorClass = state.activeCursor ? 'cursor-active' : 'cursor';
   svg += `
   <style>
     .cursor {
       animation: blink 1s step-end infinite;
+    }
+    .cursor-active {
+      /* No animation - solid cursor during typing/movement */
     }
     @keyframes blink {
       0%, 50% { opacity: 1; }
@@ -108,8 +113,18 @@ export function renderTerminalSVG(state: TerminalState, options: RenderOptions =
       if (parsedLines.length > 0 && parsedLines[0].spans.length > 0) {
         let xOffset = padding;
         parsedLines[0].spans.forEach((span) => {
-          const color = resolveColor(span.style.foreground, theme);
           const escapedText = escapeXml(span.text);
+
+          // Handle inverse/reverse video
+          let fgColor = resolveColor(span.style.foreground, theme);
+          let bgColor = span.style.background ? resolveColor(span.style.background, theme) : null;
+
+          if (span.style.inverse) {
+            // Swap foreground and background
+            const temp = fgColor;
+            fgColor = bgColor || theme.background;
+            bgColor = temp;
+          }
 
           // Build style attributes
           let styleAttr = '';
@@ -117,8 +132,15 @@ export function renderTerminalSVG(state: TerminalState, options: RenderOptions =
           if (span.style.italic) styleAttr += ' font-style="italic"';
           if (span.style.underline) styleAttr += ' text-decoration="underline"';
 
+          // Render background if needed (for inverse text)
+          if (bgColor) {
+            const spanWidth = span.text.length * charWidth;
+            svg += `
+    <rect x="${xOffset}" y="${y - fontSize}" width="${spanWidth}" height="${lineHeight}" fill="${bgColor}"/>`;
+          }
+
           svg += `
-    <text x="${xOffset}" y="${y}" fill="${color}" font-family="${fontFamily}" font-size="${fontSize}"${styleAttr} xml:space="preserve">${escapedText}</text>`;
+    <text x="${xOffset}" y="${y}" fill="${fgColor}" font-family="${fontFamily}" font-size="${fontSize}"${styleAttr} xml:space="preserve">${escapedText}</text>`;
 
           // Update x offset for next span
           xOffset += span.text.length * charWidth;
@@ -131,8 +153,9 @@ export function renderTerminalSVG(state: TerminalState, options: RenderOptions =
   if (showCursor) {
     const cursorXPos = padding + (cursorX * charWidth);
     const cursorYPos = contentY + (cursorY * lineHeight);
+    const cursorClass = state.activeCursor ? 'cursor-active' : 'cursor';
     svg += `
-    <rect class="cursor" x="${cursorXPos}" y="${cursorYPos}" width="${charWidth}" height="${lineHeight}" fill="${cursorColor}" opacity="0.7"/>`;
+    <rect class="${cursorClass}" x="${cursorXPos}" y="${cursorYPos}" width="${charWidth}" height="${lineHeight}" fill="${cursorColor}" opacity="0.7"/>`;
   }
 
   svg += `
@@ -204,7 +227,8 @@ export function createTerminalState(
   width: number,
   height: number,
   fontSize: number,
-  showCursor: boolean = true
+  showCursor: boolean = true,
+  activeCursor: boolean = false
 ): TerminalState {
   const lines = buffer.split('\n');
 
@@ -217,5 +241,6 @@ export function createTerminalState(
     fontSize,
     fontFamily: "'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace",
     showCursor,
+    activeCursor,
   };
 }

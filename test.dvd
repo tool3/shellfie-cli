@@ -1,0 +1,27 @@
+# Test Screenshot functionality
+Output test.svg
+
+Set Width 800
+Set Height 400
+Set FontSize 16
+Set Theme dracula
+Set Watermark "Created with shellfie"
+Set PromptPrefix "\x1b[95m❯\x1b[0m "
+
+Type "echo 'Testing screenshot feature'"
+Enter
+Sleep 500ms
+
+# Take a screenshot with explicit path
+Screenshot explicit-screenshot.svg
+
+Type "echo 'Second command'"
+Enter
+
+# Take an auto-named screenshot (should be test_screenshot_0.svg)
+Screenshot
+
+Type "echo 'Third command'"
+
+# Take another auto-named screenshot (should be test_screenshot_1.svg)
+Screenshot

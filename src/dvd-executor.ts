@@ -1,246 +1,352 @@
 /**
  * DVD Command Executor
- * Executes .dvd commands and captures terminal state snapshots
+ * Executes real commands with typing effect and cursor
  */
 
-import { spawn, type ChildProcess } from 'node:child_process';
+import { spawn } from 'node:child_process';
+import { writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import type { DVDCommand, DVDScript } from './dvd-parser';
+import { renderTerminalSVG, createTerminalState, type TerminalState } from './terminal-renderer';
+import { themes, type Theme, shellfie } from 'shellfie';
 
 export interface TerminalFrame {
   timestamp: number;
-  output: string;
-  cursor?: { x: number; y: number };
+  svg: string;
+  state: TerminalState;
 }
 
-export interface ExecutionContext {
-  shell: ChildProcess | null;
-  buffer: string;
+export interface SimulatorContext {
+  lines: string[];
+  currentLine: string;
+  cursorX: number;
+  cursorY: number;
   frames: TerminalFrame[];
   clipboard: string;
-  env: NodeJS.ProcessEnv;
-  hideCommands: boolean;
   startTime: number;
+  width: number;
+  height: number;
+  fontSize: number;
+  typingSpeed: number; // milliseconds per character
+  title?: string;
+  template?: 'macos' | 'windows' | 'minimal';
+  promptPrefix: string; // ANSI formatted prompt prefix
+  theme?: Theme;
+  cursorBlink: boolean; // Enable/disable cursor blinking
+  selectionStart?: number; // Selection start position (for text selection)
+  selectionEnd?: number; // Selection end position
+  watermark?: string; // Watermark text to display
+  screenshotCounter: number; // Counter for auto-named screenshots
+  outputPath?: string; // Output path from DVD script
 }
 
 export interface DVDExecutorOptions {
-  shell?: string;
-  cwd?: string;
   width?: number;
   height?: number;
+  fontSize?: number;
+  title?: string;
+  template?: 'macos' | 'windows' | 'minimal';
+  theme?: Theme;
   onFrame?: (frame: TerminalFrame) => void;
-  onProgress?: (current: number, total: number) => void;
+  onProgress?: (current: number, total: number, description?: string) => void;
 }
 
 export class DVDExecutor {
-  private context: ExecutionContext;
+  private context: SimulatorContext;
   private options: DVDExecutorOptions;
-  private waitResolvers: Array<(value: boolean) => void> = [];
 
   constructor(options: DVDExecutorOptions = {}) {
-    this.options = {
-      ...options,
-      shell: options.shell || process.env.SHELL || '/bin/bash',
-      cwd: options.cwd || process.cwd(),
-      width: options.width || 80,
-      height: options.height || 24,
-    };
+    this.options = options;
 
     this.context = {
-      shell: null,
-      buffer: '',
+      lines: [''],
+      currentLine: '',
+      cursorX: 0,
+      cursorY: 0,
       frames: [],
       clipboard: '',
-      env: { ...process.env },
-      hideCommands: false,
       startTime: Date.now(),
+      width: options.width || 800,
+      height: options.height || 600,
+      fontSize: options.fontSize || 14,
+      typingSpeed: 50, // Default 50ms per character
+      title: options.title,
+      template: options.template || 'macos',
+      promptPrefix: '\x1b[95m❯\x1b[0m ', // Default: pink > character
+      cursorBlink: true, // Default: cursor blinks
+      screenshotCounter: 0,
     };
   }
 
   /**
-   * Initialize the shell process
+   * Capture current terminal state as a frame
    */
-  private async initShell(): Promise<void> {
-    return new Promise((resolve, reject) => {
-      // Use -i flag to force interactive mode for bash-like shells
-      const shellArgs = this.options.shell?.includes('bash') ? ['-i'] : [];
+  private captureFrame(showCursor: boolean = true, activeCursor: boolean = false): void {
+    const buffer = [...this.context.lines];
+    buffer[this.context.cursorY] = this.context.currentLine;
 
-      this.context.shell = spawn(this.options.shell!, shellArgs, {
-        cwd: this.options.cwd,
-        env: {
-          ...this.context.env,
-          TERM: 'xterm-256color',
-          COLUMNS: String(this.options.width),
-          LINES: String(this.options.height),
-          PS1: '$ ', // Set a simple prompt
-        },
-        stdio: ['pipe', 'pipe', 'pipe'],
-      });
+    const state = createTerminalState(
+      buffer.join('\n'),
+      this.context.cursorX,
+      this.context.cursorY,
+      this.context.width,
+      this.context.height,
+      this.context.fontSize,
+      showCursor,
+      activeCursor
+    );
 
-      if (!this.context.shell.stdout || !this.context.shell.stdin) {
-        reject(new Error('Failed to initialize shell'));
-        return;
-      }
-
-      this.context.shell.stdout.on('data', (data: Buffer) => {
-        this.context.buffer += data.toString();
-        this.checkWaitConditions();
-      });
-
-      this.context.shell.stderr?.on('data', (data: Buffer) => {
-        this.context.buffer += data.toString();
-        this.checkWaitConditions();
-      });
-
-      this.context.shell.on('error', reject);
-
-      // Wait a bit for shell to initialize
-      setTimeout(resolve, 100);
+    const svg = renderTerminalSVG(state, {
+      title: this.context.title,
+      template: this.context.template,
+      theme: this.context.theme,
     });
-  }
 
-  /**
-   * Capture the current terminal state as a frame
-   */
-  private captureFrame(): TerminalFrame {
     const frame: TerminalFrame = {
       timestamp: Date.now() - this.context.startTime,
-      output: this.context.buffer,
+      svg,
+      state,
     };
-
-    // Debug logging
-    if (process.env.DEBUG_DVD) {
-      console.log(`Frame ${this.context.frames.length}: ${JSON.stringify(this.context.buffer.slice(0, 100))}`);
-    }
 
     this.context.frames.push(frame);
     this.options.onFrame?.(frame);
-
-    return frame;
   }
 
   /**
-   * Write to shell stdin
+   * Execute Type command - simulate typing character by character
    */
-  private async writeToShell(text: string): Promise<void> {
-    return new Promise((resolve) => {
-      if (!this.context.shell?.stdin) {
-        resolve();
-        return;
-      }
+  private async executeType(text: string, speed?: number, prefix?: string): Promise<void> {
+    const delay = speed || this.context.typingSpeed;
+    const promptPrefix = prefix ?? this.context.promptPrefix;
 
-      this.context.shell.stdin.write(text, () => {
+    // Check if we need to add a prefix
+    // Add prefix if: line is empty OR line only contains the prefix already
+    const shouldAddPrefix =
+      promptPrefix &&
+      (this.context.currentLine === '' || this.context.currentLine === promptPrefix);
+
+    if (shouldAddPrefix && this.context.currentLine === '') {
+      // Only add prefix if line is completely empty
+      this.context.currentLine = promptPrefix;
+      this.context.cursorX = this.stripAnsi(promptPrefix).length;
+      this.captureFrame(true, true); // active cursor during prefix
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+
+    for (const char of text) {
+      this.context.currentLine += char;
+      this.context.cursorX++;
+
+      // Capture frame showing the new character with active cursor (no blink during typing)
+      await new Promise((resolve) => setTimeout(resolve, delay));
+      this.captureFrame(true, true);
+    }
+  }
+
+  /**
+   * Strip ANSI escape codes to get actual string length
+   */
+  private stripAnsi(str: string): string {
+    // eslint-disable-next-line no-control-regex
+    return str.replace(/\x1b\[[0-9;]*m/g, '');
+  }
+
+  /**
+   * Execute Enter - run the command and capture streaming output
+   */
+  private async executeEnter(): Promise<void> {
+    const fullLine = this.context.currentLine;
+
+    // Strip the prompt prefix from the command before executing
+    // Check if the line starts with the prefix and remove it
+    let command = fullLine;
+    if (this.context.promptPrefix && fullLine.startsWith(this.context.promptPrefix)) {
+      command = fullLine.slice(this.context.promptPrefix.length);
+    }
+    command = command.trim();
+
+    // Finalize current line (the command that was typed - keep the visual prefix)
+    this.context.lines[this.context.cursorY] = this.context.currentLine;
+
+    // Move to next line
+    this.context.cursorY++;
+    this.context.cursorX = 0;
+    this.context.currentLine = '';
+
+    if (!this.context.lines[this.context.cursorY]) {
+      this.context.lines[this.context.cursorY] = '';
+    }
+
+    // Capture frame showing command was submitted (cursor on new line)
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    this.captureFrame(true);
+
+    // Execute the command if it's not empty
+    if (command) {
+      await this.executeCommandStreaming(command);
+    }
+  }
+
+  /**
+   * Execute command with streaming output support
+   */
+  private async executeCommandStreaming(command: string): Promise<void> {
+    return new Promise((resolve) => {
+      const child = spawn(command, [], {
+        shell: true,
+        env: { ...process.env, FORCE_COLOR: '1', CLICOLOR_FORCE: '1' },
+      });
+
+      let outputBuffer = '';
+      let lastFrameTime = Date.now();
+      const FRAME_INTERVAL = 100; // Capture frame every 100ms when output is streaming
+
+      const processOutput = (data: string) => {
+        outputBuffer += data;
+
+        // Process complete lines
+        const lines = outputBuffer.split('\n');
+        outputBuffer = lines.pop() || ''; // Keep incomplete line in buffer
+
+        for (const line of lines) {
+          this.context.lines[this.context.cursorY] = line;
+          this.context.cursorY++;
+          this.context.lines[this.context.cursorY] = '';
+
+          // Capture frame if enough time has passed (for animations)
+          const now = Date.now();
+          if (now - lastFrameTime >= FRAME_INTERVAL) {
+            this.captureFrame(true);
+            lastFrameTime = now;
+          }
+        }
+      };
+
+      child.stdout?.on('data', (data: Buffer) => {
+        processOutput(data.toString());
+      });
+
+      child.stderr?.on('data', (data: Buffer) => {
+        processOutput(data.toString());
+      });
+
+      child.on('close', () => {
+        // Process any remaining buffered output
+        if (outputBuffer) {
+          this.context.lines[this.context.cursorY] = outputBuffer;
+          this.context.cursorY++;
+          this.context.lines[this.context.cursorY] = '';
+        }
+
+        // Add prompt prefix to the new line after command completes
+        this.context.currentLine = this.context.promptPrefix;
+        this.context.cursorX = this.stripAnsi(this.context.promptPrefix).length;
+
+        // Capture final frame with cursor on new line with prefix
+        setTimeout(() => {
+          this.captureFrame(true);
+          resolve();
+        }, 100);
+      });
+
+      child.on('error', (err) => {
+        this.context.lines[this.context.cursorY] = `Command failed: ${err.message}`;
+        this.context.cursorY++;
+        this.context.lines[this.context.cursorY] = '';
+
+        // Add prompt prefix to the new line after error
+        this.context.currentLine = this.context.promptPrefix;
+        this.context.cursorX = this.stripAnsi(this.context.promptPrefix).length;
+
+        this.captureFrame(true);
         resolve();
       });
     });
   }
 
   /**
-   * Check wait conditions
+   * Execute arrow keys
    */
-  private checkWaitConditions(): void {
-    // Notify any waiting commands
-    this.waitResolvers.forEach((resolve) => resolve(true));
-    this.waitResolvers = [];
-  }
-
-  /**
-   * Wait for a condition or pattern
-   */
-  private async waitForCondition(
-    condition?: 'Screen' | 'Line',
-    pattern?: RegExp
-  ): Promise<void> {
-    return new Promise((resolve) => {
-      if (!pattern) {
-        // Simple wait for any output change
-        this.waitResolvers.push(() => resolve());
-        return;
-      }
-
-      const checkPattern = () => {
-        const target = condition === 'Line'
-          ? this.context.buffer.split('\n').pop() || ''
-          : this.context.buffer;
-
-        if (pattern.test(target)) {
-          resolve();
-        } else {
-          this.waitResolvers.push(() => {
-            checkPattern();
-          });
+  private async executeArrow(direction: 'Left' | 'Right' | 'Up' | 'Down'): Promise<void> {
+    switch (direction) {
+      case 'Left':
+        if (this.context.cursorX > 0) this.context.cursorX--;
+        break;
+      case 'Right':
+        if (this.context.cursorX < this.context.currentLine.length) this.context.cursorX++;
+        break;
+      case 'Up':
+        if (this.context.cursorY > 0) {
+          this.context.cursorY--;
+          this.context.currentLine = this.context.lines[this.context.cursorY];
+          this.context.cursorX = Math.min(this.context.cursorX, this.context.currentLine.length);
         }
-      };
+        break;
+      case 'Down':
+        if (this.context.cursorY < this.context.lines.length - 1) {
+          this.context.cursorY++;
+          this.context.currentLine = this.context.lines[this.context.cursorY];
+          this.context.cursorX = Math.min(this.context.cursorX, this.context.currentLine.length);
+        }
+        break;
+    }
 
-      checkPattern();
-    });
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    this.captureFrame(true, true); // active cursor during arrow key movement
   }
 
   /**
-   * Execute a Type command
+   * Execute Screenshot - save current terminal state as static SVG using shellfie
    */
-  private async executeType(text: string, speed?: number): Promise<void> {
-    const delay = speed || 50; // Default 50ms per character
+  private async executeScreenshot(path?: string): Promise<void> {
+    // Determine the screenshot path
+    let screenshotPath: string;
+    if (path) {
+      screenshotPath = path;
+    } else {
+      // Auto-generate name based on Output path
+      const baseName = this.context.outputPath
+        ? this.context.outputPath.replace(/\.svg$/, '')
+        : 'screenshot';
+      screenshotPath = `${baseName}_screenshot_${this.context.screenshotCounter}.svg`;
+      this.context.screenshotCounter++;
+    }
 
-    for (const char of text) {
-      await this.writeToShell(char);
-      await new Promise((resolve) => setTimeout(resolve, delay));
-      if (!this.context.hideCommands) {
-        this.captureFrame();
+    // Get current terminal content
+    const buffer = [...this.context.lines];
+    buffer[this.context.cursorY] = this.context.currentLine;
+    const content = buffer.join('\n');
+
+    // Use shellfie to generate static SVG
+    const svg = shellfie(content, {
+      width: this.context.width,
+      fontSize: this.context.fontSize,
+      title: this.context.title,
+      template: this.context.template,
+      theme: this.context.theme,
+      watermark: this.context.watermark,
+    });
+
+    // Write to file
+    writeFileSync(resolve(screenshotPath), svg, 'utf-8');
+  }
+
+  /**
+   * Execute Backspace - delete characters with animation
+   */
+  private async executeBackspace(count: number = 1): Promise<void> {
+    const delay = this.context.typingSpeed;
+
+    for (let i = 0; i < count; i++) {
+      if (this.context.currentLine.length > 0) {
+        // Always delete from the end of the line (like a real terminal)
+        this.context.currentLine = this.context.currentLine.slice(0, -1);
+        this.context.cursorX--;
+
+        await new Promise((resolve) => setTimeout(resolve, delay));
+        this.captureFrame(true, true); // active cursor during backspace
       }
     }
-  }
-
-  /**
-   * Execute a Key command
-   */
-  private async executeKey(key: string): Promise<void> {
-    const keyMap: Record<string, string> = {
-      Left: '\x1b[D',
-      Right: '\x1b[C',
-      Up: '\x1b[A',
-      Down: '\x1b[B',
-      Backspace: '\x7f',
-      Enter: '\n',
-      Tab: '\t',
-      Space: ' ',
-    };
-
-    const sequence = keyMap[key];
-    if (sequence) {
-      await this.writeToShell(sequence);
-      // Wait longer for Enter to allow shell command execution
-      const delay = key === 'Enter' ? 300 : 50;
-      await new Promise((resolve) => setTimeout(resolve, delay));
-      this.captureFrame();
-    }
-  }
-
-  /**
-   * Execute a Shortcut command
-   */
-  private async executeShortcut(
-    ctrl: boolean,
-    alt: boolean,
-    shift: boolean,
-    key: string
-  ): Promise<void> {
-    let sequence = '';
-
-    // Convert key to control sequence
-    if (ctrl) {
-      const code = key.toUpperCase().charCodeAt(0) - 64;
-      sequence = String.fromCharCode(code);
-    } else {
-      sequence = key;
-    }
-
-    if (alt) {
-      sequence = `\x1b${sequence}`;
-    }
-
-    await this.writeToShell(sequence);
-    await new Promise((resolve) => setTimeout(resolve, 50));
-    this.captureFrame();
   }
 
   /**
@@ -249,42 +355,35 @@ export class DVDExecutor {
   private async executeCommand(command: DVDCommand): Promise<void> {
     switch (command.type) {
       case 'Type':
-        await this.executeType(command.text, command.speed);
+        await this.executeType(command.text, command.speed, command.prefix);
         break;
 
       case 'Key':
-        await this.executeKey(command.key);
-        break;
-
-      case 'Shortcut':
-        await this.executeShortcut(
-          command.ctrl,
-          command.alt,
-          command.shift,
-          command.key
-        );
+        if (['Left', 'Right', 'Up', 'Down'].includes(command.key)) {
+          const count = command.count || 1;
+          for (let i = 0; i < count; i++) {
+            await this.executeArrow(command.key as 'Left' | 'Right' | 'Up' | 'Down');
+          }
+        } else if (command.key === 'Enter') {
+          await this.executeEnter();
+        } else if (command.key === 'Backspace') {
+          await this.executeBackspace(command.count || 1);
+        } else if (command.key === 'Space') {
+          const count = command.count || 1;
+          await this.executeType(' '.repeat(count));
+        } else if (command.key === 'Tab') {
+          const count = command.count || 1;
+          await this.executeType('    '.repeat(count)); // 4 spaces per tab
+        }
         break;
 
       case 'Sleep':
         await new Promise((resolve) => setTimeout(resolve, command.duration));
-        this.captureFrame();
-        break;
-
-      case 'Wait':
-        await this.waitForCondition(command.condition, command.pattern);
-        this.captureFrame();
-        break;
-
-      case 'Hide':
-        this.context.hideCommands = true;
-        break;
-
-      case 'Show':
-        this.context.hideCommands = false;
+        this.captureFrame(true);
         break;
 
       case 'Screenshot':
-        this.captureFrame();
+        await this.executeScreenshot(command.path);
         break;
 
       case 'Copy':
@@ -297,35 +396,61 @@ export class DVDExecutor {
         }
         break;
 
-      case 'Env':
-        this.context.env[command.key] = command.value;
-        break;
-
+      case 'Hide':
+      case 'Show':
       case 'Output':
       case 'Require':
       case 'Set':
       case 'Source':
+      case 'Env':
       case 'Comment':
-        // These are handled at parse time or are no-ops during execution
+      case 'Shortcut':
+      case 'Wait':
+        // Not implemented in simulation mode
         break;
     }
   }
 
   /**
-   * Execute a complete DVD script
+   * Execute complete DVD script
    */
   async execute(script: DVDScript): Promise<TerminalFrame[]> {
-    // Apply environment variables from script
-    for (const command of script.commands) {
-      if (command.type === 'Env') {
-        this.context.env[command.key] = command.value;
+    // Apply settings
+    for (const [key, value] of script.settings.entries()) {
+      if (key === 'Width') this.context.width = parseInt(value, 10);
+      if (key === 'Height') this.context.height = parseInt(value, 10);
+      if (key === 'FontSize') this.context.fontSize = parseInt(value, 10);
+      if (key === 'TypingSpeed') this.context.typingSpeed = parseInt(value, 10);
+      if (key === 'Title') this.context.title = value;
+      if (key === 'Template') this.context.template = value as any;
+      if (key === 'Theme') {
+        // Look up theme from shellfie themes
+        const themeName = value as keyof typeof themes;
+        if (themes[themeName]) {
+          this.context.theme = themes[themeName];
+        }
+      }
+      if (key === 'PromptPrefix') {
+        // Parse the string to handle escape sequences
+        this.context.promptPrefix = value
+          .replace(/\\e/g, '\x1b')
+          .replace(/\\x1b/g, '\x1b')
+          .replace(/\\n/g, '\n')
+          .replace(/\\t/g, '\t');
+      }
+      if (key === 'Watermark') {
+        this.context.watermark = value;
+      }
+      if (key === 'CursorBlink') {
+        this.context.cursorBlink = value.toLowerCase() !== 'false';
       }
     }
 
-    await this.initShell();
+    // Store output path for auto-naming screenshots
+    this.context.outputPath = script.output;
 
     // Capture initial frame
-    this.captureFrame();
+    this.captureFrame(true);
 
     // Execute commands
     const actionCommands = script.commands.filter(
@@ -333,27 +458,24 @@ export class DVDExecutor {
     );
 
     for (let i = 0; i < actionCommands.length; i++) {
-      await this.executeCommand(actionCommands[i]);
-      this.options.onProgress?.(i + 1, actionCommands.length);
+      const cmd = actionCommands[i];
+
+      // Create progress message with command type BEFORE executing
+      let cmdDescription: string = cmd.type;
+      if (cmd.type === 'Key') {
+        cmdDescription = cmd.key;
+      }
+
+      this.options.onProgress?.(i + 1, actionCommands.length, cmdDescription);
+
+      // Now execute the command
+      await this.executeCommand(cmd);
     }
 
-    // Capture final frame
-    this.captureFrame();
-
-    // Cleanup
-    await this.cleanup();
+    // Capture final frame without cursor
+    this.captureFrame(false);
 
     return this.context.frames;
-  }
-
-  /**
-   * Cleanup resources
-   */
-  async cleanup(): Promise<void> {
-    if (this.context.shell) {
-      this.context.shell.kill();
-      this.context.shell = null;
-    }
   }
 
   /**
@@ -362,25 +484,11 @@ export class DVDExecutor {
   getFrames(): TerminalFrame[] {
     return this.context.frames;
   }
-}
 
-/**
- * Check if required programs are available
- */
-export const checkRequirements = async (requirements: string[]): Promise<string[]> => {
-  const missing: string[] = [];
-
-  for (const program of requirements) {
-    try {
-      await new Promise<void>((resolve, reject) => {
-        const proc = spawn('which', [program], { stdio: 'ignore' });
-        proc.on('exit', (code) => (code === 0 ? resolve() : reject()));
-        proc.on('error', reject);
-      });
-    } catch {
-      missing.push(program);
-    }
+  /**
+   * Cleanup (no-op for simulation)
+   */
+  async cleanup(): Promise<void> {
+    // Nothing to clean up in simulation mode
   }
-
-  return missing;
-};
+}

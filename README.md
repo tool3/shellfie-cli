@@ -273,7 +273,7 @@ Set Title "Hello DVD"
 Set Theme dracula
 Set Width 60
 
-Type "echo 'Hello, animated SVGs!'"
+Type "echo -e 'Hello, animated SVGs!'"
 Enter
 Sleep 1s
 
