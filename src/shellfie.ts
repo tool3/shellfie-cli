@@ -1,6 +1,8 @@
 import { writeFileSync } from 'node:fs';
 import { themes, shellfieAsync, type shellfieOptions, type Theme } from 'shellfie';
 import { readInput, getOutputPath, buildOptions, type CliArgs, type BuildOptionsResult } from './utils';
+import { recordPipedInput } from './recorder';
+import { generateAnimatedSvg } from './svg-animator';
 
 export const THEME_NAMES = Object.keys(themes) as (keyof typeof themes)[];
 export const TEMPLATE_NAMES = ['macos', 'windows', 'minimal'] as const;
@@ -24,8 +26,49 @@ export const toShellfieOptions = ({ themeName, ...rest }: BuildOptionsResult): s
 
 export const loadInput = (inputFile?: string): Promise<string> => readInput(inputFile);
 
-export const generateSvg = (input: string, argv: Partial<CliArgs>): Promise<string> =>
-  shellfieAsync(input, toShellfieOptions(buildOptions(argv)));
+/**
+ * Generate a static SVG from terminal input.
+ */
+export const generateSvg = async (input: string, argv: Partial<CliArgs>): Promise<string> => {
+  const options = buildOptions(argv);
+  return shellfieAsync(input, toShellfieOptions(options));
+};
+
+/**
+ * Options for animated SVG generation.
+ */
+export interface AnimatedSvgOptions {
+  fps: number;
+  maxDuration: number;
+  maxFrames: number;
+  loop: boolean;
+  shellfieOptions: shellfieOptions;
+}
+
+/**
+ * Generate an animated SVG from terminal input.
+ * Detects frame boundaries (clear screen) and creates sprite-sheet animation.
+ */
+export const generateAnimatedSvgFromInput = async (
+  input: string,
+  options: AnimatedSvgOptions
+): Promise<string> => {
+  // Record input - splits into frames by clear screen sequences
+  const recording = recordPipedInput(input, {
+    fps: options.fps,
+    maxDuration: options.maxDuration,
+    maxFrames: options.maxFrames,
+  });
+
+  // Generate animated SVG using sprite-sheet technique
+  return generateAnimatedSvg(recording, {
+    loop: options.loop,
+    shellfieOptions: options.shellfieOptions,
+  });
+};
+
+// Export with simpler name for CLI
+export { generateAnimatedSvgFromInput as generateAnimatedSvg };
 
 export const outputToStdout = (svg: string): void => {
   process.stdout.write(svg);

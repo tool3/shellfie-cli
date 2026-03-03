@@ -12,6 +12,7 @@ import {
   outputToStdout,
   outputToFile,
   resolveOutputPath,
+  generateAnimatedSvg,
 } from './shellfie';
 import type { CliArgs } from './utils';
 
@@ -135,9 +136,37 @@ const createParser = () =>
       type: 'boolean',
       describe: 'List all available templates',
     })
+    // Animation options
+    .option('animate', {
+      alias: 'a',
+      type: 'boolean',
+      describe: 'Generate animated SVG (for piped terminal animations)',
+      default: false,
+    })
+    .option('fps', {
+      type: 'number',
+      describe: 'Frames per second for animation',
+      default: 10,
+    })
+    .option('max-duration', {
+      type: 'number',
+      describe: 'Maximum animation duration in seconds',
+      default: 30,
+    })
+    .option('max-frames', {
+      type: 'number',
+      describe: 'Maximum number of frames',
+      default: 100,
+    })
+    .option('loop', {
+      type: 'boolean',
+      describe: 'Loop animation continuously',
+      default: true,
+    })
     .example('cat output.txt | $0 -o screenshot.svg', 'Create SVG from piped input')
     .example('$0 terminal.txt --theme dracula', 'Create SVG from file with theme')
     .example('npm test 2>&1 | $0 --title "Tests"', 'Capture command output with title')
+    .example('node animation.js | $0 -a -o anim.svg', 'Create animated SVG from terminal animation')
     .example('$0 --list-themes', 'List all available themes')
     .demandCommand(0)
     .help()
@@ -208,7 +237,29 @@ const run = async (): Promise<void> => {
   if (!argv.stdout) spinner.start();
 
   try {
-    const svg = await generateSvg(input, argv);
+    let svg: string;
+
+    if (argv.animate) {
+      // Animated SVG using sprite-sheet technique
+      svg = await generateAnimatedSvg(input, {
+        fps: argv.fps ?? 10,
+        maxDuration: argv['max-duration'] ?? 30,
+        maxFrames: argv['max-frames'] ?? 100,
+        loop: argv.loop ?? true,
+        shellfieOptions: {
+          template: (argv.template as 'macos' | 'windows' | 'minimal') ?? 'macos',
+          fontSize: argv['font-size'] ?? 14,
+          lineHeight: argv['line-height'] ?? 1.4,
+          embedFont: argv['embed-font'] ?? false,
+          controls: !argv['no-controls'],
+          customGlyphs: !argv['no-custom-glyphs'],
+        },
+      });
+    } else {
+      // Static SVG
+      svg = await generateSvg(input, argv);
+    }
+
     const outputPath = writeSvg(svg, argv, inputFile);
     spinner.success(`Created ${outputPath}`);
   } catch (err) {

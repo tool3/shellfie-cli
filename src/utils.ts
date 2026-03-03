@@ -24,6 +24,12 @@ export interface CliArgs {
   'footer-color'?: string;
   'list-themes'?: boolean;
   'list-templates'?: boolean;
+  // Simplified animation options
+  animate?: boolean;
+  fps?: number;
+  'max-duration'?: number;
+  'max-frames'?: number;
+  loop?: boolean;
 }
 
 export interface BuildOptionsResult {

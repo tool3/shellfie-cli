@@ -1,0 +1,388 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 368 91.6" width="368" height="91.6" style="overflow: hidden;">
+
+<style>
+@keyframes reel {
+  0.00% { transform: translateX(0px); }
+  1.67% { transform: translateX(-368px); }
+  3.33% { transform: translateX(-736px); }
+  5.00% { transform: translateX(-1104px); }
+  6.67% { transform: translateX(-1472px); }
+  8.33% { transform: translateX(-1840px); }
+  10.00% { transform: translateX(-2208px); }
+  11.67% { transform: translateX(-2576px); }
+  13.33% { transform: translateX(-2944px); }
+  15.00% { transform: translateX(-3312px); }
+  16.67% { transform: translateX(-3680px); }
+  18.33% { transform: translateX(-4048px); }
+  20.00% { transform: translateX(-4416px); }
+  21.67% { transform: translateX(-4784px); }
+  23.33% { transform: translateX(-5152px); }
+  25.00% { transform: translateX(-5520px); }
+  26.67% { transform: translateX(-5888px); }
+  28.33% { transform: translateX(-6256px); }
+  30.00% { transform: translateX(-6624px); }
+  31.67% { transform: translateX(-6992px); }
+  33.33% { transform: translateX(-7360px); }
+  35.00% { transform: translateX(-7728px); }
+  36.67% { transform: translateX(-8096px); }
+  38.33% { transform: translateX(-8464px); }
+  40.00% { transform: translateX(-8832px); }
+  41.67% { transform: translateX(-9200px); }
+  43.33% { transform: translateX(-9568px); }
+  45.00% { transform: translateX(-9936px); }
+  46.67% { transform: translateX(-10304px); }
+  48.33% { transform: translateX(-10672px); }
+  50.00% { transform: translateX(-11040px); }
+  51.67% { transform: translateX(-11408px); }
+  53.33% { transform: translateX(-11776px); }
+  55.00% { transform: translateX(-12144px); }
+  56.67% { transform: translateX(-12512px); }
+  58.33% { transform: translateX(-12880px); }
+  60.00% { transform: translateX(-13248px); }
+  61.67% { transform: translateX(-13616px); }
+  63.33% { transform: translateX(-13984px); }
+  65.00% { transform: translateX(-14352px); }
+  66.67% { transform: translateX(-14720px); }
+  68.33% { transform: translateX(-15088px); }
+  70.00% { transform: translateX(-15456px); }
+  71.67% { transform: translateX(-15824px); }
+  73.33% { transform: translateX(-16192px); }
+  75.00% { transform: translateX(-16560px); }
+  76.67% { transform: translateX(-16928px); }
+  78.33% { transform: translateX(-17296px); }
+  80.00% { transform: translateX(-17664px); }
+  81.67% { transform: translateX(-18032px); }
+  83.33% { transform: translateX(-18400px); }
+  85.00% { transform: translateX(-18768px); }
+  86.67% { transform: translateX(-19136px); }
+  88.33% { transform: translateX(-19504px); }
+  90.00% { transform: translateX(-19872px); }
+  91.67% { transform: translateX(-20240px); }
+  93.33% { transform: translateX(-20608px); }
+  95.00% { transform: translateX(-20976px); }
+  96.67% { transform: translateX(-21344px); }
+  98.33% { transform: translateX(-21712px); }
+  100% { transform: translateX(-21712px); }
+}
+.reel {
+  animation: reel 6.00s steps(1, end) infinite;
+  animation-fill-mode: forwards;
+}
+</style>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="368" height="91.6" fill="#1e1e1e" rx="10" ry="10" filter="url(#shadow)"/>
+  <g class="title-bar">
+    <rect x="0" y="0" width="368" height="39" fill="#1e1e1e" rx="10" ry="10"/>
+    <rect x="0" y="29" width="368" height="10" fill="#1e1e1e"/>
+    <line x1="0" y1="39.5" x2="368" y2="39.5" stroke="#d4d4d41a" stroke-width="1"/>
+    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+  </g>
+  <g class="reel">
+    <g transform="translate(0, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#374afe">#</tspan><tspan x="24.4" fill="#334dfe">#</tspan><tspan x="32.8" fill="#3051fd">#</tspan><tspan x="41.199999999999996" fill="#2d55fc">#</tspan><tspan x="49.599999999999994" fill="#2a59fb">#</tspan><tspan x="57.99999999999999" fill="#275dfa">#</tspan><tspan x="66.39999999999999" fill="#2462f9">#</tspan><tspan x="74.8" fill="#2166f8">#</tspan><tspan x="83.2" fill="#1e6af7">#</tspan><tspan x="91.60000000000001" fill="#1b6ef5">#</tspan><tspan x="100.00000000000001" fill="#1972f4">#</tspan><tspan x="108.40000000000002" fill="#1676f2">#</tspan><tspan x="116.80000000000003" fill="#147bf0">#</tspan><tspan x="125.20000000000003" fill="#127fee">#</tspan><tspan x="133.60000000000002" fill="#1083ec">#</tspan><tspan x="142.00000000000003" fill="#0e87e9">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(368, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#1b6ef5">#</tspan><tspan x="24.4" fill="#1972f4">#</tspan><tspan x="32.8" fill="#1676f2">#</tspan><tspan x="41.199999999999996" fill="#147bf0">#</tspan><tspan x="49.599999999999994" fill="#127fee">#</tspan><tspan x="57.99999999999999" fill="#1083ec">#</tspan><tspan x="66.39999999999999" fill="#0e87e9">#</tspan><tspan x="74.8" fill="#0c8ce7">#</tspan><tspan x="83.2" fill="#0a90e4">#</tspan><tspan x="91.60000000000001" fill="#0994e2">#</tspan><tspan x="100.00000000000001" fill="#0798df">#</tspan><tspan x="108.40000000000002" fill="#069cdc">#</tspan><tspan x="116.80000000000003" fill="#05a0d9">#</tspan><tspan x="125.20000000000003" fill="#04a4d6">#</tspan><tspan x="133.60000000000002" fill="#03a8d3">#</tspan><tspan x="142.00000000000003" fill="#02acd0">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(736, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#0994e2">#</tspan><tspan x="24.4" fill="#0798df">#</tspan><tspan x="32.8" fill="#069cdc">#</tspan><tspan x="41.199999999999996" fill="#05a0d9">#</tspan><tspan x="49.599999999999994" fill="#04a4d6">#</tspan><tspan x="57.99999999999999" fill="#03a8d3">#</tspan><tspan x="66.39999999999999" fill="#02acd0">#</tspan><tspan x="74.8" fill="#02b0cd">#</tspan><tspan x="83.2" fill="#01b4c9">#</tspan><tspan x="91.60000000000001" fill="#01b8c6">#</tspan><tspan x="100.00000000000001" fill="#01bcc2">#</tspan><tspan x="108.40000000000002" fill="#01c0be">#</tspan><tspan x="116.80000000000003" fill="#01c3bb">#</tspan><tspan x="125.20000000000003" fill="#01c7b7">#</tspan><tspan x="133.60000000000002" fill="#01cab3">#</tspan><tspan x="142.00000000000003" fill="#02ceaf">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(1104, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#01b8c6">#</tspan><tspan x="24.4" fill="#01bcc2">#</tspan><tspan x="32.8" fill="#01c0be">#</tspan><tspan x="41.199999999999996" fill="#01c3bb">#</tspan><tspan x="49.599999999999994" fill="#01c7b7">#</tspan><tspan x="57.99999999999999" fill="#01cab3">#</tspan><tspan x="66.39999999999999" fill="#02ceaf">#</tspan><tspan x="74.8" fill="#02d1ab">#</tspan><tspan x="83.2" fill="#03d4a7">#</tspan><tspan x="91.60000000000001" fill="#04d7a3">#</tspan><tspan x="100.00000000000001" fill="#05da9f">#</tspan><tspan x="108.40000000000002" fill="#06dd9b">#</tspan><tspan x="116.80000000000003" fill="#08e097">#</tspan><tspan x="125.20000000000003" fill="#09e393">#</tspan><tspan x="133.60000000000002" fill="#0be58f">#</tspan><tspan x="142.00000000000003" fill="#0ce88a">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(1472, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#04d7a3">#</tspan><tspan x="24.4" fill="#05da9f">#</tspan><tspan x="32.8" fill="#06dd9b">#</tspan><tspan x="41.199999999999996" fill="#08e097">#</tspan><tspan x="49.599999999999994" fill="#09e393">#</tspan><tspan x="57.99999999999999" fill="#0be58f">#</tspan><tspan x="66.39999999999999" fill="#0ce88a">#</tspan><tspan x="74.8" fill="#0eea86">#</tspan><tspan x="83.2" fill="#10ec82">#</tspan><tspan x="91.60000000000001" fill="#12ee7e">#</tspan><tspan x="100.00000000000001" fill="#15f079">#</tspan><tspan x="108.40000000000002" fill="#17f275">#</tspan><tspan x="116.80000000000003" fill="#19f471">#</tspan><tspan x="125.20000000000003" fill="#1cf66d">#</tspan><tspan x="133.60000000000002" fill="#1ff769">#</tspan><tspan x="142.00000000000003" fill="#22f864">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(1840, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#12ee7e">#</tspan><tspan x="24.4" fill="#15f079">#</tspan><tspan x="32.8" fill="#17f275">#</tspan><tspan x="41.199999999999996" fill="#19f471">#</tspan><tspan x="49.599999999999994" fill="#1cf66d">#</tspan><tspan x="57.99999999999999" fill="#1ff769">#</tspan><tspan x="66.39999999999999" fill="#22f864">#</tspan><tspan x="74.8" fill="#24fa60">#</tspan><tspan x="83.2" fill="#27fb5c">#</tspan><tspan x="91.60000000000001" fill="#2bfc58">#</tspan><tspan x="100.00000000000001" fill="#2efd54">#</tspan><tspan x="108.40000000000002" fill="#31fd50">#</tspan><tspan x="116.80000000000003" fill="#34fe4c">#</tspan><tspan x="125.20000000000003" fill="#38fe49">#</tspan><tspan x="133.60000000000002" fill="#3bfe45">#</tspan><tspan x="142.00000000000003" fill="#3ffe41">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(2208, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#2bfc58">#</tspan><tspan x="24.4" fill="#2efd54">#</tspan><tspan x="32.8" fill="#31fd50">#</tspan><tspan x="41.199999999999996" fill="#34fe4c">#</tspan><tspan x="49.599999999999994" fill="#38fe49">#</tspan><tspan x="57.99999999999999" fill="#3bfe45">#</tspan><tspan x="66.39999999999999" fill="#3ffe41">#</tspan><tspan x="74.8" fill="#43fe3d">#</tspan><tspan x="83.2" fill="#46fe3a">#</tspan><tspan x="91.60000000000001" fill="#4afe36">#</tspan><tspan x="100.00000000000001" fill="#4efe33">#</tspan><tspan x="108.40000000000002" fill="#52fd30">#</tspan><tspan x="116.80000000000003" fill="#56fc2c">#</tspan><tspan x="125.20000000000003" fill="#5afb29">#</tspan><tspan x="133.60000000000002" fill="#5efa26">#</tspan><tspan x="142.00000000000003" fill="#62f923">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(2576, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#4afe36">#</tspan><tspan x="24.4" fill="#4efe33">#</tspan><tspan x="32.8" fill="#52fd30">#</tspan><tspan x="41.199999999999996" fill="#56fc2c">#</tspan><tspan x="49.599999999999994" fill="#5afb29">#</tspan><tspan x="57.99999999999999" fill="#5efa26">#</tspan><tspan x="66.39999999999999" fill="#62f923">#</tspan><tspan x="74.8" fill="#66f820">#</tspan><tspan x="83.2" fill="#6bf61e">#</tspan><tspan x="91.60000000000001" fill="#6ff51b">#</tspan><tspan x="100.00000000000001" fill="#73f318">#</tspan><tspan x="108.40000000000002" fill="#77f116">#</tspan><tspan x="116.80000000000003" fill="#7bf014">#</tspan><tspan x="125.20000000000003" fill="#80ed11">#</tspan><tspan x="133.60000000000002" fill="#84eb0f">#</tspan><tspan x="142.00000000000003" fill="#88e90d">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(2944, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#6ff51b">#</tspan><tspan x="24.4" fill="#73f318">#</tspan><tspan x="32.8" fill="#77f116">#</tspan><tspan x="41.199999999999996" fill="#7bf014">#</tspan><tspan x="49.599999999999994" fill="#80ed11">#</tspan><tspan x="57.99999999999999" fill="#84eb0f">#</tspan><tspan x="66.39999999999999" fill="#88e90d">#</tspan><tspan x="74.8" fill="#8ce70c">#</tspan><tspan x="83.2" fill="#90e40a">#</tspan><tspan x="91.60000000000001" fill="#95e108">#</tspan><tspan x="100.00000000000001" fill="#99df07">#</tspan><tspan x="108.40000000000002" fill="#9ddc06">#</tspan><tspan x="116.80000000000003" fill="#a1d905">#</tspan><tspan x="125.20000000000003" fill="#a5d604">#</tspan><tspan x="133.60000000000002" fill="#a9d303">#</tspan><tspan x="142.00000000000003" fill="#adcf02">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(3312, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#95e108">#</tspan><tspan x="24.4" fill="#99df07">#</tspan><tspan x="32.8" fill="#9ddc06">#</tspan><tspan x="41.199999999999996" fill="#a1d905">#</tspan><tspan x="49.599999999999994" fill="#a5d604">#</tspan><tspan x="57.99999999999999" fill="#a9d303">#</tspan><tspan x="66.39999999999999" fill="#adcf02">#</tspan><tspan x="74.8" fill="#b1cc01">#</tspan><tspan x="83.2" fill="#b5c901">#</tspan><tspan x="91.60000000000001" fill="#b9c501">#</tspan><tspan x="100.00000000000001" fill="#bcc201">#</tspan><tspan x="108.40000000000002" fill="#c0be01">#</tspan><tspan x="116.80000000000003" fill="#c4ba01">#</tspan><tspan x="125.20000000000003" fill="#c7b601">#</tspan><tspan x="133.60000000000002" fill="#cbb301">#</tspan><tspan x="142.00000000000003" fill="#ceaf02">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(3680, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#b9c501">#</tspan><tspan x="24.4" fill="#bcc201">#</tspan><tspan x="32.8" fill="#c0be01">#</tspan><tspan x="41.199999999999996" fill="#c4ba01">#</tspan><tspan x="49.599999999999994" fill="#c7b601">#</tspan><tspan x="57.99999999999999" fill="#cbb301">#</tspan><tspan x="66.39999999999999" fill="#ceaf02">#</tspan><tspan x="74.8" fill="#d1ab02">#</tspan><tspan x="83.2" fill="#d5a703">#</tspan><tspan x="91.60000000000001" fill="#d8a304">#</tspan><tspan x="100.00000000000001" fill="#db9f05">#</tspan><tspan x="108.40000000000002" fill="#de9a07">#</tspan><tspan x="116.80000000000003" fill="#e09608">#</tspan><tspan x="125.20000000000003" fill="#e39209">#</tspan><tspan x="133.60000000000002" fill="#e68e0b">#</tspan><tspan x="142.00000000000003" fill="#e88a0d">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(4048, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#d8a304">#</tspan><tspan x="24.4" fill="#db9f05">#</tspan><tspan x="32.8" fill="#de9a07">#</tspan><tspan x="41.199999999999996" fill="#e09608">#</tspan><tspan x="49.599999999999994" fill="#e39209">#</tspan><tspan x="57.99999999999999" fill="#e68e0b">#</tspan><tspan x="66.39999999999999" fill="#e88a0d">#</tspan><tspan x="74.8" fill="#ea850f">#</tspan><tspan x="83.2" fill="#ed8111">#</tspan><tspan x="91.60000000000001" fill="#ef7d13">#</tspan><tspan x="100.00000000000001" fill="#f17915">#</tspan><tspan x="108.40000000000002" fill="#f37417">#</tspan><tspan x="116.80000000000003" fill="#f4701a">#</tspan><tspan x="125.20000000000003" fill="#f66c1d">#</tspan><tspan x="133.60000000000002" fill="#f7681f">#</tspan><tspan x="142.00000000000003" fill="#f96422">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(4416, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#2d55fc">#</tspan><tspan x="24.4" fill="#2a59fb">#</tspan><tspan x="32.8" fill="#275dfa">#</tspan><tspan x="41.199999999999996" fill="#2462f9">#</tspan><tspan x="49.599999999999994" fill="#2166f8">#</tspan><tspan x="57.99999999999999" fill="#1e6af7">#</tspan><tspan x="66.39999999999999" fill="#1b6ef5">#</tspan><tspan x="74.8" fill="#1972f4">#</tspan><tspan x="83.2" fill="#1676f2">#</tspan><tspan x="91.60000000000001" fill="#147bf0">#</tspan><tspan x="100.00000000000001" fill="#127fee">#</tspan><tspan x="108.40000000000002" fill="#1083ec">#</tspan><tspan x="116.80000000000003" fill="#0e87e9">#</tspan><tspan x="125.20000000000003" fill="#0c8ce7">#</tspan><tspan x="133.60000000000002" fill="#0a90e4">#</tspan><tspan x="142.00000000000003" fill="#0994e2">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(4784, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#147bf0">#</tspan><tspan x="24.4" fill="#127fee">#</tspan><tspan x="32.8" fill="#1083ec">#</tspan><tspan x="41.199999999999996" fill="#0e87e9">#</tspan><tspan x="49.599999999999994" fill="#0c8ce7">#</tspan><tspan x="57.99999999999999" fill="#0a90e4">#</tspan><tspan x="66.39999999999999" fill="#0994e2">#</tspan><tspan x="74.8" fill="#0798df">#</tspan><tspan x="83.2" fill="#069cdc">#</tspan><tspan x="91.60000000000001" fill="#05a0d9">#</tspan><tspan x="100.00000000000001" fill="#04a4d6">#</tspan><tspan x="108.40000000000002" fill="#03a8d3">#</tspan><tspan x="116.80000000000003" fill="#02acd0">#</tspan><tspan x="125.20000000000003" fill="#02b0cd">#</tspan><tspan x="133.60000000000002" fill="#01b4c9">#</tspan><tspan x="142.00000000000003" fill="#01b8c6">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(5152, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#05a0d9">#</tspan><tspan x="24.4" fill="#04a4d6">#</tspan><tspan x="32.8" fill="#03a8d3">#</tspan><tspan x="41.199999999999996" fill="#02acd0">#</tspan><tspan x="49.599999999999994" fill="#02b0cd">#</tspan><tspan x="57.99999999999999" fill="#01b4c9">#</tspan><tspan x="66.39999999999999" fill="#01b8c6">#</tspan><tspan x="74.8" fill="#01bcc2">#</tspan><tspan x="83.2" fill="#01c0be">#</tspan><tspan x="91.60000000000001" fill="#01c3bb">#</tspan><tspan x="100.00000000000001" fill="#01c7b7">#</tspan><tspan x="108.40000000000002" fill="#01cab3">#</tspan><tspan x="116.80000000000003" fill="#02ceaf">#</tspan><tspan x="125.20000000000003" fill="#02d1ab">#</tspan><tspan x="133.60000000000002" fill="#03d4a7">#</tspan><tspan x="142.00000000000003" fill="#04d7a3">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(5520, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#01c3bb">#</tspan><tspan x="24.4" fill="#01c7b7">#</tspan><tspan x="32.8" fill="#01cab3">#</tspan><tspan x="41.199999999999996" fill="#02ceaf">#</tspan><tspan x="49.599999999999994" fill="#02d1ab">#</tspan><tspan x="57.99999999999999" fill="#03d4a7">#</tspan><tspan x="66.39999999999999" fill="#04d7a3">#</tspan><tspan x="74.8" fill="#05da9f">#</tspan><tspan x="83.2" fill="#06dd9b">#</tspan><tspan x="91.60000000000001" fill="#08e097">#</tspan><tspan x="100.00000000000001" fill="#09e393">#</tspan><tspan x="108.40000000000002" fill="#0be58f">#</tspan><tspan x="116.80000000000003" fill="#0ce88a">#</tspan><tspan x="125.20000000000003" fill="#0eea86">#</tspan><tspan x="133.60000000000002" fill="#10ec82">#</tspan><tspan x="142.00000000000003" fill="#12ee7e">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(5888, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#08e097">#</tspan><tspan x="24.4" fill="#09e393">#</tspan><tspan x="32.8" fill="#0be58f">#</tspan><tspan x="41.199999999999996" fill="#0ce88a">#</tspan><tspan x="49.599999999999994" fill="#0eea86">#</tspan><tspan x="57.99999999999999" fill="#10ec82">#</tspan><tspan x="66.39999999999999" fill="#12ee7e">#</tspan><tspan x="74.8" fill="#15f079">#</tspan><tspan x="83.2" fill="#17f275">#</tspan><tspan x="91.60000000000001" fill="#19f471">#</tspan><tspan x="100.00000000000001" fill="#1cf66d">#</tspan><tspan x="108.40000000000002" fill="#1ff769">#</tspan><tspan x="116.80000000000003" fill="#22f864">#</tspan><tspan x="125.20000000000003" fill="#24fa60">#</tspan><tspan x="133.60000000000002" fill="#27fb5c">#</tspan><tspan x="142.00000000000003" fill="#2bfc58">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(6256, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#19f471">#</tspan><tspan x="24.4" fill="#1cf66d">#</tspan><tspan x="32.8" fill="#1ff769">#</tspan><tspan x="41.199999999999996" fill="#22f864">#</tspan><tspan x="49.599999999999994" fill="#24fa60">#</tspan><tspan x="57.99999999999999" fill="#27fb5c">#</tspan><tspan x="66.39999999999999" fill="#2bfc58">#</tspan><tspan x="74.8" fill="#2efd54">#</tspan><tspan x="83.2" fill="#31fd50">#</tspan><tspan x="91.60000000000001" fill="#34fe4c">#</tspan><tspan x="100.00000000000001" fill="#38fe49">#</tspan><tspan x="108.40000000000002" fill="#3bfe45">#</tspan><tspan x="116.80000000000003" fill="#3ffe41">#</tspan><tspan x="125.20000000000003" fill="#43fe3d">#</tspan><tspan x="133.60000000000002" fill="#46fe3a">#</tspan><tspan x="142.00000000000003" fill="#4afe36">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(6624, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#34fe4c">#</tspan><tspan x="24.4" fill="#38fe49">#</tspan><tspan x="32.8" fill="#3bfe45">#</tspan><tspan x="41.199999999999996" fill="#3ffe41">#</tspan><tspan x="49.599999999999994" fill="#43fe3d">#</tspan><tspan x="57.99999999999999" fill="#46fe3a">#</tspan><tspan x="66.39999999999999" fill="#4afe36">#</tspan><tspan x="74.8" fill="#4efe33">#</tspan><tspan x="83.2" fill="#52fd30">#</tspan><tspan x="91.60000000000001" fill="#56fc2c">#</tspan><tspan x="100.00000000000001" fill="#5afb29">#</tspan><tspan x="108.40000000000002" fill="#5efa26">#</tspan><tspan x="116.80000000000003" fill="#62f923">#</tspan><tspan x="125.20000000000003" fill="#66f820">#</tspan><tspan x="133.60000000000002" fill="#6bf61e">#</tspan><tspan x="142.00000000000003" fill="#6ff51b">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(6992, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#56fc2c">#</tspan><tspan x="24.4" fill="#5afb29">#</tspan><tspan x="32.8" fill="#5efa26">#</tspan><tspan x="41.199999999999996" fill="#62f923">#</tspan><tspan x="49.599999999999994" fill="#66f820">#</tspan><tspan x="57.99999999999999" fill="#6bf61e">#</tspan><tspan x="66.39999999999999" fill="#6ff51b">#</tspan><tspan x="74.8" fill="#73f318">#</tspan><tspan x="83.2" fill="#77f116">#</tspan><tspan x="91.60000000000001" fill="#7bf014">#</tspan><tspan x="100.00000000000001" fill="#80ed11">#</tspan><tspan x="108.40000000000002" fill="#84eb0f">#</tspan><tspan x="116.80000000000003" fill="#88e90d">#</tspan><tspan x="125.20000000000003" fill="#8ce70c">#</tspan><tspan x="133.60000000000002" fill="#90e40a">#</tspan><tspan x="142.00000000000003" fill="#95e108">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(7360, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#7bf014">#</tspan><tspan x="24.4" fill="#80ed11">#</tspan><tspan x="32.8" fill="#84eb0f">#</tspan><tspan x="41.199999999999996" fill="#88e90d">#</tspan><tspan x="49.599999999999994" fill="#8ce70c">#</tspan><tspan x="57.99999999999999" fill="#90e40a">#</tspan><tspan x="66.39999999999999" fill="#95e108">#</tspan><tspan x="74.8" fill="#99df07">#</tspan><tspan x="83.2" fill="#9ddc06">#</tspan><tspan x="91.60000000000001" fill="#a1d905">#</tspan><tspan x="100.00000000000001" fill="#a5d604">#</tspan><tspan x="108.40000000000002" fill="#a9d303">#</tspan><tspan x="116.80000000000003" fill="#adcf02">#</tspan><tspan x="125.20000000000003" fill="#b1cc01">#</tspan><tspan x="133.60000000000002" fill="#b5c901">#</tspan><tspan x="142.00000000000003" fill="#b9c501">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(7728, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#a1d905">#</tspan><tspan x="24.4" fill="#a5d604">#</tspan><tspan x="32.8" fill="#a9d303">#</tspan><tspan x="41.199999999999996" fill="#adcf02">#</tspan><tspan x="49.599999999999994" fill="#b1cc01">#</tspan><tspan x="57.99999999999999" fill="#b5c901">#</tspan><tspan x="66.39999999999999" fill="#b9c501">#</tspan><tspan x="74.8" fill="#bcc201">#</tspan><tspan x="83.2" fill="#c0be01">#</tspan><tspan x="91.60000000000001" fill="#c4ba01">#</tspan><tspan x="100.00000000000001" fill="#c7b601">#</tspan><tspan x="108.40000000000002" fill="#cbb301">#</tspan><tspan x="116.80000000000003" fill="#ceaf02">#</tspan><tspan x="125.20000000000003" fill="#d1ab02">#</tspan><tspan x="133.60000000000002" fill="#d5a703">#</tspan><tspan x="142.00000000000003" fill="#d8a304">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(8096, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#c4ba01">#</tspan><tspan x="24.4" fill="#c7b601">#</tspan><tspan x="32.8" fill="#cbb301">#</tspan><tspan x="41.199999999999996" fill="#ceaf02">#</tspan><tspan x="49.599999999999994" fill="#d1ab02">#</tspan><tspan x="57.99999999999999" fill="#d5a703">#</tspan><tspan x="66.39999999999999" fill="#d8a304">#</tspan><tspan x="74.8" fill="#db9f05">#</tspan><tspan x="83.2" fill="#de9a07">#</tspan><tspan x="91.60000000000001" fill="#e09608">#</tspan><tspan x="100.00000000000001" fill="#e39209">#</tspan><tspan x="108.40000000000002" fill="#e68e0b">#</tspan><tspan x="116.80000000000003" fill="#e88a0d">#</tspan><tspan x="125.20000000000003" fill="#ea850f">#</tspan><tspan x="133.60000000000002" fill="#ed8111">#</tspan><tspan x="142.00000000000003" fill="#ef7d13">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(8464, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#e09608">#</tspan><tspan x="24.4" fill="#e39209">#</tspan><tspan x="32.8" fill="#e68e0b">#</tspan><tspan x="41.199999999999996" fill="#e88a0d">#</tspan><tspan x="49.599999999999994" fill="#ea850f">#</tspan><tspan x="57.99999999999999" fill="#ed8111">#</tspan><tspan x="66.39999999999999" fill="#ef7d13">#</tspan><tspan x="74.8" fill="#f17915">#</tspan><tspan x="83.2" fill="#f37417">#</tspan><tspan x="91.60000000000001" fill="#f4701a">#</tspan><tspan x="100.00000000000001" fill="#f66c1d">#</tspan><tspan x="108.40000000000002" fill="#f7681f">#</tspan><tspan x="116.80000000000003" fill="#f96422">#</tspan><tspan x="125.20000000000003" fill="#fa6025">#</tspan><tspan x="133.60000000000002" fill="#fb5c28">#</tspan><tspan x="142.00000000000003" fill="#fc582b">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(8832, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#2462f9">#</tspan><tspan x="24.4" fill="#2166f8">#</tspan><tspan x="32.8" fill="#1e6af7">#</tspan><tspan x="41.199999999999996" fill="#1b6ef5">#</tspan><tspan x="49.599999999999994" fill="#1972f4">#</tspan><tspan x="57.99999999999999" fill="#1676f2">#</tspan><tspan x="66.39999999999999" fill="#147bf0">#</tspan><tspan x="74.8" fill="#127fee">#</tspan><tspan x="83.2" fill="#1083ec">#</tspan><tspan x="91.60000000000001" fill="#0e87e9">#</tspan><tspan x="100.00000000000001" fill="#0c8ce7">#</tspan><tspan x="108.40000000000002" fill="#0a90e4">#</tspan><tspan x="116.80000000000003" fill="#0994e2">#</tspan><tspan x="125.20000000000003" fill="#0798df">#</tspan><tspan x="133.60000000000002" fill="#069cdc">#</tspan><tspan x="142.00000000000003" fill="#05a0d9">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(9200, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#0e87e9">#</tspan><tspan x="24.4" fill="#0c8ce7">#</tspan><tspan x="32.8" fill="#0a90e4">#</tspan><tspan x="41.199999999999996" fill="#0994e2">#</tspan><tspan x="49.599999999999994" fill="#0798df">#</tspan><tspan x="57.99999999999999" fill="#069cdc">#</tspan><tspan x="66.39999999999999" fill="#05a0d9">#</tspan><tspan x="74.8" fill="#04a4d6">#</tspan><tspan x="83.2" fill="#03a8d3">#</tspan><tspan x="91.60000000000001" fill="#02acd0">#</tspan><tspan x="100.00000000000001" fill="#02b0cd">#</tspan><tspan x="108.40000000000002" fill="#01b4c9">#</tspan><tspan x="116.80000000000003" fill="#01b8c6">#</tspan><tspan x="125.20000000000003" fill="#01bcc2">#</tspan><tspan x="133.60000000000002" fill="#01c0be">#</tspan><tspan x="142.00000000000003" fill="#01c3bb">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(9568, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#02acd0">#</tspan><tspan x="24.4" fill="#02b0cd">#</tspan><tspan x="32.8" fill="#01b4c9">#</tspan><tspan x="41.199999999999996" fill="#01b8c6">#</tspan><tspan x="49.599999999999994" fill="#01bcc2">#</tspan><tspan x="57.99999999999999" fill="#01c0be">#</tspan><tspan x="66.39999999999999" fill="#01c3bb">#</tspan><tspan x="74.8" fill="#01c7b7">#</tspan><tspan x="83.2" fill="#01cab3">#</tspan><tspan x="91.60000000000001" fill="#02ceaf">#</tspan><tspan x="100.00000000000001" fill="#02d1ab">#</tspan><tspan x="108.40000000000002" fill="#03d4a7">#</tspan><tspan x="116.80000000000003" fill="#04d7a3">#</tspan><tspan x="125.20000000000003" fill="#05da9f">#</tspan><tspan x="133.60000000000002" fill="#06dd9b">#</tspan><tspan x="142.00000000000003" fill="#08e097">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(9936, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#02ceaf">#</tspan><tspan x="24.4" fill="#02d1ab">#</tspan><tspan x="32.8" fill="#03d4a7">#</tspan><tspan x="41.199999999999996" fill="#04d7a3">#</tspan><tspan x="49.599999999999994" fill="#05da9f">#</tspan><tspan x="57.99999999999999" fill="#06dd9b">#</tspan><tspan x="66.39999999999999" fill="#08e097">#</tspan><tspan x="74.8" fill="#09e393">#</tspan><tspan x="83.2" fill="#0be58f">#</tspan><tspan x="91.60000000000001" fill="#0ce88a">#</tspan><tspan x="100.00000000000001" fill="#0eea86">#</tspan><tspan x="108.40000000000002" fill="#10ec82">#</tspan><tspan x="116.80000000000003" fill="#12ee7e">#</tspan><tspan x="125.20000000000003" fill="#15f079">#</tspan><tspan x="133.60000000000002" fill="#17f275">#</tspan><tspan x="142.00000000000003" fill="#19f471">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(10304, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#0ce88a">#</tspan><tspan x="24.4" fill="#0eea86">#</tspan><tspan x="32.8" fill="#10ec82">#</tspan><tspan x="41.199999999999996" fill="#12ee7e">#</tspan><tspan x="49.599999999999994" fill="#15f079">#</tspan><tspan x="57.99999999999999" fill="#17f275">#</tspan><tspan x="66.39999999999999" fill="#19f471">#</tspan><tspan x="74.8" fill="#1cf66d">#</tspan><tspan x="83.2" fill="#1ff769">#</tspan><tspan x="91.60000000000001" fill="#22f864">#</tspan><tspan x="100.00000000000001" fill="#24fa60">#</tspan><tspan x="108.40000000000002" fill="#27fb5c">#</tspan><tspan x="116.80000000000003" fill="#2bfc58">#</tspan><tspan x="125.20000000000003" fill="#2efd54">#</tspan><tspan x="133.60000000000002" fill="#31fd50">#</tspan><tspan x="142.00000000000003" fill="#34fe4c">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(10672, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#22f864">#</tspan><tspan x="24.4" fill="#24fa60">#</tspan><tspan x="32.8" fill="#27fb5c">#</tspan><tspan x="41.199999999999996" fill="#2bfc58">#</tspan><tspan x="49.599999999999994" fill="#2efd54">#</tspan><tspan x="57.99999999999999" fill="#31fd50">#</tspan><tspan x="66.39999999999999" fill="#34fe4c">#</tspan><tspan x="74.8" fill="#38fe49">#</tspan><tspan x="83.2" fill="#3bfe45">#</tspan><tspan x="91.60000000000001" fill="#3ffe41">#</tspan><tspan x="100.00000000000001" fill="#43fe3d">#</tspan><tspan x="108.40000000000002" fill="#46fe3a">#</tspan><tspan x="116.80000000000003" fill="#4afe36">#</tspan><tspan x="125.20000000000003" fill="#4efe33">#</tspan><tspan x="133.60000000000002" fill="#52fd30">#</tspan><tspan x="142.00000000000003" fill="#56fc2c">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(11040, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#3ffe41">#</tspan><tspan x="24.4" fill="#43fe3d">#</tspan><tspan x="32.8" fill="#46fe3a">#</tspan><tspan x="41.199999999999996" fill="#4afe36">#</tspan><tspan x="49.599999999999994" fill="#4efe33">#</tspan><tspan x="57.99999999999999" fill="#52fd30">#</tspan><tspan x="66.39999999999999" fill="#56fc2c">#</tspan><tspan x="74.8" fill="#5afb29">#</tspan><tspan x="83.2" fill="#5efa26">#</tspan><tspan x="91.60000000000001" fill="#62f923">#</tspan><tspan x="100.00000000000001" fill="#66f820">#</tspan><tspan x="108.40000000000002" fill="#6bf61e">#</tspan><tspan x="116.80000000000003" fill="#6ff51b">#</tspan><tspan x="125.20000000000003" fill="#73f318">#</tspan><tspan x="133.60000000000002" fill="#77f116">#</tspan><tspan x="142.00000000000003" fill="#7bf014">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(11408, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#62f923">#</tspan><tspan x="24.4" fill="#66f820">#</tspan><tspan x="32.8" fill="#6bf61e">#</tspan><tspan x="41.199999999999996" fill="#6ff51b">#</tspan><tspan x="49.599999999999994" fill="#73f318">#</tspan><tspan x="57.99999999999999" fill="#77f116">#</tspan><tspan x="66.39999999999999" fill="#7bf014">#</tspan><tspan x="74.8" fill="#80ed11">#</tspan><tspan x="83.2" fill="#84eb0f">#</tspan><tspan x="91.60000000000001" fill="#88e90d">#</tspan><tspan x="100.00000000000001" fill="#8ce70c">#</tspan><tspan x="108.40000000000002" fill="#90e40a">#</tspan><tspan x="116.80000000000003" fill="#95e108">#</tspan><tspan x="125.20000000000003" fill="#99df07">#</tspan><tspan x="133.60000000000002" fill="#9ddc06">#</tspan><tspan x="142.00000000000003" fill="#a1d905">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(11776, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#88e90d">#</tspan><tspan x="24.4" fill="#8ce70c">#</tspan><tspan x="32.8" fill="#90e40a">#</tspan><tspan x="41.199999999999996" fill="#95e108">#</tspan><tspan x="49.599999999999994" fill="#99df07">#</tspan><tspan x="57.99999999999999" fill="#9ddc06">#</tspan><tspan x="66.39999999999999" fill="#a1d905">#</tspan><tspan x="74.8" fill="#a5d604">#</tspan><tspan x="83.2" fill="#a9d303">#</tspan><tspan x="91.60000000000001" fill="#adcf02">#</tspan><tspan x="100.00000000000001" fill="#b1cc01">#</tspan><tspan x="108.40000000000002" fill="#b5c901">#</tspan><tspan x="116.80000000000003" fill="#b9c501">#</tspan><tspan x="125.20000000000003" fill="#bcc201">#</tspan><tspan x="133.60000000000002" fill="#c0be01">#</tspan><tspan x="142.00000000000003" fill="#c4ba01">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(12144, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#adcf02">#</tspan><tspan x="24.4" fill="#b1cc01">#</tspan><tspan x="32.8" fill="#b5c901">#</tspan><tspan x="41.199999999999996" fill="#b9c501">#</tspan><tspan x="49.599999999999994" fill="#bcc201">#</tspan><tspan x="57.99999999999999" fill="#c0be01">#</tspan><tspan x="66.39999999999999" fill="#c4ba01">#</tspan><tspan x="74.8" fill="#c7b601">#</tspan><tspan x="83.2" fill="#cbb301">#</tspan><tspan x="91.60000000000001" fill="#ceaf02">#</tspan><tspan x="100.00000000000001" fill="#d1ab02">#</tspan><tspan x="108.40000000000002" fill="#d5a703">#</tspan><tspan x="116.80000000000003" fill="#d8a304">#</tspan><tspan x="125.20000000000003" fill="#db9f05">#</tspan><tspan x="133.60000000000002" fill="#de9a07">#</tspan><tspan x="142.00000000000003" fill="#e09608">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(12512, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#ceaf02">#</tspan><tspan x="24.4" fill="#d1ab02">#</tspan><tspan x="32.8" fill="#d5a703">#</tspan><tspan x="41.199999999999996" fill="#d8a304">#</tspan><tspan x="49.599999999999994" fill="#db9f05">#</tspan><tspan x="57.99999999999999" fill="#de9a07">#</tspan><tspan x="66.39999999999999" fill="#e09608">#</tspan><tspan x="74.8" fill="#e39209">#</tspan><tspan x="83.2" fill="#e68e0b">#</tspan><tspan x="91.60000000000001" fill="#e88a0d">#</tspan><tspan x="100.00000000000001" fill="#ea850f">#</tspan><tspan x="108.40000000000002" fill="#ed8111">#</tspan><tspan x="116.80000000000003" fill="#ef7d13">#</tspan><tspan x="125.20000000000003" fill="#f17915">#</tspan><tspan x="133.60000000000002" fill="#f37417">#</tspan><tspan x="142.00000000000003" fill="#f4701a">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(12880, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#e88a0d">#</tspan><tspan x="24.4" fill="#ea850f">#</tspan><tspan x="32.8" fill="#ed8111">#</tspan><tspan x="41.199999999999996" fill="#ef7d13">#</tspan><tspan x="49.599999999999994" fill="#f17915">#</tspan><tspan x="57.99999999999999" fill="#f37417">#</tspan><tspan x="66.39999999999999" fill="#f4701a">#</tspan><tspan x="74.8" fill="#f66c1d">#</tspan><tspan x="83.2" fill="#f7681f">#</tspan><tspan x="91.60000000000001" fill="#f96422">#</tspan><tspan x="100.00000000000001" fill="#fa6025">#</tspan><tspan x="108.40000000000002" fill="#fb5c28">#</tspan><tspan x="116.80000000000003" fill="#fc582b">#</tspan><tspan x="125.20000000000003" fill="#fd542e">#</tspan><tspan x="133.60000000000002" fill="#fd5032">#</tspan><tspan x="142.00000000000003" fill="#fe4c35">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(13248, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#1b6ef5">#</tspan><tspan x="24.4" fill="#1972f4">#</tspan><tspan x="32.8" fill="#1676f2">#</tspan><tspan x="41.199999999999996" fill="#147bf0">#</tspan><tspan x="49.599999999999994" fill="#127fee">#</tspan><tspan x="57.99999999999999" fill="#1083ec">#</tspan><tspan x="66.39999999999999" fill="#0e87e9">#</tspan><tspan x="74.8" fill="#0c8ce7">#</tspan><tspan x="83.2" fill="#0a90e4">#</tspan><tspan x="91.60000000000001" fill="#0994e2">#</tspan><tspan x="100.00000000000001" fill="#0798df">#</tspan><tspan x="108.40000000000002" fill="#069cdc">#</tspan><tspan x="116.80000000000003" fill="#05a0d9">#</tspan><tspan x="125.20000000000003" fill="#04a4d6">#</tspan><tspan x="133.60000000000002" fill="#03a8d3">#</tspan><tspan x="142.00000000000003" fill="#02acd0">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(13616, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#0994e2">#</tspan><tspan x="24.4" fill="#0798df">#</tspan><tspan x="32.8" fill="#069cdc">#</tspan><tspan x="41.199999999999996" fill="#05a0d9">#</tspan><tspan x="49.599999999999994" fill="#04a4d6">#</tspan><tspan x="57.99999999999999" fill="#03a8d3">#</tspan><tspan x="66.39999999999999" fill="#02acd0">#</tspan><tspan x="74.8" fill="#02b0cd">#</tspan><tspan x="83.2" fill="#01b4c9">#</tspan><tspan x="91.60000000000001" fill="#01b8c6">#</tspan><tspan x="100.00000000000001" fill="#01bcc2">#</tspan><tspan x="108.40000000000002" fill="#01c0be">#</tspan><tspan x="116.80000000000003" fill="#01c3bb">#</tspan><tspan x="125.20000000000003" fill="#01c7b7">#</tspan><tspan x="133.60000000000002" fill="#01cab3">#</tspan><tspan x="142.00000000000003" fill="#02ceaf">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(13984, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#01b8c6">#</tspan><tspan x="24.4" fill="#01bcc2">#</tspan><tspan x="32.8" fill="#01c0be">#</tspan><tspan x="41.199999999999996" fill="#01c3bb">#</tspan><tspan x="49.599999999999994" fill="#01c7b7">#</tspan><tspan x="57.99999999999999" fill="#01cab3">#</tspan><tspan x="66.39999999999999" fill="#02ceaf">#</tspan><tspan x="74.8" fill="#02d1ab">#</tspan><tspan x="83.2" fill="#03d4a7">#</tspan><tspan x="91.60000000000001" fill="#04d7a3">#</tspan><tspan x="100.00000000000001" fill="#05da9f">#</tspan><tspan x="108.40000000000002" fill="#06dd9b">#</tspan><tspan x="116.80000000000003" fill="#08e097">#</tspan><tspan x="125.20000000000003" fill="#09e393">#</tspan><tspan x="133.60000000000002" fill="#0be58f">#</tspan><tspan x="142.00000000000003" fill="#0ce88a">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(14352, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#04d7a3">#</tspan><tspan x="24.4" fill="#05da9f">#</tspan><tspan x="32.8" fill="#06dd9b">#</tspan><tspan x="41.199999999999996" fill="#08e097">#</tspan><tspan x="49.599999999999994" fill="#09e393">#</tspan><tspan x="57.99999999999999" fill="#0be58f">#</tspan><tspan x="66.39999999999999" fill="#0ce88a">#</tspan><tspan x="74.8" fill="#0eea86">#</tspan><tspan x="83.2" fill="#10ec82">#</tspan><tspan x="91.60000000000001" fill="#12ee7e">#</tspan><tspan x="100.00000000000001" fill="#15f079">#</tspan><tspan x="108.40000000000002" fill="#17f275">#</tspan><tspan x="116.80000000000003" fill="#19f471">#</tspan><tspan x="125.20000000000003" fill="#1cf66d">#</tspan><tspan x="133.60000000000002" fill="#1ff769">#</tspan><tspan x="142.00000000000003" fill="#22f864">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(14720, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#12ee7e">#</tspan><tspan x="24.4" fill="#15f079">#</tspan><tspan x="32.8" fill="#17f275">#</tspan><tspan x="41.199999999999996" fill="#19f471">#</tspan><tspan x="49.599999999999994" fill="#1cf66d">#</tspan><tspan x="57.99999999999999" fill="#1ff769">#</tspan><tspan x="66.39999999999999" fill="#22f864">#</tspan><tspan x="74.8" fill="#24fa60">#</tspan><tspan x="83.2" fill="#27fb5c">#</tspan><tspan x="91.60000000000001" fill="#2bfc58">#</tspan><tspan x="100.00000000000001" fill="#2efd54">#</tspan><tspan x="108.40000000000002" fill="#31fd50">#</tspan><tspan x="116.80000000000003" fill="#34fe4c">#</tspan><tspan x="125.20000000000003" fill="#38fe49">#</tspan><tspan x="133.60000000000002" fill="#3bfe45">#</tspan><tspan x="142.00000000000003" fill="#3ffe41">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(15088, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#2bfc58">#</tspan><tspan x="24.4" fill="#2efd54">#</tspan><tspan x="32.8" fill="#31fd50">#</tspan><tspan x="41.199999999999996" fill="#34fe4c">#</tspan><tspan x="49.599999999999994" fill="#38fe49">#</tspan><tspan x="57.99999999999999" fill="#3bfe45">#</tspan><tspan x="66.39999999999999" fill="#3ffe41">#</tspan><tspan x="74.8" fill="#43fe3d">#</tspan><tspan x="83.2" fill="#46fe3a">#</tspan><tspan x="91.60000000000001" fill="#4afe36">#</tspan><tspan x="100.00000000000001" fill="#4efe33">#</tspan><tspan x="108.40000000000002" fill="#52fd30">#</tspan><tspan x="116.80000000000003" fill="#56fc2c">#</tspan><tspan x="125.20000000000003" fill="#5afb29">#</tspan><tspan x="133.60000000000002" fill="#5efa26">#</tspan><tspan x="142.00000000000003" fill="#62f923">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(15456, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#4afe36">#</tspan><tspan x="24.4" fill="#4efe33">#</tspan><tspan x="32.8" fill="#52fd30">#</tspan><tspan x="41.199999999999996" fill="#56fc2c">#</tspan><tspan x="49.599999999999994" fill="#5afb29">#</tspan><tspan x="57.99999999999999" fill="#5efa26">#</tspan><tspan x="66.39999999999999" fill="#62f923">#</tspan><tspan x="74.8" fill="#66f820">#</tspan><tspan x="83.2" fill="#6bf61e">#</tspan><tspan x="91.60000000000001" fill="#6ff51b">#</tspan><tspan x="100.00000000000001" fill="#73f318">#</tspan><tspan x="108.40000000000002" fill="#77f116">#</tspan><tspan x="116.80000000000003" fill="#7bf014">#</tspan><tspan x="125.20000000000003" fill="#80ed11">#</tspan><tspan x="133.60000000000002" fill="#84eb0f">#</tspan><tspan x="142.00000000000003" fill="#88e90d">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(15824, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#6ff51b">#</tspan><tspan x="24.4" fill="#73f318">#</tspan><tspan x="32.8" fill="#77f116">#</tspan><tspan x="41.199999999999996" fill="#7bf014">#</tspan><tspan x="49.599999999999994" fill="#80ed11">#</tspan><tspan x="57.99999999999999" fill="#84eb0f">#</tspan><tspan x="66.39999999999999" fill="#88e90d">#</tspan><tspan x="74.8" fill="#8ce70c">#</tspan><tspan x="83.2" fill="#90e40a">#</tspan><tspan x="91.60000000000001" fill="#95e108">#</tspan><tspan x="100.00000000000001" fill="#99df07">#</tspan><tspan x="108.40000000000002" fill="#9ddc06">#</tspan><tspan x="116.80000000000003" fill="#a1d905">#</tspan><tspan x="125.20000000000003" fill="#a5d604">#</tspan><tspan x="133.60000000000002" fill="#a9d303">#</tspan><tspan x="142.00000000000003" fill="#adcf02">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(16192, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#95e108">#</tspan><tspan x="24.4" fill="#99df07">#</tspan><tspan x="32.8" fill="#9ddc06">#</tspan><tspan x="41.199999999999996" fill="#a1d905">#</tspan><tspan x="49.599999999999994" fill="#a5d604">#</tspan><tspan x="57.99999999999999" fill="#a9d303">#</tspan><tspan x="66.39999999999999" fill="#adcf02">#</tspan><tspan x="74.8" fill="#b1cc01">#</tspan><tspan x="83.2" fill="#b5c901">#</tspan><tspan x="91.60000000000001" fill="#b9c501">#</tspan><tspan x="100.00000000000001" fill="#bcc201">#</tspan><tspan x="108.40000000000002" fill="#c0be01">#</tspan><tspan x="116.80000000000003" fill="#c4ba01">#</tspan><tspan x="125.20000000000003" fill="#c7b601">#</tspan><tspan x="133.60000000000002" fill="#cbb301">#</tspan><tspan x="142.00000000000003" fill="#ceaf02">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(16560, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#b9c501">#</tspan><tspan x="24.4" fill="#bcc201">#</tspan><tspan x="32.8" fill="#c0be01">#</tspan><tspan x="41.199999999999996" fill="#c4ba01">#</tspan><tspan x="49.599999999999994" fill="#c7b601">#</tspan><tspan x="57.99999999999999" fill="#cbb301">#</tspan><tspan x="66.39999999999999" fill="#ceaf02">#</tspan><tspan x="74.8" fill="#d1ab02">#</tspan><tspan x="83.2" fill="#d5a703">#</tspan><tspan x="91.60000000000001" fill="#d8a304">#</tspan><tspan x="100.00000000000001" fill="#db9f05">#</tspan><tspan x="108.40000000000002" fill="#de9a07">#</tspan><tspan x="116.80000000000003" fill="#e09608">#</tspan><tspan x="125.20000000000003" fill="#e39209">#</tspan><tspan x="133.60000000000002" fill="#e68e0b">#</tspan><tspan x="142.00000000000003" fill="#e88a0d">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(16928, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#d8a304">#</tspan><tspan x="24.4" fill="#db9f05">#</tspan><tspan x="32.8" fill="#de9a07">#</tspan><tspan x="41.199999999999996" fill="#e09608">#</tspan><tspan x="49.599999999999994" fill="#e39209">#</tspan><tspan x="57.99999999999999" fill="#e68e0b">#</tspan><tspan x="66.39999999999999" fill="#e88a0d">#</tspan><tspan x="74.8" fill="#ea850f">#</tspan><tspan x="83.2" fill="#ed8111">#</tspan><tspan x="91.60000000000001" fill="#ef7d13">#</tspan><tspan x="100.00000000000001" fill="#f17915">#</tspan><tspan x="108.40000000000002" fill="#f37417">#</tspan><tspan x="116.80000000000003" fill="#f4701a">#</tspan><tspan x="125.20000000000003" fill="#f66c1d">#</tspan><tspan x="133.60000000000002" fill="#f7681f">#</tspan><tspan x="142.00000000000003" fill="#f96422">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(17296, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#ef7d13">#</tspan><tspan x="24.4" fill="#f17915">#</tspan><tspan x="32.8" fill="#f37417">#</tspan><tspan x="41.199999999999996" fill="#f4701a">#</tspan><tspan x="49.599999999999994" fill="#f66c1d">#</tspan><tspan x="57.99999999999999" fill="#f7681f">#</tspan><tspan x="66.39999999999999" fill="#f96422">#</tspan><tspan x="74.8" fill="#fa6025">#</tspan><tspan x="83.2" fill="#fb5c28">#</tspan><tspan x="91.60000000000001" fill="#fc582b">#</tspan><tspan x="100.00000000000001" fill="#fd542e">#</tspan><tspan x="108.40000000000002" fill="#fd5032">#</tspan><tspan x="116.80000000000003" fill="#fe4c35">#</tspan><tspan x="125.20000000000003" fill="#fe4838">#</tspan><tspan x="133.60000000000002" fill="#fe443c">#</tspan><tspan x="142.00000000000003" fill="#fe4040">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(17664, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#147bf0">#</tspan><tspan x="24.4" fill="#127fee">#</tspan><tspan x="32.8" fill="#1083ec">#</tspan><tspan x="41.199999999999996" fill="#0e87e9">#</tspan><tspan x="49.599999999999994" fill="#0c8ce7">#</tspan><tspan x="57.99999999999999" fill="#0a90e4">#</tspan><tspan x="66.39999999999999" fill="#0994e2">#</tspan><tspan x="74.8" fill="#0798df">#</tspan><tspan x="83.2" fill="#069cdc">#</tspan><tspan x="91.60000000000001" fill="#05a0d9">#</tspan><tspan x="100.00000000000001" fill="#04a4d6">#</tspan><tspan x="108.40000000000002" fill="#03a8d3">#</tspan><tspan x="116.80000000000003" fill="#02acd0">#</tspan><tspan x="125.20000000000003" fill="#02b0cd">#</tspan><tspan x="133.60000000000002" fill="#01b4c9">#</tspan><tspan x="142.00000000000003" fill="#01b8c6">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(18032, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#06dd9b">#</tspan><tspan x="24.4" fill="#08e097">#</tspan><tspan x="32.8" fill="#09e393">#</tspan><tspan x="41.199999999999996" fill="#0be58f">#</tspan><tspan x="49.599999999999994" fill="#0ce88a">#</tspan><tspan x="57.99999999999999" fill="#0eea86">#</tspan><tspan x="66.39999999999999" fill="#10ec82">#</tspan><tspan x="74.8" fill="#12ee7e">#</tspan><tspan x="83.2" fill="#15f079">#</tspan><tspan x="91.60000000000001" fill="#17f275">#</tspan><tspan x="100.00000000000001" fill="#19f471">#</tspan><tspan x="108.40000000000002" fill="#1cf66d">#</tspan><tspan x="116.80000000000003" fill="#1ff769">#</tspan><tspan x="125.20000000000003" fill="#22f864">#</tspan><tspan x="133.60000000000002" fill="#24fa60">#</tspan><tspan x="142.00000000000003" fill="#27fb5c">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(18400, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#4efe33">#</tspan><tspan x="24.4" fill="#52fd30">#</tspan><tspan x="32.8" fill="#56fc2c">#</tspan><tspan x="41.199999999999996" fill="#5afb29">#</tspan><tspan x="49.599999999999994" fill="#5efa26">#</tspan><tspan x="57.99999999999999" fill="#62f923">#</tspan><tspan x="66.39999999999999" fill="#66f820">#</tspan><tspan x="74.8" fill="#6bf61e">#</tspan><tspan x="83.2" fill="#6ff51b">#</tspan><tspan x="91.60000000000001" fill="#73f318">#</tspan><tspan x="100.00000000000001" fill="#77f116">#</tspan><tspan x="108.40000000000002" fill="#7bf014">#</tspan><tspan x="116.80000000000003" fill="#80ed11">#</tspan><tspan x="125.20000000000003" fill="#84eb0f">#</tspan><tspan x="133.60000000000002" fill="#88e90d">#</tspan><tspan x="142.00000000000003" fill="#8ce70c">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(18768, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#b9c501">#</tspan><tspan x="24.4" fill="#bcc201">#</tspan><tspan x="32.8" fill="#c0be01">#</tspan><tspan x="41.199999999999996" fill="#c4ba01">#</tspan><tspan x="49.599999999999994" fill="#c7b601">#</tspan><tspan x="57.99999999999999" fill="#cbb301">#</tspan><tspan x="66.39999999999999" fill="#ceaf02">#</tspan><tspan x="74.8" fill="#d1ab02">#</tspan><tspan x="83.2" fill="#d5a703">#</tspan><tspan x="91.60000000000001" fill="#d8a304">#</tspan><tspan x="100.00000000000001" fill="#db9f05">#</tspan><tspan x="108.40000000000002" fill="#de9a07">#</tspan><tspan x="116.80000000000003" fill="#e09608">#</tspan><tspan x="125.20000000000003" fill="#e39209">#</tspan><tspan x="133.60000000000002" fill="#e68e0b">#</tspan><tspan x="142.00000000000003" fill="#e88a0d">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(19136, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#fb5c28">#</tspan><tspan x="24.4" fill="#fc582b">#</tspan><tspan x="32.8" fill="#fd542e">#</tspan><tspan x="41.199999999999996" fill="#fd5032">#</tspan><tspan x="49.599999999999994" fill="#fe4c35">#</tspan><tspan x="57.99999999999999" fill="#fe4838">#</tspan><tspan x="66.39999999999999" fill="#fe443c">#</tspan><tspan x="74.8" fill="#fe4040">#</tspan><tspan x="83.2" fill="#fe3d43">#</tspan><tspan x="91.60000000000001" fill="#fe3947">#</tspan><tspan x="100.00000000000001" fill="#fe364b">#</tspan><tspan x="108.40000000000002" fill="#fd324f">#</tspan><tspan x="116.80000000000003" fill="#fd2f53">#</tspan><tspan x="125.20000000000003" fill="#fc2c57">#</tspan><tspan x="133.60000000000002" fill="#fb295b">#</tspan><tspan x="142.00000000000003" fill="#fa265f">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(19504, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#e60b8d">#</tspan><tspan x="24.4" fill="#e40a91">#</tspan><tspan x="32.8" fill="#e10895">#</tspan><tspan x="41.199999999999996" fill="#de079a">#</tspan><tspan x="49.599999999999994" fill="#db069e">#</tspan><tspan x="57.99999999999999" fill="#d804a2">#</tspan><tspan x="66.39999999999999" fill="#d503a6">#</tspan><tspan x="74.8" fill="#d203aa">#</tspan><tspan x="83.2" fill="#cf02ae">#</tspan><tspan x="91.60000000000001" fill="#cb01b2">#</tspan><tspan x="100.00000000000001" fill="#c801b6">#</tspan><tspan x="108.40000000000002" fill="#c401b9">#</tspan><tspan x="116.80000000000003" fill="#c101bd">#</tspan><tspan x="125.20000000000003" fill="#bd01c1">#</tspan><tspan x="133.60000000000002" fill="#ba01c4">#</tspan><tspan x="142.00000000000003" fill="#b601c8">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(19872, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#890de8">#</tspan><tspan x="24.4" fill="#850feb">#</tspan><tspan x="32.8" fill="#8011ed">#</tspan><tspan x="41.199999999999996" fill="#7c13ef">#</tspan><tspan x="49.599999999999994" fill="#7815f1">#</tspan><tspan x="57.99999999999999" fill="#7418f3">#</tspan><tspan x="66.39999999999999" fill="#701af5">#</tspan><tspan x="74.8" fill="#6b1df6">#</tspan><tspan x="83.2" fill="#6720f8">#</tspan><tspan x="91.60000000000001" fill="#6323f9">#</tspan><tspan x="100.00000000000001" fill="#5f25fa">#</tspan><tspan x="108.40000000000002" fill="#5b28fb">#</tspan><tspan x="116.80000000000003" fill="#572cfc">#</tspan><tspan x="125.20000000000003" fill="#532ffd">#</tspan><tspan x="133.60000000000002" fill="#4f32fd">#</tspan><tspan x="142.00000000000003" fill="#4b36fe">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(20240, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#255ffa">#</tspan><tspan x="24.4" fill="#2264f9">#</tspan><tspan x="32.8" fill="#1f68f7">#</tspan><tspan x="41.199999999999996" fill="#1d6cf6">#</tspan><tspan x="49.599999999999994" fill="#1a70f4">#</tspan><tspan x="57.99999999999999" fill="#1874f3">#</tspan><tspan x="66.39999999999999" fill="#1579f1">#</tspan><tspan x="74.8" fill="#137def">#</tspan><tspan x="83.2" fill="#1181ed">#</tspan><tspan x="91.60000000000001" fill="#0f85eb">#</tspan><tspan x="100.00000000000001" fill="#0d89e8">#</tspan><tspan x="108.40000000000002" fill="#0b8ee6">#</tspan><tspan x="116.80000000000003" fill="#0992e3">#</tspan><tspan x="125.20000000000003" fill="#0896e0">#</tspan><tspan x="133.60000000000002" fill="#079ade">#</tspan><tspan x="142.00000000000003" fill="#059edb">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(20608, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#01c8b5">#</tspan><tspan x="24.4" fill="#01ccb1">#</tspan><tspan x="32.8" fill="#02cfad">#</tspan><tspan x="41.199999999999996" fill="#03d2a9">#</tspan><tspan x="49.599999999999994" fill="#04d6a5">#</tspan><tspan x="57.99999999999999" fill="#05d9a1">#</tspan><tspan x="66.39999999999999" fill="#06dc9d">#</tspan><tspan x="74.8" fill="#07df99">#</tspan><tspan x="83.2" fill="#08e195">#</tspan><tspan x="91.60000000000001" fill="#0ae491">#</tspan><tspan x="100.00000000000001" fill="#0ce68c">#</tspan><tspan x="108.40000000000002" fill="#0de988">#</tspan><tspan x="116.80000000000003" fill="#0feb84">#</tspan><tspan x="125.20000000000003" fill="#11ed80">#</tspan><tspan x="133.60000000000002" fill="#14ef7c">#</tspan><tspan x="142.00000000000003" fill="#16f177">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(20976, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#36fe4a">#</tspan><tspan x="24.4" fill="#3afe47">#</tspan><tspan x="32.8" fill="#3dfe43">#</tspan><tspan x="41.199999999999996" fill="#41fe3f">#</tspan><tspan x="49.599999999999994" fill="#45fe3c">#</tspan><tspan x="57.99999999999999" fill="#48fe38">#</tspan><tspan x="66.39999999999999" fill="#4cfe35">#</tspan><tspan x="74.8" fill="#50fd31">#</tspan><tspan x="83.2" fill="#54fd2e">#</tspan><tspan x="91.60000000000001" fill="#58fc2b">#</tspan><tspan x="100.00000000000001" fill="#5cfb28">#</tspan><tspan x="108.40000000000002" fill="#60fa25">#</tspan><tspan x="116.80000000000003" fill="#64f922">#</tspan><tspan x="125.20000000000003" fill="#68f71f">#</tspan><tspan x="133.60000000000002" fill="#6df61c">#</tspan><tspan x="142.00000000000003" fill="#71f41a">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(21344, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#9fda05">#</tspan><tspan x="24.4" fill="#a3d704">#</tspan><tspan x="32.8" fill="#a7d403">#</tspan><tspan x="41.199999999999996" fill="#abd102">#</tspan><tspan x="49.599999999999994" fill="#afce02">#</tspan><tspan x="57.99999999999999" fill="#b3ca01">#</tspan><tspan x="66.39999999999999" fill="#b7c701">#</tspan><tspan x="74.8" fill="#bbc301">#</tspan><tspan x="83.2" fill="#bec001">#</tspan><tspan x="91.60000000000001" fill="#c2bc01">#</tspan><tspan x="100.00000000000001" fill="#c6b801">#</tspan><tspan x="108.40000000000002" fill="#c9b401">#</tspan><tspan x="116.80000000000003" fill="#ccb102">#</tspan><tspan x="125.20000000000003" fill="#d0ad02">#</tspan><tspan x="133.60000000000002" fill="#d3a903">#</tspan><tspan x="142.00000000000003" fill="#d6a504">#</tspan></text>
+  </g>
+    </g>
+    <g transform="translate(21712, 0)">
+      <g class="text">
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f27716">#</tspan><tspan x="24.4" fill="#f37219">#</tspan><tspan x="32.8" fill="#f56e1b">#</tspan><tspan x="41.199999999999996" fill="#f76a1e">#</tspan><tspan x="49.599999999999994" fill="#f86621">#</tspan><tspan x="57.99999999999999" fill="#f96223">#</tspan><tspan x="66.39999999999999" fill="#fa5e26">#</tspan><tspan x="74.8" fill="#fb5a2a">#</tspan><tspan x="83.2" fill="#fc562d">#</tspan><tspan x="91.60000000000001" fill="#fd5230">#</tspan><tspan x="100.00000000000001" fill="#fe4e33">#</tspan><tspan x="108.40000000000002" fill="#fe4a37">#</tspan><tspan x="116.80000000000003" fill="#fe463a">#</tspan><tspan x="125.20000000000003" fill="#fe423e">#</tspan><tspan x="133.60000000000002" fill="#fe3f41">#</tspan><tspan x="142.00000000000003" fill="#fe3b45">#</tspan></text>
+  </g>
+    </g>
+  </g>
+</svg>
