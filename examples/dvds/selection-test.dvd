@@ -1,0 +1,25 @@
+# Text Selection Test
+# Tests Shift+Left/Right character selection and replacement
+Output examples/dvds/selection-test.svg
+
+Set Width 800
+Set Height 400
+Set FontSize 16
+Set Theme dracula
+Set Title "Text Selection Test"
+Set PromptPrefix "\x1b[95m❯\x1b[0m "
+
+Type "The quick brown fox"
+Sleep 500ms
+
+# Select "fox" by moving left 3 times with Shift
+Shift+Left
+Shift+Left
+Shift+Left
+Sleep 500ms
+
+# Replace selection with "cat"
+Type "cat"
+Sleep 500ms
+Enter
+Sleep 1s

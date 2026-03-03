@@ -121,12 +121,12 @@ describe('parseCommand', () => {
 
   it('should parse Ctrl shortcuts', () => {
     const cmd = parseCommand('Ctrl+C', 1);
-    expect(cmd).toEqual({ type: 'Shortcut', ctrl: true, alt: false, shift: false, key: 'C' });
+    expect(cmd).toEqual({ type: 'Shortcut', ctrl: true, alt: false, shift: false, cmd: false, key: 'C' });
   });
 
   it('should parse Ctrl+Alt shortcuts', () => {
     const cmd = parseCommand('Ctrl+Alt+T', 1);
-    expect(cmd).toEqual({ type: 'Shortcut', ctrl: true, alt: true, shift: false, key: 'T' });
+    expect(cmd).toEqual({ type: 'Shortcut', ctrl: true, alt: true, shift: false, cmd: false, key: 'T' });
   });
 
   it('should parse Sleep command', () => {
@@ -146,8 +146,8 @@ describe('parseCommand', () => {
   });
 
   it('should parse Screenshot command', () => {
-    expect(parseCommand('Screenshot', 1)).toEqual({ type: 'Screenshot', name: undefined });
-    expect(parseCommand('Screenshot final', 1)).toEqual({ type: 'Screenshot', name: 'final' });
+    expect(parseCommand('Screenshot', 1)).toEqual({ type: 'Screenshot', path: undefined });
+    expect(parseCommand('Screenshot final', 1)).toEqual({ type: 'Screenshot', path: 'final' });
   });
 
   it('should parse Copy/Paste commands', () => {

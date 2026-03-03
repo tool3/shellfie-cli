@@ -1,0 +1,28 @@
+# Word Selection Test
+# Tests Alt+Shift+Left/Right for word selection
+Output examples/dvds/word-selection-test.svg
+
+Set Width 800
+Set Height 400
+Set FontSize 16
+Set Theme github-dark
+Set Title "Word Selection Test"
+Set PromptPrefix "\x1b[33m>\x1b[0m "
+
+Type "select these words carefully"
+Sleep 500ms
+
+# Select "carefully" by word
+Alt+Shift+Left
+Sleep 500ms
+
+# Extend selection to include "words "
+Alt+Shift+Left
+Sleep 500ms
+
+# Replace with "items"
+Type "items"
+Sleep 500ms
+
+Enter
+Sleep 1s

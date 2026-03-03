@@ -93,13 +93,16 @@ export class DVDExecutor {
       this.context.height,
       this.context.fontSize,
       showCursor,
-      activeCursor
+      activeCursor,
+      this.context.selectionStart,
+      this.context.selectionEnd
     );
 
     const svg = renderTerminalSVG(state, {
       title: this.context.title,
       template: this.context.template,
       theme: this.context.theme,
+      watermark: this.context.watermark,
     });
 
     const frame: TerminalFrame = {
@@ -118,6 +121,13 @@ export class DVDExecutor {
   private async executeType(text: string, speed?: number, prefix?: string): Promise<void> {
     const delay = speed || this.context.typingSpeed;
     const promptPrefix = prefix ?? this.context.promptPrefix;
+
+    // If there's a selection, delete it first
+    if (this.hasSelection()) {
+      this.deleteSelection();
+      this.captureFrame(true, true);
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
 
     // Check if we need to add a prefix
     // Add prefix if: line is empty OR line only contains the prefix already
@@ -318,8 +328,8 @@ export class DVDExecutor {
     const content = buffer.join('\n');
 
     // Use shellfie to generate static SVG
+    // Note: Don't pass width - shellfie auto-sizes based on content
     const svg = shellfie(content, {
-      width: this.context.width,
       fontSize: this.context.fontSize,
       title: this.context.title,
       template: this.context.template,
@@ -337,6 +347,14 @@ export class DVDExecutor {
   private async executeBackspace(count: number = 1): Promise<void> {
     const delay = this.context.typingSpeed;
 
+    // If there's a selection, delete it instead of normal backspace
+    if (this.hasSelection()) {
+      this.deleteSelection();
+      await new Promise((resolve) => setTimeout(resolve, delay));
+      this.captureFrame(true, true);
+      return;
+    }
+
     for (let i = 0; i < count; i++) {
       if (this.context.currentLine.length > 0) {
         // Always delete from the end of the line (like a real terminal)
@@ -346,6 +364,272 @@ export class DVDExecutor {
         await new Promise((resolve) => setTimeout(resolve, delay));
         this.captureFrame(true, true); // active cursor during backspace
       }
+    }
+  }
+
+  /**
+   * Execute keyboard shortcut with modifiers
+   */
+  private async executeShortcut(
+    ctrl: boolean,
+    alt: boolean,
+    shift: boolean,
+    cmd: boolean,
+    key: string
+  ): Promise<void> {
+    // Normalize Cmd to Ctrl for cross-platform compatibility
+    const metaKey = cmd || ctrl;
+
+    // Handle different shortcut combinations
+    if (shift && !alt && !metaKey) {
+      // Shift + Arrow keys = Selection
+      if (key === 'Left' || key === 'Right') {
+        await this.executeSelectionMove(key === 'Right', shift);
+      }
+    } else if (alt && shift && !metaKey) {
+      // Alt + Shift + Arrow = Word selection
+      if (key === 'Left' || key === 'Right') {
+        await this.executeWordSelection(key === 'Right');
+      }
+    } else if (alt && !shift && !metaKey) {
+      // Alt + Arrow = Word movement
+      if (key === 'Left' || key === 'Right') {
+        await this.executeWordMove(key === 'Right');
+      }
+    } else if (metaKey && !alt && !shift) {
+      // Cmd/Ctrl + Arrow = Line navigation
+      if (key === 'Left' || key === 'Right') {
+        await this.executeLineNavigation(key === 'Right');
+      } else if (key === 'Backspace') {
+        await this.executeWordDelete();
+      }
+    }
+  }
+
+  /**
+   * Execute selection movement (Shift + Left/Right)
+   */
+  private async executeSelectionMove(right: boolean, shift: boolean): Promise<void> {
+    const strippedLine = this.stripAnsi(this.context.currentLine);
+
+    // Initialize selection anchor if not already set
+    if (!shift || (this.context.selectionStart === undefined && this.context.selectionEnd === undefined)) {
+      this.context.selectionStart = this.context.cursorX;
+      this.context.selectionEnd = this.context.cursorX;
+    }
+
+    // Move cursor
+    if (right) {
+      if (this.context.cursorX < strippedLine.length) {
+        this.context.cursorX++;
+      }
+    } else {
+      if (this.context.cursorX > 0) {
+        this.context.cursorX--;
+      }
+    }
+
+    // Update selection end
+    if (shift) {
+      this.context.selectionEnd = this.context.cursorX;
+    } else {
+      this.clearSelection();
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    this.captureFrame(true, true);
+  }
+
+  /**
+   * Execute word movement (Alt + Left/Right)
+   */
+  private async executeWordMove(right: boolean): Promise<void> {
+    const strippedLine = this.stripAnsi(this.context.currentLine);
+    this.clearSelection(); // Clear any selection
+
+    const direction = right ? 'right' : 'left';
+    const newPosition = this.findWordBoundary(direction, this.context.cursorX, this.context.currentLine);
+    this.context.cursorX = newPosition;
+
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    this.captureFrame(true, true);
+  }
+
+  /**
+   * Execute word selection (Alt + Shift + Left/Right)
+   */
+  private async executeWordSelection(right: boolean): Promise<void> {
+    // Initialize selection if not set
+    if (this.context.selectionStart === undefined) {
+      this.context.selectionStart = this.context.cursorX;
+      this.context.selectionEnd = this.context.cursorX;
+    }
+
+    const direction = right ? 'right' : 'left';
+    const newPosition = this.findWordBoundary(direction, this.context.cursorX, this.context.currentLine);
+    this.context.cursorX = newPosition;
+    this.context.selectionEnd = newPosition;
+
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    this.captureFrame(true, true);
+  }
+
+  /**
+   * Execute line navigation (Cmd/Ctrl + Left/Right)
+   */
+  private async executeLineNavigation(toEnd: boolean): Promise<void> {
+    const strippedLine = this.stripAnsi(this.context.currentLine);
+    this.clearSelection(); // Clear any selection
+
+    if (toEnd) {
+      // Move to end of line
+      this.context.cursorX = strippedLine.length;
+    } else {
+      // Move to beginning of line (after prompt if it exists)
+      const promptLength = this.context.promptPrefix ? this.stripAnsi(this.context.promptPrefix).length : 0;
+      this.context.cursorX = promptLength;
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    this.captureFrame(true, true);
+  }
+
+  /**
+   * Execute word deletion (Cmd/Ctrl + Backspace)
+   */
+  private async executeWordDelete(): Promise<void> {
+    const delay = this.context.typingSpeed;
+    const strippedLine = this.stripAnsi(this.context.currentLine);
+
+    // Find word boundary to the left
+    const wordStart = this.findWordBoundary('left', this.context.cursorX, this.context.currentLine);
+
+    // Calculate how many characters to delete
+    const deleteCount = this.context.cursorX - wordStart;
+
+    if (deleteCount <= 0) return;
+
+    // Animate deletion character by character
+    for (let i = 0; i < deleteCount; i++) {
+      if (this.context.currentLine.length > 0) {
+        this.context.currentLine = this.context.currentLine.slice(0, -1);
+        this.context.cursorX--;
+
+        await new Promise((resolve) => setTimeout(resolve, delay / 2)); // Faster than regular backspace
+        this.captureFrame(true, true);
+      }
+    }
+  }
+
+  /**
+   * Check if there's an active selection
+   */
+  private hasSelection(): boolean {
+    return (
+      this.context.selectionStart !== undefined &&
+      this.context.selectionEnd !== undefined &&
+      this.context.selectionStart !== this.context.selectionEnd
+    );
+  }
+
+  /**
+   * Get selected text
+   */
+  private getSelectedText(): string {
+    if (!this.hasSelection()) return '';
+
+    const start = Math.min(this.context.selectionStart!, this.context.selectionEnd!);
+    const end = Math.max(this.context.selectionStart!, this.context.selectionEnd!);
+
+    const strippedLine = this.stripAnsi(this.context.currentLine);
+    return strippedLine.substring(start, end);
+  }
+
+  /**
+   * Clear selection
+   */
+  private clearSelection(): void {
+    this.context.selectionStart = undefined;
+    this.context.selectionEnd = undefined;
+  }
+
+  /**
+   * Delete selected text and return true if selection was deleted
+   */
+  private deleteSelection(): boolean {
+    if (!this.hasSelection()) return false;
+
+    const start = Math.min(this.context.selectionStart!, this.context.selectionEnd!);
+    const end = Math.max(this.context.selectionStart!, this.context.selectionEnd!);
+
+    // Map visual positions to actual positions in currentLine (with ANSI codes)
+    const strippedLine = this.stripAnsi(this.context.currentLine);
+    const before = strippedLine.substring(0, start);
+    const after = strippedLine.substring(end);
+
+    // Rebuild line - this is simplified, should preserve ANSI codes properly
+    this.context.currentLine = before + after;
+    this.context.cursorX = start;
+    this.clearSelection();
+
+    return true;
+  }
+
+  /**
+   * Find word boundary in the given direction
+   * Returns the position of the word boundary
+   */
+  private findWordBoundary(direction: 'left' | 'right', position: number, text: string): number {
+    const stripped = this.stripAnsi(text);
+
+    if (direction === 'left') {
+      // Move left to find word boundary
+      if (position === 0) return 0;
+
+      let pos = position - 1;
+
+      // Skip whitespace
+      while (pos > 0 && /\s/.test(stripped[pos])) {
+        pos--;
+      }
+
+      // Skip word characters
+      if (/\w/.test(stripped[pos])) {
+        while (pos > 0 && /\w/.test(stripped[pos - 1])) {
+          pos--;
+        }
+      } else if (/\S/.test(stripped[pos])) {
+        // Skip punctuation (non-whitespace, non-word)
+        while (pos > 0 && /[^\w\s]/.test(stripped[pos - 1])) {
+          pos--;
+        }
+      }
+
+      return pos;
+    } else {
+      // Move right to find word boundary
+      if (position >= stripped.length) return stripped.length;
+
+      let pos = position;
+
+      // Skip whitespace
+      while (pos < stripped.length && /\s/.test(stripped[pos])) {
+        pos++;
+      }
+
+      // Skip word characters
+      if (pos < stripped.length && /\w/.test(stripped[pos])) {
+        while (pos < stripped.length && /\w/.test(stripped[pos])) {
+          pos++;
+        }
+      } else if (pos < stripped.length && /\S/.test(stripped[pos])) {
+        // Skip punctuation
+        while (pos < stripped.length && /[^\w\s]/.test(stripped[pos])) {
+          pos++;
+        }
+      }
+
+      return pos;
     }
   }
 
@@ -396,6 +680,10 @@ export class DVDExecutor {
         }
         break;
 
+      case 'Shortcut':
+        await this.executeShortcut(command.ctrl, command.alt, command.shift, command.cmd, command.key);
+        break;
+
       case 'Hide':
       case 'Show':
       case 'Output':
@@ -404,7 +692,6 @@ export class DVDExecutor {
       case 'Source':
       case 'Env':
       case 'Comment':
-      case 'Shortcut':
       case 'Wait':
         // Not implemented in simulation mode
         break;
@@ -439,7 +726,12 @@ export class DVDExecutor {
           .replace(/\\t/g, '\t');
       }
       if (key === 'Watermark') {
-        this.context.watermark = value;
+        // Parse the string to handle escape sequences (same as PromptPrefix)
+        this.context.watermark = value
+          .replace(/\\e/g, '\x1b')
+          .replace(/\\x1b/g, '\x1b')
+          .replace(/\\n/g, '\n')
+          .replace(/\\t/g, '\t');
       }
       if (key === 'CursorBlink') {
         this.context.cursorBlink = value.toLowerCase() !== 'false';

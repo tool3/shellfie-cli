@@ -1,0 +1,81 @@
+# Comprehensive Keyboard Navigation Demo
+# Showcases all navigation features: selection, word movement, line navigation, word deletion
+Output examples/dvds/keyboard-navigation-demo.svg
+
+Set Width 1000
+Set Height 600
+Set FontSize 16
+Set Theme dracula
+Set Title "Keyboard Navigation Demo"
+Set PromptPrefix "\x1b[95m❯\x1b[0m "
+Set TypingSpeed 40
+
+# Demo 1: Character Selection
+Type "# Character Selection (Shift+Left/Right)"
+Enter
+Type "The quick brown fox jumps"
+Sleep 300ms
+Shift+Left
+Shift+Left
+Shift+Left
+Shift+Left
+Shift+Left
+Sleep 500ms
+Type "runs"
+Sleep 500ms
+Enter
+Sleep 800ms
+
+# Demo 2: Word Movement
+Type "# Word Movement (Alt+Left/Right)"
+Enter
+Type "one two three four five"
+Sleep 300ms
+Alt+Left
+Sleep 300ms
+Alt+Left
+Sleep 300ms
+Alt+Right
+Sleep 500ms
+Enter
+Sleep 800ms
+
+# Demo 3: Word Selection
+Type "# Word Selection (Alt+Shift+Left/Right)"
+Enter
+Type "replace this entire phrase"
+Sleep 300ms
+Alt+Shift+Left
+Sleep 300ms
+Alt+Shift+Left
+Sleep 500ms
+Type "text"
+Sleep 500ms
+Enter
+Sleep 800ms
+
+# Demo 4: Line Navigation
+Type "# Line Navigation (Cmd+Left/Right)"
+Enter
+Type "navigate to start and end"
+Sleep 300ms
+Cmd+Left
+Sleep 500ms
+Cmd+Right
+Sleep 500ms
+Enter
+Sleep 800ms
+
+# Demo 5: Word Deletion
+Type "# Word Deletion (Cmd+Backspace)"
+Enter
+Type "delete unwanted extra words here"
+Sleep 300ms
+Cmd+Backspace
+Sleep 300ms
+Cmd+Backspace
+Sleep 300ms
+Cmd+Backspace
+Sleep 500ms
+Enter
+Sleep 1s

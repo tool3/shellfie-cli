@@ -16,5 +16,5 @@
   <g class="text">
     <text y="72" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="16" xml:space="preserve"><tspan x="16" fill="#0dbc79">$</tspan><tspan x="25.6" fill="#d4d4d4"> echo &#39;I am great developer&#39;</tspan></text>
   </g>
-  <text y="122.4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="12" xml:space="preserve"><tspan x="205.60000000000002" fill="#d4d4d4">\x1b[2;0mby talhayut\x1b[0m</tspan></text>
+  <text y="122.4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="12" xml:space="preserve"><tspan x="320.8" fill="#6a6a6a">by talhayut</tspan></text>
 </svg>

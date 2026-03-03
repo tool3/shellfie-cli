@@ -10,7 +10,7 @@ export type DVDCommand =
   | { type: 'Set'; setting: string; value: string }
   | { type: 'Type'; text: string; speed?: number; prefix?: string }
   | { type: 'Key'; key: 'Left' | 'Right' | 'Up' | 'Down' | 'Backspace' | 'Enter' | 'Tab' | 'Space'; count?: number }
-  | { type: 'Shortcut'; ctrl: boolean; alt: boolean; shift: boolean; key: string }
+  | { type: 'Shortcut'; ctrl: boolean; alt: boolean; shift: boolean; cmd: boolean; key: string }
   | { type: 'Sleep'; duration: number }
   | { type: 'Wait'; condition?: 'Screen' | 'Line'; pattern?: RegExp }
   | { type: 'Hide' }
@@ -210,19 +210,20 @@ export const parseCommand = (line: string, lineNumber: number): DVDCommand => {
       return { type: 'Key', key: command as 'Backspace' | 'Enter' | 'Tab' | 'Space', count };
     }
 
-    // Ctrl/Alt/Shift combinations
-    if (command.startsWith('Ctrl')) {
+    // Ctrl/Alt/Shift/Cmd combinations
+    if (command.startsWith('Ctrl') || command.startsWith('Alt') || command.startsWith('Shift') || command.startsWith('Cmd')) {
       const parts = command.split('+');
       const ctrl = parts.includes('Ctrl');
       const alt = parts.includes('Alt');
       const shift = parts.includes('Shift');
+      const cmd = parts.includes('Cmd');
       const key = parts[parts.length - 1];
 
-      if (!key || key === 'Ctrl' || key === 'Alt' || key === 'Shift') {
+      if (!key || key === 'Ctrl' || key === 'Alt' || key === 'Shift' || key === 'Cmd') {
         throw new Error('Shortcut command requires a key');
       }
 
-      return { type: 'Shortcut', ctrl, alt, shift, key };
+      return { type: 'Shortcut', ctrl, alt, shift, cmd, key };
     }
 
     // Sleep command

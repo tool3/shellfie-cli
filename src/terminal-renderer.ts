@@ -15,6 +15,8 @@ export interface TerminalState {
   fontFamily: string;
   showCursor: boolean;
   activeCursor?: boolean; // true = solid cursor (typing/moving), false = blinking cursor (idle)
+  selectionStart?: number; // Selection start position (for text selection on current line)
+  selectionEnd?: number; // Selection end position
 }
 
 export interface RenderOptions {
@@ -22,6 +24,7 @@ export interface RenderOptions {
   template?: 'macos' | 'windows' | 'minimal';
   theme?: Theme;
   padding?: number;
+  watermark?: string;
 }
 
 /**
@@ -149,6 +152,22 @@ export function renderTerminalSVG(state: TerminalState, options: RenderOptions =
     }
   });
 
+  // Render selection (on current line only, before cursor so cursor appears on top)
+  if (state.selectionStart !== undefined && state.selectionEnd !== undefined) {
+    const selStart = Math.min(state.selectionStart, state.selectionEnd);
+    const selEnd = Math.max(state.selectionStart, state.selectionEnd);
+
+    if (selStart !== selEnd) {
+      const selectionXStart = padding + (selStart * charWidth);
+      const selectionWidth = (selEnd - selStart) * charWidth;
+      const selectionY = contentY + (cursorY * lineHeight);
+      const selectionColor = theme.selection || '#4A90E2'; // Default blue if theme doesn't have selection color
+
+      svg += `
+    <rect class="selection" x="${selectionXStart}" y="${selectionY}" width="${selectionWidth}" height="${lineHeight}" fill="${selectionColor}" opacity="0.3"/>`;
+    }
+  }
+
   // Render cursor
   if (showCursor) {
     const cursorXPos = padding + (cursorX * charWidth);
@@ -159,7 +178,38 @@ export function renderTerminalSVG(state: TerminalState, options: RenderOptions =
   }
 
   svg += `
-  </g>
+  </g>`;
+
+  // Render watermark if provided (after content, before closing svg)
+  if (options.watermark) {
+    // Parse ANSI codes in watermark
+    const parsedWatermark = parseAnsi(options.watermark);
+    const watermarkFontSize = 12;
+    const watermarkY = svgHeight - padding;
+
+    if (parsedWatermark.length > 0 && parsedWatermark[0].spans.length > 0) {
+      // Calculate watermark width to right-align it
+      const watermarkText = parsedWatermark[0].spans.map(s => s.text).join('');
+      const watermarkWidth = watermarkText.length * (watermarkFontSize * 0.6);
+      let xOffset = svgWidth - padding - watermarkWidth;
+
+      parsedWatermark[0].spans.forEach((span) => {
+        const escapedText = escapeXml(span.text);
+        const fgColor = resolveColor(span.style.foreground, theme);
+        let styleAttr = '';
+        if (span.style.bold) styleAttr += ' font-weight="bold"';
+        if (span.style.italic) styleAttr += ' font-style="italic"';
+        if (span.style.dim) styleAttr += ' opacity="0.5"';
+
+        svg += `
+  <text x="${xOffset}" y="${watermarkY}" fill="${fgColor}" font-family="${fontFamily}" font-size="${watermarkFontSize}"${styleAttr} xml:space="preserve">${escapedText}</text>`;
+
+        xOffset += span.text.length * (watermarkFontSize * 0.6);
+      });
+    }
+  }
+
+  svg += `
 </svg>`;
 
   return svg;
@@ -228,7 +278,9 @@ export function createTerminalState(
   height: number,
   fontSize: number,
   showCursor: boolean = true,
-  activeCursor: boolean = false
+  activeCursor: boolean = false,
+  selectionStart?: number,
+  selectionEnd?: number
 ): TerminalState {
   const lines = buffer.split('\n');
 
@@ -242,5 +294,7 @@ export function createTerminalState(
     fontFamily: "'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace",
     showCursor,
     activeCursor,
+    selectionStart,
+    selectionEnd,
   };
 }
