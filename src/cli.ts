@@ -13,6 +13,7 @@ import {
   outputToFile,
   resolveOutputPath,
 } from './shellfie';
+import { createDVD } from './dvd';
 import type { CliArgs } from './utils';
 
 const createParser = () =>
@@ -192,6 +193,24 @@ const run = async (): Promise<void> => {
   if (handleListCommands(argv)) process.exit(0);
 
   const inputFile = argv._[0] as string | undefined;
+
+  // Check if this is a .dvd file
+  if (inputFile && inputFile.endsWith('.dvd')) {
+    try {
+      await createDVD(inputFile, argv.output, {
+        verbose: false,
+        loop: true,
+        pauseAtEnd: 1000,
+        template: argv.template as 'macos' | 'windows' | 'minimal',
+        title: argv.title,
+        width: argv.width,
+        fontSize: argv['font-size'],
+      });
+      process.exit(0);
+    } catch (err) {
+      exit(1, err instanceof Error ? err.message : String(err));
+    }
+  }
 
   const input = await fetchInput(inputFile).catch((err) =>
     exit(1, `Error: ${err.message}`)

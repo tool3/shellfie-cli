@@ -8,11 +8,12 @@ npm test | npx shellfie --title "Test Results" -o tests.svg
 
 ![npm test](examples/tests.svg)
 
-✅ **Zero friction** - Pipe any command output and get an SVG instantly.  
-✅ **Beautiful defaults** - macOS-style terminal window with syntax highlighting.  
-✅ **Fully customizable** - 12 themes, 3 templates, custom fonts, and more.  
-✅ **Portable SVGs** - Embed fonts for consistent rendering everywhere.  
-✅ **Run everywhere** - Terminal, CI/CD, npm scripts.   
+✅ **Zero friction** - Pipe any command output and get an SVG instantly.
+✅ **Beautiful defaults** - macOS-style terminal window with syntax highlighting.
+✅ **Fully customizable** - 12 themes, 3 templates, custom fonts, and more.
+✅ **Portable SVGs** - Embed fonts for consistent rendering everywhere.
+✅ **Run everywhere** - Terminal, CI/CD, npm scripts.
+✨ **NEW: Animated SVGs** - Create animated terminal recordings with `.dvd` scripts!   
 
 ## Installation
 
@@ -67,6 +68,18 @@ cat output.txt | shellfie --stdout > output.svg
 # Use with clipboard (macOS)
 echo "Hello World" | shellfie --stdout | pbcopy
 ```
+
+### Create animated SVGs with DVD scripts
+
+```sh
+# Create an animated terminal recording
+shellfie demo.dvd
+
+# Specify custom output
+shellfie demo.dvd -o animated.svg
+```
+
+See [DVD.md](DVD.md) for complete documentation on the `.dvd` scripting format.
 
 ## Options
 
@@ -244,9 +257,62 @@ npm test 2>&1 | shellfie -o output.svg
 }
 ```
 
+## DVD Format - Animated SVGs
+
+The `.dvd` format lets you script animated terminal recordings that output as SVGs with pure CSS animations. Think of it like [VHS](https://github.com/charmbracelet/vhs) `.tape` format, but with **zero dependencies** and **SVG output**.
+
+### Quick Example
+
+Create a file `demo.dvd`:
+
+```dvd
+# My first DVD script
+Output demo.svg
+
+Set Title "Hello DVD"
+Set Theme dracula
+Set Width 60
+
+Type "echo 'Hello, animated SVGs!'"
+Enter
+Sleep 1s
+
+Type "# This is awesome"
+Enter
+Sleep 2s
+```
+
+Run it:
+
+```sh
+shellfie demo.dvd
+```
+
+### Why DVD?
+
+- **Zero dependencies** - No ffmpeg, ttyd, or other external tools
+- **Pure SVG** - Works everywhere browsers support SVG (which is everywhere)
+- **Small file size** - CSS animations are more efficient than video frames
+- **Easy to script** - Simple, readable syntax
+- **Perfect for READMEs** - Embed directly in GitHub, GitLab, etc.
+
+### Available Commands
+
+- `Type "text"` - Simulate typing
+- `Enter`, `Tab`, `Space`, `Backspace` - Special keys
+- `Left`, `Right`, `Up`, `Down` - Arrow keys
+- `Ctrl+C`, `Ctrl+D` - Keyboard shortcuts
+- `Sleep 1s` - Pause for duration
+- `Screenshot` - Capture frame
+- `Set <Setting> <Value>` - Configure appearance
+- And more!
+
+See the complete [DVD Format Specification](DVD.md) for all features.
+
 ## Related
 
 - [shellfie](https://github.com/tool3/shellfie) - The core library for programmatic use
+- [VHS](https://github.com/charmbracelet/vhs) - Similar tool for GIF/MP4 output
 
 ## License
 

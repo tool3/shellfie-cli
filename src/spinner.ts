@@ -9,6 +9,7 @@ const FRAME_INTERVAL = 80;
 export interface Spinner {
   start(): void;
   stop(): void;
+  update(text: string): void;
   success(message: string): void;
   fail(message: string): void;
 }
@@ -49,6 +50,13 @@ export function createSpinner(text: string): Spinner {
         intervalId = null;
       }
       clearLine();
+    },
+
+    update(text: string): void {
+      currentText = text;
+      if (process.stdout.isTTY) {
+        render();
+      }
     },
 
     success(message: string): void {
