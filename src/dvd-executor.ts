@@ -327,14 +327,38 @@ export class DVDExecutor {
     buffer[this.context.cursorY] = this.context.currentLine;
     const content = buffer.join('\n');
 
-    // Use shellfie to generate static SVG
-    // Note: Don't pass width - shellfie auto-sizes based on content
+    // Use shellfie to generate static SVG with exact dimensions to match animated frames
+    // Create a custom template with shadow disabled to match terminal-renderer
+    let templateOption: 'macos' | 'windows' | 'minimal' | any = this.context.template;
+    if (typeof this.context.template === 'string') {
+      // For built-in templates, create a custom version with shadow disabled
+      const { templates } = await import('shellfie');
+      const baseTemplate = templates[this.context.template as keyof typeof templates];
+      if (baseTemplate) {
+        templateOption = {
+          ...baseTemplate,
+          shell: {
+            ...baseTemplate.shell,
+            shadow: false, // Disable shadow to match terminal-renderer
+          },
+        };
+      }
+    }
+
     const svg = shellfie(content, {
+      width: this.context.width,
+      height: this.context.height,
       fontSize: this.context.fontSize,
       title: this.context.title,
-      template: this.context.template,
+      template: templateOption as any,
       theme: this.context.theme,
       watermark: this.context.watermark,
+      // Enable title bar border to match terminal-renderer
+      header: {
+        border: true,
+        borderColor: '#d4d4d41a',
+        borderWidth: 1,
+      },
     });
 
     // Write to file
