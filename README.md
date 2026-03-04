@@ -3,7 +3,7 @@
 Transform your terminal output into beautiful SVG screenshots, directly from the command line.
 
 ```sh
-npm test | npx shellfie --title "Test Results" -o tests.svg
+npm test | npx shellfie -i "npm test" -o tests.svg
 ```
 
 ![npm test](examples/tests.svg)

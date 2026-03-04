@@ -1,26 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 603.2 407.99999999999994" width="603.2" height="407.99999999999994">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 603.2 447.2" width="603.2" height="447.2">
   <defs>
     <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
       <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
     </filter>
   </defs>
-  <rect x="0" y="0" width="603.2" height="407.99999999999994" fill="#272822" rx="10" ry="10" filter="url(#shadow)"/>
+  <rect x="0" y="0" width="603.2" height="447.2" fill="#272822" rx="10" ry="10" filter="url(#shadow)"/>
   <g class="title-bar">
-    <rect x="0" y="0" width="603.2" height="39" fill="#272822" rx="10" ry="10"/>
-    <rect x="0" y="29" width="603.2" height="10" fill="#272822"/>
-    <line x1="0" y1="39.5" x2="603.2" y2="39.5" stroke="#f8f8f21a" stroke-width="1"/>
-    <circle cx="16" cy="19.5" r="6" fill="#ff5f56"/>
-    <circle cx="36" cy="19.5" r="6" fill="#ffbd2e"/>
-    <circle cx="56" cy="19.5" r="6" fill="#27c93f"/>
+    <rect x="0" y="0" width="603.2" height="40" fill="rgb(36, 37, 38)" rx="10" ry="10"/>
+    <rect x="0" y="30" width="603.2" height="10" fill="rgb(36, 37, 38)"/>
+    <circle cx="16" cy="20" r="6" fill="#ff5f56"/>
+    <circle cx="36" cy="20" r="6" fill="#ffbd2e"/>
+    <circle cx="56" cy="20" r="6" fill="#27c93f"/>
   </g>
   <g class="text">
     <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet 127.0.0.1 netmask 0xff000000</tspan></text>
     <text y="89.6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 ::1 prefixlen 128 </tspan></text>
     <text y="109.19999999999999" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::1%lo0 prefixlen 64 scopeid 0x1 </tspan></text>
     <text y="128.8" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::45f:6c7b:e0e:3137%en0 prefixlen 64 secured scopeid 0xe </tspan></text>
-    <text y="148.39999999999998" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet 192.168.0.103 netmask 0xffffff00 broadcast 192.168.0.255</tspan></text>
-    <text y="168" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::b434:bfff:feb5:63b4%awdl0 prefixlen 64 scopeid 0x10 </tspan></text>
-    <text y="187.6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::b434:bfff:feb5:63b4%llw0 prefixlen 64 scopeid 0x11 </tspan></text>
+    <text y="148.39999999999998" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet 192.168.0.102 netmask 0xffffff00 broadcast 192.168.0.255</tspan></text>
+    <text y="168" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::1c78:8eff:fe2a:347d%awdl0 prefixlen 64 scopeid 0x10 </tspan></text>
+    <text y="187.6" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::1c78:8eff:fe2a:347d%llw0 prefixlen 64 scopeid 0x11 </tspan></text>
     <text y="207.2" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::7c92:d976:ecd:5c57%utun0 prefixlen 64 scopeid 0x12 </tspan></text>
     <text y="226.79999999999998" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::a961:6ba0:b869:f105%utun1 prefixlen 64 scopeid 0x13 </tspan></text>
     <text y="246.39999999999998" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::2072:c512:346d:b56a%utun2 prefixlen 64 scopeid 0x14 </tspan></text>
@@ -29,6 +28,8 @@
     <text y="305.2" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::8941:d774:e7dd:8b8d%utun5 prefixlen 64 scopeid 0x17 </tspan></text>
     <text y="324.79999999999995" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::59cf:7403:b9f:1b21%utun6 prefixlen 64 scopeid 0x18 </tspan></text>
     <text y="344.4" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::7d7c:f87:7cd2:6dce%utun7 prefixlen 64 scopeid 0x19 </tspan></text>
+    <text y="363.99999999999994" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::8507:3c6d:ea55:a9ae%utun8 prefixlen 64 scopeid 0x1d </tspan></text>
+    <text y="383.59999999999997" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#f8f8f2">	inet6 fe80::65bf:876f:641e:6ccb%utun9 prefixlen 64 scopeid 0x1e </tspan></text>
   </g>
-  <text y="391.99999999999994" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="10" xml:space="preserve"><tspan x="533.2" fill="#f8f8f2">@talhayut</tspan></text>
+  <text y="431.2" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="10" xml:space="preserve"><tspan x="533.2" fill="#f8f8f2">@talhayut</tspan></text>
 </svg>
