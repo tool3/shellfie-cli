@@ -21,16 +21,20 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Update dependency
-        run: npm install ${{ github.event.client_payload.package }}@${{ github.event.client_payload.version }}
-
-      - name: Bump version
-        id: bump
+      - name: Configure git
         run: |
-          npm version patch -m "chore: update ${{ github.event.client_payload.package }} to v${{ github.event.client_payload.version }}"
-          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Push changes and tag
+      - name: Update dependency and release
         run: |
+          npm install ${{ github.event.client_payload.package }}@${{ github.event.client_payload.version }}
+          git add package.json package-lock.json
+          git commit -m "chore: update ${{ github.event.client_payload.package }} to v${{ github.event.client_payload.version }}"
+          npm version patch --no-git-tag-version
+          VERSION=$(node -p "require('./package.json').version")
+          git add package.json package-lock.json
+          git commit --amend -m "chore: update ${{ github.event.client_payload.package }} to v${{ github.event.client_payload.version }}"
+          git tag "v$VERSION"
           git push
           git push --tags
