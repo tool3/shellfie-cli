@@ -264,7 +264,8 @@ npm test 2>&1 | shellfie -o output.svg
 
 ## Related
 
-- [shellfie](https://github.com/tool3/shellfie) - The core library for programmatic use
+- [shellfie](https://github.com/tool3/shellfie) - The core library for programmatic use.   
+- [shellfied](https://github.com/tool3/shellfied) - Shellfie online app!
 
 ## License
 
