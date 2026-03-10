@@ -1,7 +1,7 @@
 {
   "name": "shellfie-cli",
   "version": "2.0.2",
-  "description": "Transform terminal output into beautiful SVG images from the command line",
+  "description": "Terminal output to beautiful SVGs",
   "bin": {
     "shellfie": "dist/cli.js"
   },
