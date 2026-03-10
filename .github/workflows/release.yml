@@ -130,6 +130,7 @@ jobs:
   publish-npm:
     needs: release
     runs-on: ubuntu-latest
+    environment: npm
     permissions:
       contents: read
       id-token: write
