@@ -51,4 +51,4 @@ jobs:
           git add package.json package-lock.json
           git commit -m "chore: update ${{ github.event.client_payload.package }} to v${{ github.event.client_payload.version }}"
           git tag "v$VERSION"
-          git push origin master --follow-tags
+          git push --tags
