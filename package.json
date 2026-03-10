@@ -1,6 +1,6 @@
 {
   "name": "shellfie-cli",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "Terminal output to beautiful SVGs",
   "bin": {
     "shellfie": "dist/cli.js"
@@ -35,7 +35,7 @@
     "url": "https://github.com/tool3/shellfie-cli"
   },
   "dependencies": {
-    "shellfie": "^2.0.13",
+    "shellfie": "^2.0.14",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
