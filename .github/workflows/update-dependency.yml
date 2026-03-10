@@ -1,0 +1,36 @@
+name: Update Dependency
+
+on:
+  repository_dispatch:
+    types: [dependency-update]
+
+permissions:
+  contents: write
+
+jobs:
+  update-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Update dependency
+        run: npm install ${{ github.event.client_payload.package }}@${{ github.event.client_payload.version }}
+
+      - name: Bump version
+        id: bump
+        run: |
+          npm version patch -m "chore: update ${{ github.event.client_payload.package }} to v${{ github.event.client_payload.version }}"
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Push changes and tag
+        run: |
+          git push
+          git push --tags
