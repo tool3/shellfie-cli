@@ -6,7 +6,7 @@ Transform your terminal output into beautiful SVG screenshots, directly from the
 npm test | npx shellfie
 ```
 
-![npm test](examples/tests.svg)
+![npm test](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/tests.svg)
 
 ✅ **Zero friction** - Pipe any command output and get an SVG instantly.  
 ✅ **Beautiful defaults** - macOS-style terminal window with syntax highlighting.  
@@ -15,6 +15,20 @@ npm test | npx shellfie
 ✅ **Run everywhere** - Terminal, CI/CD, npm scripts.   
 
 ## Installation
+
+### Homebrew (macOS/Linux)
+
+```sh
+brew install tool3/tap/shellfie
+```
+
+### Shell script (macOS/Linux)
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/tool3/shellfie-cli/master/scripts/install.sh | bash
+```
+
+### npm
 
 ```sh
 # Use directly with npx (no install needed)
@@ -26,6 +40,10 @@ npm install -g shellfie-cli
 # Or add to your project
 npm install shellfie-cli --save-dev
 ```
+
+### Download binary
+
+Pre-built binaries for macOS, Linux, and Windows are available on the [Releases](https://github.com/tool3/shellfie-cli/releases) page.
 
 ## Quick Start
 
@@ -46,7 +64,7 @@ ls -la --color=always | shellfie --theme nord
 lolcat --help | shellfie -o lolcat
 ```
 
-![npm test](examples/lolcat.svg)
+![npm test](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/lolcat.svg)
 
 ### Read from a file
 
@@ -138,35 +156,35 @@ shellfie --list-templates
 ```sh
 npm test 2>&1 | shellfie --theme dracula --title "Unit Tests" -o tests.svg
 ```
-![tests dracula](examples/tests-dracula.svg)
+![tests dracula](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/tests-dracula.svg)
 
 ### Git log with minimal template
 
 ```sh
 git log --oneline --graph --color=always | shellfie -t minimal --theme githubDark -o git-log.svg
 ```
-![git log](examples/git-log.svg)
+![git log](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/git-log.svg)
 
 ### Custom padding and font size
 
 ```sh
 cat script.sh | shellfie --padding "20,30" --font-size 30 -o script.svg
 ```
-![script](examples/script.svg)
+![script](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/script.svg)
 
 ### Embed font for sharing
 
 ```sh
 ls -l | lolcat -f | shellfie --embed-font -o portable.svg
 ```
-![portable](examples/portable.svg)
+![portable](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/portable.svg)
 
 ### Add watermark
 
 ```sh
 ifconfig | grep inet | shellfie --watermark "@$USER" --theme monokai
 ```
-![watermark](examples/watermark.svg)
+![watermark](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/watermark.svg)
 
 ### Colored watermark
 
