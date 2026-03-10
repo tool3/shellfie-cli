@@ -1,6 +1,6 @@
 {
   "name": "shellfie-cli",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Terminal output to beautiful SVGs",
   "bin": {
     "shellfie": "dist/cli.js"
