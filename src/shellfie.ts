@@ -17,9 +17,10 @@ export const listTemplates = (): void => printList('Available templates:', TEMPL
 export const resolveTheme = (themeName?: string): Theme | undefined =>
   themeName ? (themes[themeName as keyof typeof themes] as Theme) : undefined;
 
-export const toShellfieOptions = ({ themeName, ...rest }: BuildOptionsResult): shellfieOptions => ({
+export const toShellfieOptions = ({ themeName, language, ...rest }: BuildOptionsResult): shellfieOptions => ({
   ...rest,
   theme: resolveTheme(themeName),
+  language,
 });
 
 export const loadInput = (inputFile?: string): Promise<string> => readInput(inputFile);

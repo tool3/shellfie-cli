@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 206" width="780" height="206">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 368 130.8" width="368" height="130.8">
   <defs>
     <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
       <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
     </filter>
   </defs>
-  <rect x="0" y="0" width="780" height="206" fill="#1e1e1e" rx="10" ry="10" filter="url(#shadow)"/>
+  <rect x="0" y="0" width="368" height="130.8" fill="#1e1e1e" rx="10" ry="10" filter="url(#shadow)"/>
   <g class="title-bar">
-    <rect x="0" y="0" width="780" height="40" fill="rgb(36, 37, 38)" rx="10" ry="10"/>
-    <rect x="0" y="30" width="780" height="10" fill="rgb(36, 37, 38)"/>
+    <rect x="0" y="0" width="368" height="40" fill="#242526" rx="10" ry="10"/>
+    <rect x="0" y="30" width="368" height="10" fill="#242526"/>
     <circle cx="16" cy="20" r="6" fill="#ff5f56"/>
     <circle cx="36" cy="20" r="6" fill="#ffbd2e"/>
     <circle cx="56" cy="20" r="6" fill="#27c93f"/>
   </g>
   <g class="text">
-    <text y="90" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="30" xml:space="preserve"><tspan x="30" fill="#d4d4d4">#!/bin/bash</tspan></text>
-    <text y="174" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="30" xml:space="preserve"><tspan x="30" fill="#d4d4d4">echo &quot;Hello World!&quot;</tspan></text>
+    <text y="70" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#666666">#!/bin/bash</tspan></text>
+    <text y="109.2" font-family="'SF Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace" font-size="14" xml:space="preserve"><tspan x="16" fill="#29b8db">echo</tspan><tspan x="49.6" fill="#d4d4d4"> </tspan><tspan x="58" fill="#0dbc79">&quot;Hello World!&quot;</tspan></text>
   </g>
 </svg>

@@ -1,6 +1,6 @@
 # shellfie-cli
 
-Transform your terminal output into beautiful SVG screenshots, directly from the command line.
+Turn terminal output into stunning SVG screenshots. Blazing fast.
 
 ```sh
 npm test | npx shellfie
@@ -8,11 +8,14 @@ npm test | npx shellfie
 
 ![npm test](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/tests.svg)
 
-✅ **Zero friction** - Pipe any command output and get an SVG instantly.  
-✅ **Beautiful defaults** - macOS-style terminal window with syntax highlighting.  
-✅ **Fully customizable** - 12 themes, 3 templates, custom fonts, and more.  
-✅ **Portable SVGs** - Embed fonts for consistent rendering everywhere.  
-✅ **Run everywhere** - Terminal, CI/CD, npm scripts.   
+## Why shellfie?
+
+- **Blazing fast** - Built for speed, renders instantly
+- **Full 256 color support** - Captures every color your terminal can display
+- **Auto syntax highlighting** - 12 languages detected and highlighted out of the box
+- **37 themes** - From Dracula to Nord to Tokyo Night, find your style
+- **Zero config** - Works perfectly with defaults, customize when you want
+- **Portable SVGs** - Embed fonts for pixel-perfect rendering anywhere
 
 ## Installation
 
@@ -47,101 +50,59 @@ Pre-built binaries for macOS, Linux, and Windows are available on the [Releases]
 
 ## Quick Start
 
-### Pipe command output
+### Pipe any command
 
 ```sh
-# Capture npm test output
+# Capture test output
 npm test 2>&1 | shellfie -o test-results.svg
 
-# Capture git log
+# Git history
 git log --oneline -10 | shellfie --title "Recent Commits" -o commits.svg
 
-# Capture any command with colors
+# Colorful output
 ls -la --color=always | shellfie --theme nord
 ```
 
-```sh
-lolcat --help | shellfie -o lolcat
-```
-
-![npm test](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/lolcat.svg)
-
-### Read from a file
+### From a file
 
 ```sh
-# Convert a log file to SVG
 shellfie error.log -o error-screenshot.svg
-
-# ASCII art
 shellfie banner.txt --template minimal --theme monokai
 ```
 
-### Output to stdout
+### To stdout
 
 ```sh
-# Pipe SVG to another command or file
 cat output.txt | shellfie --stdout > output.svg
-
-# Use with clipboard (macOS)
-echo "Hello World" | shellfie --stdout | pbcopy
+echo "Hello World" | shellfie --stdout | pbcopy  # macOS clipboard
 ```
-
-## Options
-
-| Option | Alias | Description |
-|--------|-------|-------------|
-| `--output <path>` | `-o` | Output file path (default: `./shellfie.svg`) |
-| `--name <name>` | `-n` | Output filename (without extension) |
-| `--stdout` | | Print SVG to stdout instead of file |
-| `--template <name>` | `-t` | Window style: `macos`, `windows`, `minimal` |
-| `--theme <name>` | `-T` | Color theme (see [Themes](#themes)) |
-| `--title <text>` | | Window title bar text |
-| `--watermark <text>` | | Text in bottom-right corner (supports ANSI colors) |
-| `--width <cols>` | `-w` | Terminal width in columns (auto-detected) |
-| `--padding <value>` | `-p` | Padding in pixels (`16` or `top,right,bottom,left`) |
-| `--font-size <px>` | | Font size in pixels (default: `14`) |
-| `--line-height <n>` | | Line height multiplier (default: `1.4`) |
-| `--font-family <css>` | | CSS font-family string |
-| `--embed-font` | | Embed system font for portable SVGs |
-| `--no-controls` | | Hide window control buttons |
-| `--no-custom-glyphs` | | Use font glyphs instead of pixel-perfect box drawing |
-| `--header-height <px>` | | Custom header bar height |
-| `--header-color <hex>` | | Header background color |
-| `--footer-height <px>` | | Footer bar height |
-| `--footer-color <hex>` | | Footer background color |
-| `--list-themes` | | List all available themes |
-| `--list-templates` | | List all available templates |
-| `--help` | `-h` | Show help |
-| `--version` | `-v` | Show version |
 
 ## Themes
 
+37 beautiful themes to choose from:
+
+| Theme | Theme | Theme | Theme |
+|-------|-------|-------|-------|
+| `night3024` | `a11yDark` | `base16Dark` | `base16Light` |
+| `blackboard` | `catppuccinMocha` | `cobalt` | `dark` |
+| `dracula` | `draculaPro` | `duotoneDark` | `githubDark` |
+| `githubLight` | `gruvboxDark` | `gruvboxLight` | `hopscotch` |
+| `lucario` | `material` | `monokai` | `nord` |
+| `oceanicNext` | `oneDark` | `oneLight` | `pandaSyntax` |
+| `paraisoDark` | `seti` | `shadesOfPurple` | `solarizedDark` |
+| `solarizedLight` | `synthwave84` | `terminal` | `tokyoNight` |
+| `twilight` | `verminal` | `vscode` | `yeti` |
+| `zenburn` | | | |
+
 ```sh
+# List all themes
 shellfie --list-themes
+
+# Use a theme
+npm test | shellfie --theme dracula
 ```
-
-Available themes:
-
-| Theme | Description |
-|-------|-------------|
-| `dracula` | Dark, vibrant purple |
-| `nord` | Arctic, bluish colors |
-| `tokyoNight` | Dark, moody |
-| `oneDark` | VS Code One Dark |
-| `monokai` | Classic dark |
-| `catppuccinMocha` | Warm, cozy dark |
-| `githubDark` | GitHub dark mode |
-| `githubLight` | GitHub light mode |
-| `gruvboxDark` | Retro dark |
-| `gruvboxLight` | Retro light |
-| `solarizedDark` | Solarized dark |
-| `solarizedLight` | Solarized light |
 
 ## Templates
-
-```sh
-shellfie --list-templates
-```
 
 | Template | Description |
 |----------|-------------|
@@ -149,9 +110,41 @@ shellfie --list-templates
 | `windows` | Windows-style with square buttons |
 | `minimal` | Clean, no window chrome |
 
+## Options
+
+| Option | Alias | Description | Default |
+|--------|-------|-------------|---------|
+| `--output <path>` | `-o` | Output file path | `./shellfie.svg` |
+| `--name <name>` | `-n` | Output filename (without extension) | - |
+| `--stdout` | `-s` | Print SVG to stdout instead of file | `false` |
+| `--template <name>` | `-t` | Window style: `macos`, `windows`, `minimal` | `macos` |
+| `--theme <name>` | `-T` | Color theme (see [Themes](#themes)) | - |
+| `--title <text>` | `-i` | Window title bar text | - |
+| `--watermark <text>` | `-W` | Text in bottom-right corner (supports ANSI colors) | - |
+| `--width <cols>` | `-w` | Terminal width in columns | auto |
+| `--padding <value>` | `-p` | Padding in pixels (`16` or `top,right,bottom,left`) | - |
+| `--font-size <px>` | `-f` | Font size in pixels | `14` |
+| `--line-height <n>` | `-l` | Line height multiplier | `1.4` |
+| `--font-family <css>` | `-F` | CSS font-family string | - |
+| `--embed-font` | `-e` | Embed system font for portable SVGs | `false` |
+| `--controls` | `-C` | Show window control buttons | `true` |
+| `--custom-glyphs` | `-G` | Use pixel-perfect box drawing | `true` |
+| `--language <lang>` | `-g` | Syntax highlighting language | `auto` |
+| `--highlight` | `-N` | Enable syntax highlighting | `true` |
+| `--header-height <px>` | `-H` | Custom header bar height | - |
+| `--header-color <hex>` | `-c` | Header background color | - |
+| `--footer-height <px>` | `-r` | Footer bar height | - |
+| `--footer-color <hex>` | `-R` | Footer background color | - |
+| `--list-themes` | `-L` | List all available themes | - |
+| `--list-templates` | `-P` | List all available templates | - |
+| `--help` | `-h` | Show help | - |
+| `--version` | `-v` | Show version | - |
+
+Use `--no-<option>` to negate boolean flags (e.g., `--no-controls`, `--no-highlight`).
+
 ## Examples
 
-### Capture test results with a theme
+### Test results with Dracula theme
 
 ```sh
 npm test 2>&1 | shellfie --theme dracula --title "Unit Tests" -o tests.svg
@@ -188,49 +181,28 @@ ifconfig | grep inet | shellfie --watermark "@$USER" --theme monokai
 
 ### Colored watermark
 
-Watermarks support ANSI escape sequences for colors and styles:
+Watermarks support ANSI escape sequences:
 
 ```sh
-# Red watermark using octal notation
-echo "test" | shellfie --watermark '\033[31m@username\033[0m'
-
-# Green watermark using hex notation
-echo "test" | shellfie --watermark '\x1b[32m@username\x1b[0m'
-
-# Bold blue watermark using shorthand notation
-echo "test" | shellfie --watermark '\e[1;34m@username\e[0m'
-
-# Works with bash variables
-echo "test" | shellfie --watermark '\e[1;32m@$USER\e[0m'
-```
-
-### With header and footer bars
-
-```sh
-htop -n 1 | shellfie --header-height 30 --footer-height 20 -o system.svg
+echo "test" | shellfie --watermark '\033[31m@username\033[0m'   # Red
+echo "test" | shellfie --watermark '\x1b[32m@username\x1b[0m'   # Green
+echo "test" | shellfie --watermark '\e[1;34m@username\e[0m'     # Bold blue
 ```
 
 ## Tips
 
 ### Preserve colors
 
-Many commands disable colors when piped. Force them with:
+Many commands disable colors when piped. Force them:
 
 ```sh
-# ls
 ls -la --color=always | shellfie
-
-# grep
 grep --color=always pattern file | shellfie
-
-# git
 git -c color.ui=always log | shellfie
-
-# npm
 npm test --color | shellfie
 ```
 
-### Capture stderr too
+### Capture stderr
 
 Include error output with `2>&1`:
 
@@ -241,7 +213,7 @@ npm test 2>&1 | shellfie -o output.svg
 ### CI/CD Integration
 
 ```yaml
-# GitHub Actions example
+# GitHub Actions
 - name: Generate test screenshot
   run: npm test 2>&1 | npx shellfie-cli --theme githubDark -o test-output.svg
 
@@ -264,8 +236,8 @@ npm test 2>&1 | shellfie -o output.svg
 
 ## Related
 
-- [shellfie](https://github.com/tool3/shellfie) - the core library for programmatic use.   
-- [shellfied](https://github.com/tool3/shellfied) - the shellfie web app!
+- [shellfie](https://github.com/tool3/shellfie) - Core library for programmatic use
+- [shellfied](https://github.com/tool3/shellfied) - Web app
 
 ## License
 

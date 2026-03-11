@@ -14,8 +14,10 @@ export interface CliArgs {
   'font-size': number;
   'line-height': number;
   watermark?: string;
-  'no-controls': boolean;
-  'no-custom-glyphs': boolean;
+  'controls': boolean;
+  'custom-glyphs': boolean;
+  language: string;
+  'highlight': boolean;
   'font-family'?: string;
   'embed-font': boolean;
   'header-height'?: number;
@@ -37,6 +39,7 @@ export interface BuildOptionsResult {
   watermark?: string;
   controls: boolean;
   customGlyphs: boolean;
+  language?: string | false;
   fontFamily?: string;
   embedFont: boolean;
   header?: { height?: number; backgroundColor?: string };
@@ -123,13 +126,19 @@ const buildHeaderFooter = (
   };
 };
 
+const resolveLanguage = (language: string | undefined, highlight: boolean | undefined): string | false | undefined => {
+  if (highlight === false) return false;
+  return language;
+};
+
 export const buildOptions = (argv: Partial<CliArgs>): BuildOptionsResult => ({
   template: (argv.template as 'macos' | 'windows' | 'minimal') ?? 'macos',
   fontSize: argv['font-size'] ?? 14,
   lineHeight: argv['line-height'] ?? 1.4,
   embedFont: argv['embed-font'] ?? false,
-  controls: !argv['no-controls'],
-  customGlyphs: !argv['no-custom-glyphs'],
+  controls: argv['controls'] ?? true,
+  customGlyphs: argv['custom-glyphs'] ?? true,
+  language: resolveLanguage(argv.language, argv['highlight']),
   ...(argv.theme && { themeName: argv.theme }),
   ...(argv.title !== undefined && { title: argv.title }),
   ...(argv.width !== undefined && { width: argv.width }),

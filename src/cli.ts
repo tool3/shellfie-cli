@@ -82,17 +82,29 @@ const createParser = () =>
       type: 'string',
       describe: 'Watermark text (bottom-right corner)',
     })
-    .option('no-controls', {
+    .option('controls', {
       alias: 'C',
       type: 'boolean',
-      describe: 'Hide window control buttons',
-      default: false,
+      describe: 'Show window control buttons',
+      default: true,
     })
-    .option('no-custom-glyphs', {
+    .option('custom-glyphs', {
       alias: 'G',
       type: 'boolean',
-      describe: 'Use font glyphs instead of pixel-perfect box drawing',
-      default: false,
+      describe: 'Use pixel-perfect box instead of drawing font glyphs',
+      default: true,
+    })
+    .option('language', {
+      alias: 'g',
+      type: 'string',
+      describe: 'Syntax highlighting language (auto, typescript, python, bash, etc.)',
+      default: 'auto',
+    })
+    .option('highlight', {
+      alias: 'N',
+      type: 'boolean',
+      describe: 'Syntax highlighting',
+      default: true,
     })
     .option('font-family', {
       alias: 'F',

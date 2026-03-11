@@ -148,19 +148,34 @@ describe('buildOptions', () => {
     expect(options.watermark).toBe('\x1b[31mRed\x1b[0m');
   });
 
-  it('should set controls to false when no-controls is true', () => {
-    const options = buildOptions({ 'no-controls': true });
+  it('should set controls to false when controls is false', () => {
+    const options = buildOptions({ 'controls': false });
     expect(options.controls).toBe(false);
   });
 
-  it('should set controls to true when no-controls is false', () => {
-    const options = buildOptions({ 'no-controls': false });
+  it('should set controls to true by default', () => {
+    const options = buildOptions({});
     expect(options.controls).toBe(true);
   });
 
-  it('should set customGlyphs to false when no-custom-glyphs is true', () => {
-    const options = buildOptions({ 'no-custom-glyphs': true });
+  it('should set customGlyphs to false when custom-glyphs is false', () => {
+    const options = buildOptions({ 'custom-glyphs': false });
     expect(options.customGlyphs).toBe(false);
+  });
+
+  it('should set language option', () => {
+    const options = buildOptions({ language: 'typescript' });
+    expect(options.language).toBe('typescript');
+  });
+
+  it('should disable syntax highlighting when highlight is false', () => {
+    const options = buildOptions({ 'highlight': false });
+    expect(options.language).toBe(false);
+  });
+
+  it('should return language when highlight is true', () => {
+    const options = buildOptions({ language: 'python', 'highlight': true });
+    expect(options.language).toBe('python');
   });
 
   it('should set font-family option', () => {
@@ -219,7 +234,10 @@ describe('buildOptions', () => {
       'font-size': 12,
       'line-height': 1.5,
       watermark: 'Made with shellfie',
-      'no-controls': true,
+      'controls': false,
+      'custom-glyphs': false,
+      language: 'bash',
+      'highlight': true,
       'font-family': 'JetBrains Mono',
       'embed-font': true,
       'header-height': 40,
@@ -235,6 +253,8 @@ describe('buildOptions', () => {
     expect(options.lineHeight).toBe(1.5);
     expect(options.watermark).toBe('Made with shellfie');
     expect(options.controls).toBe(false);
+    expect(options.customGlyphs).toBe(false);
+    expect(options.language).toBe('bash');
     expect(options.fontFamily).toBe('JetBrains Mono');
     expect(options.embedFont).toBe(true);
     expect(options.header).toEqual({ height: 40 });
