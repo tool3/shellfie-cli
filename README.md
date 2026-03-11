@@ -41,7 +41,7 @@ npx shellfie-cli --help
 npm install -g shellfie-cli
 
 # Or add to your project
-npm install shellfie-cli --save-dev
+npm install shellfie-cli -D
 ```
 
 ### Download binary
@@ -54,20 +54,20 @@ Pre-built binaries for macOS, Linux, and Windows are available on the [Releases]
 
 ```sh
 # Capture test output
-npm test 2>&1 | shellfie -o test-results.svg
+npm test 2>&1 | shellfie
 
 # Git history
-git log --oneline -10 | shellfie --title "Recent Commits" -o commits.svg
+git log --oneline -10 | shellfie -i "Recent Commits"
 
 # Colorful output
-ls -la --color=always | shellfie --theme nord
+ls -la --color=always | shellfie -T nord
 ```
 
 ### From a file
 
 ```sh
-shellfie error.log -o error-screenshot.svg
-shellfie banner.txt --template minimal --theme monokai
+shellfie error.log -o error.svg
+shellfie banner.txt -t minimal -T monokai
 ```
 
 ### To stdout
@@ -99,7 +99,7 @@ echo "Hello World" | shellfie --stdout | pbcopy  # macOS clipboard
 shellfie --list-themes
 
 # Use a theme
-npm test | shellfie --theme dracula
+npm test | shellfie -T dracula
 ```
 
 ## Templates
@@ -117,10 +117,10 @@ npm test | shellfie --theme dracula
 | `--output <path>` | `-o` | Output file path | `./shellfie.svg` |
 | `--name <name>` | `-n` | Output filename (without extension) | - |
 | `--stdout` | `-s` | Print SVG to stdout instead of file | `false` |
-| `--template <name>` | `-t` | Window style: `macos`, `windows`, `minimal` | `macos` |
-| `--theme <name>` | `-T` | Color theme (see [Themes](#themes)) | - |
-| `--title <text>` | `-i` | Window title bar text | - |
-| `--watermark <text>` | `-W` | Text in bottom-right corner (supports ANSI colors) | - |
+| `-t <name>` | `-t` | Window style: `macos`, `windows`, `minimal` | `macos` |
+| `-T <name>` | `-T` | Color theme (see [Themes](#themes)) | - |
+| `-i <text>` | `-i` | Window title bar text | - |
+| `-W <text>` | `-W` | Text in bottom-right corner (supports ANSI colors) | - |
 | `--width <cols>` | `-w` | Terminal width in columns | auto |
 | `--padding <value>` | `-p` | Padding in pixels (`16` or `top,right,bottom,left`) | - |
 | `--font-size <px>` | `-f` | Font size in pixels | `14` |
@@ -147,35 +147,35 @@ Use `--no-<option>` to negate boolean flags (e.g., `--no-controls`, `--no-highli
 ### Test results with Dracula theme
 
 ```sh
-npm test 2>&1 | shellfie --theme dracula --title "Unit Tests" -o tests.svg
+npm test 2>&1 | shellfie -T dracula -i "Unit Tests" -o tests.svg
 ```
 ![tests dracula](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/tests-dracula.svg)
 
 ### Git log with minimal template
 
 ```sh
-git log --oneline --graph --color=always | shellfie -t minimal --theme githubDark -o git-log.svg
+git log --oneline --graph --color=always | shellfie -t minimal -T githubDark
 ```
 ![git log](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/git-log.svg)
 
 ### Custom padding and font size
 
 ```sh
-cat script.sh | shellfie --padding "20,30" --font-size 30 -o script.svg
+cat script.sh | shellfie -T draculaPro
 ```
 ![script](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/script.svg)
 
 ### Embed font for sharing
 
 ```sh
-ls -l | lolcat -f | shellfie --embed-font -o portable.svg
+ls -l | lolcat -f | shellfie -e
 ```
 ![portable](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/portable.svg)
 
 ### Add watermark
 
 ```sh
-ifconfig | grep inet | shellfie --watermark "@$USER" --theme monokai
+ifconfig | grep inet | shellfie -W "@$USER" -T monokai
 ```
 ![watermark](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/watermark.svg)
 
@@ -184,9 +184,9 @@ ifconfig | grep inet | shellfie --watermark "@$USER" --theme monokai
 Watermarks support ANSI escape sequences:
 
 ```sh
-echo "test" | shellfie --watermark '\033[31m@username\033[0m'   # Red
-echo "test" | shellfie --watermark '\x1b[32m@username\x1b[0m'   # Green
-echo "test" | shellfie --watermark '\e[1;34m@username\e[0m'     # Bold blue
+echo "test" | shellfie -W '\033[31m@username\033[0m'   # Red
+echo "test" | shellfie -W '\x1b[32m@username\x1b[0m'   # Green
+echo "test" | shellfie -W '\e[1;34m@username\e[0m'     # Bold blue
 ```
 
 ## Tips
@@ -207,7 +207,7 @@ npm test --color | shellfie
 Include error output with `2>&1`:
 
 ```sh
-npm test 2>&1 | shellfie -o output.svg
+npm test 2>&1 | shellfie
 ```
 
 ### CI/CD Integration
@@ -215,7 +215,7 @@ npm test 2>&1 | shellfie -o output.svg
 ```yaml
 # GitHub Actions
 - name: Generate test screenshot
-  run: npm test 2>&1 | npx shellfie-cli --theme githubDark -o test-output.svg
+  run: npm test 2>&1 | npx shellfie-cli -T githubDark -o test-output.svg
 
 - name: Upload artifact
   uses: actions/upload-artifact@v4
@@ -229,7 +229,7 @@ npm test 2>&1 | shellfie -o output.svg
 ```json
 {
   "scripts": {
-    "test:screenshot": "npm test 2>&1 | shellfie --theme dracula -o tests.svg"
+    "test:screenshot": "npm test 2>&1 | shellfie -T dracula -o tests.svg"
   }
 }
 ```
