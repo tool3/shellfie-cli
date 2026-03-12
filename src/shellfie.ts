@@ -1,6 +1,6 @@
 import { writeFileSync } from 'node:fs';
 import { themes, shellfieAsync, type shellfieOptions, type Theme } from 'shellfie';
-import { readInput, getOutputPath, buildOptions, type CliArgs, type BuildOptionsResult } from './utils';
+import { readInput, getOutputPath, buildOptions, type CliArgs, type BuildOptionsResult, type WatermarkResult } from './utils';
 
 export const THEME_NAMES = Object.keys(themes) as (keyof typeof themes)[];
 export const TEMPLATE_NAMES = ['macos', 'windows', 'minimal'] as const;
@@ -17,10 +17,22 @@ export const listTemplates = (): void => printList('Available templates:', TEMPL
 export const resolveTheme = (themeName?: string): Theme | undefined =>
   themeName ? (themes[themeName as keyof typeof themes] as Theme) : undefined;
 
-export const toShellfieOptions = ({ themeName, language, ...rest }: BuildOptionsResult): shellfieOptions => ({
+const resolveWatermark = (
+  watermark: string | WatermarkResult | undefined
+): shellfieOptions['watermark'] => {
+  if (watermark === undefined) return undefined;
+  if (typeof watermark === 'string') return watermark;
+  return {
+    content: watermark.content,
+    style: watermark.style,
+  };
+};
+
+export const toShellfieOptions = ({ themeName, language, watermark, ...rest }: BuildOptionsResult): shellfieOptions => ({
   ...rest,
   theme: resolveTheme(themeName),
   language,
+  watermark: resolveWatermark(watermark),
 });
 
 export const loadInput = (inputFile?: string): Promise<string> => readInput(inputFile);

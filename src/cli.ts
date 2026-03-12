@@ -80,7 +80,11 @@ const createParser = () =>
     .option('watermark', {
       alias: 'W',
       type: 'string',
-      describe: 'Watermark text (bottom-right corner)',
+      describe: 'Watermark text or SVG markup (bottom-right corner)',
+    })
+    .option('watermark-style', {
+      type: 'string',
+      describe: 'Watermark CSS styles (e.g., "opacity: 0.5; padding: 20px")',
     })
     .option('controls', {
       alias: 'C',

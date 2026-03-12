@@ -120,7 +120,8 @@ npm test | shellfie -T dracula
 | `-t <name>` | `-t` | Window style: `macos`, `windows`, `minimal` | `macos` |
 | `-T <name>` | `-T` | Color theme (see [Themes](#themes)) | - |
 | `-i <text>` | `-i` | Window title bar text | - |
-| `-W <text>` | `-W` | Text in bottom-right corner (supports ANSI colors) | - |
+| `-W <text>` | `-W` | Watermark text or SVG markup (bottom-right corner) | - |
+| `--watermark-style` | | Watermark CSS styles (`opacity: 0.5; padding: 20px`) | - |
 | `--width <cols>` | `-w` | Terminal width in columns | auto |
 | `--padding <value>` | `-p` | Padding in pixels (`16` or `top,right,bottom,left`) | - |
 | `--font-size <px>` | `-f` | Font size in pixels | `14` |
@@ -179,14 +180,21 @@ ifconfig | grep inet | shellfie -W "@$USER" -T monokai
 ```
 ![watermark](https://raw.githubusercontent.com/tool3/shellfie-cli/refs/heads/master/examples/watermark.svg)
 
-### Colored watermark
+### Styled watermark
 
-Watermarks support ANSI escape sequences:
+Watermarks support ANSI escape sequences and CSS styles:
 
 ```sh
+# Colored watermark with ANSI codes
 echo "test" | shellfie -W '\033[31m@username\033[0m'   # Red
 echo "test" | shellfie -W '\x1b[32m@username\x1b[0m'   # Green
-echo "test" | shellfie -W '\e[1;34m@username\e[0m'     # Bold blue
+
+# Custom CSS styles (opacity, padding, transform, etc.)
+echo "test" | shellfie -W "@tool3" --watermark-style "opacity: 0.5; padding: 20px"
+echo "test" | shellfie -W "@tool3" --watermark-style "font-size: 16px; transform: rotate(-5deg)"
+
+# SVG markup watermark (auto-detected)
+echo "test" | shellfie -W '<a href="https://github.com"><text>GitHub</text></a>'
 ```
 
 ## Tips

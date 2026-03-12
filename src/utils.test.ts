@@ -148,6 +148,28 @@ describe('buildOptions', () => {
     expect(options.watermark).toBe('\x1b[31mRed\x1b[0m');
   });
 
+  it('should build watermark config with style string', () => {
+    const options = buildOptions({
+      watermark: '@test',
+      'watermark-style': 'opacity: 0.5; padding: 20px',
+    });
+    expect(options.watermark).toEqual({
+      content: '@test',
+      style: { opacity: '0.5', padding: '20px' },
+    });
+  });
+
+  it('should build watermark config with multiple styles', () => {
+    const options = buildOptions({
+      watermark: '@test',
+      'watermark-style': 'font-size: 16px; transform: rotate(-5deg)',
+    });
+    expect(options.watermark).toEqual({
+      content: '@test',
+      style: { fontSize: '16px', transform: 'rotate(-5deg)' },
+    });
+  });
+
   it('should set controls to false when controls is false', () => {
     const options = buildOptions({ 'controls': false });
     expect(options.controls).toBe(false);

@@ -14,6 +14,7 @@ export interface CliArgs {
   'font-size': number;
   'line-height': number;
   watermark?: string;
+  'watermark-style'?: string;
   'controls': boolean;
   'custom-glyphs': boolean;
   language: string;
@@ -28,6 +29,15 @@ export interface CliArgs {
   'list-templates'?: boolean;
 }
 
+export interface WatermarkStyleResult {
+  [key: string]: string;
+}
+
+export interface WatermarkResult {
+  content: string;
+  style?: WatermarkStyleResult;
+}
+
 export interface BuildOptionsResult {
   template: 'macos' | 'windows' | 'minimal';
   themeName?: string;
@@ -36,7 +46,7 @@ export interface BuildOptionsResult {
   padding?: number | [number, number] | [number, number, number, number];
   fontSize: number;
   lineHeight: number;
-  watermark?: string;
+  watermark?: string | WatermarkResult;
   controls: boolean;
   customGlyphs: boolean;
   language?: string | false;
@@ -131,6 +141,32 @@ const resolveLanguage = (language: string | undefined, highlight: boolean | unde
   return language;
 };
 
+const parseStyleString = (styleStr: string): Record<string, string> => {
+  const result: Record<string, string> = {};
+  for (const pair of styleStr.split(';')) {
+    const [key, value] = pair.split(':').map(s => s.trim());
+    if (key && value) {
+      // Convert kebab-case to camelCase
+      const camelKey = key.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      result[camelKey] = value;
+    }
+  }
+  return result;
+};
+
+const buildWatermark = (
+  text: string | undefined,
+  styleStr: string | undefined
+): string | WatermarkResult | undefined => {
+  if (text === undefined) return undefined;
+
+  const content = parseEscapeSequences(text);
+
+  if (!styleStr) return content;
+
+  return { content, style: parseStyleString(styleStr) };
+};
+
 export const buildOptions = (argv: Partial<CliArgs>): BuildOptionsResult => ({
   template: (argv.template as 'macos' | 'windows' | 'minimal') ?? 'macos',
   fontSize: argv['font-size'] ?? 14,
@@ -143,7 +179,7 @@ export const buildOptions = (argv: Partial<CliArgs>): BuildOptionsResult => ({
   ...(argv.title !== undefined && { title: argv.title }),
   ...(argv.width !== undefined && { width: argv.width }),
   ...(argv.padding !== undefined && { padding: parsePadding(argv.padding) }),
-  ...(argv.watermark !== undefined && { watermark: parseEscapeSequences(argv.watermark) }),
+  ...(argv.watermark !== undefined && { watermark: buildWatermark(argv.watermark, argv['watermark-style']) }),
   ...(argv['font-family'] !== undefined && { fontFamily: argv['font-family'] }),
   ...({ header: buildHeaderFooter(argv['header-height'], argv['header-color']) }),
   ...({ footer: buildHeaderFooter(argv['footer-height'], argv['footer-color']) }),
