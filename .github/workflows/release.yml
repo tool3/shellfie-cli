@@ -160,19 +160,6 @@ jobs:
         id: version
         run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
-      - name: Download macOS artifacts for checksums
-        uses: actions/download-artifact@v4
-        with:
-          path: artifacts
-
-      - name: Calculate SHA256
-        id: sha
-        run: |
-          SHA_ARM64=$(sha256sum artifacts/shellfie-darwin-arm64/shellfie-darwin-arm64.tar.gz | cut -d ' ' -f 1)
-          SHA_X64=$(sha256sum artifacts/shellfie-darwin-x64/shellfie-darwin-x64.tar.gz | cut -d ' ' -f 1)
-          echo "sha_arm64=$SHA_ARM64" >> $GITHUB_OUTPUT
-          echo "sha_x64=$SHA_X64" >> $GITHUB_OUTPUT
-
       - name: Update Homebrew formula
         uses: peter-evans/repository-dispatch@v3
         with:
@@ -183,6 +170,5 @@ jobs:
             {
               "formula": "shellfie",
               "version": "${{ steps.version.outputs.version }}",
-              "sha_arm64": "${{ steps.sha.sha_arm64 }}",
-              "sha_x64": "${{ steps.sha.sha_x64 }}"
+              "repo": "tool3/shellfie-cli"
             }
