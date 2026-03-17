@@ -141,6 +141,21 @@ const createParser = () =>
       type: 'string',
       describe: 'Footer background color (hex)',
     })
+    .option('background', {
+      alias: 'b',
+      type: 'string',
+      describe: 'Background color or gradient (e.g., "#1a1a2e" or "gradient(#ff0000, #0000ff:diagonal)")',
+    })
+    .option('background-padding', {
+      alias: 'B',
+      type: 'number',
+      describe: 'Padding around terminal when background is set (default: 20)',
+    })
+    .option('background-radius', {
+      alias: 'a',
+      type: 'number',
+      describe: 'Border radius for background (default: 12)',
+    })
     .option('list-themes', {
       alias: 'L',
       type: 'boolean',

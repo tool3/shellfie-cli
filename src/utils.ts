@@ -25,6 +25,9 @@ export interface CliArgs {
   'header-color'?: string;
   'footer-height'?: number;
   'footer-color'?: string;
+  'background'?: string;
+  'background-padding'?: number;
+  'background-radius'?: number;
   'list-themes'?: boolean;
   'list-templates'?: boolean;
 }
@@ -54,6 +57,7 @@ export interface BuildOptionsResult {
   embedFont: boolean;
   header?: { height?: number; backgroundColor?: string };
   footer?: { height?: number; backgroundColor?: string };
+  background?: string | { color: string; padding?: number; borderRadius?: number };
 }
 
 type Padding = number | [number, number] | [number, number, number, number];
@@ -167,6 +171,20 @@ const buildWatermark = (
   return { content, style: parseStyleString(styleStr) };
 };
 
+const buildBackground = (
+  color: string | undefined,
+  padding: number | undefined,
+  borderRadius: number | undefined
+): string | { color: string; padding?: number; borderRadius?: number } | undefined => {
+  if (color === undefined) return undefined;
+  if (padding === undefined && borderRadius === undefined) return color;
+  return {
+    color,
+    ...(padding !== undefined && { padding }),
+    ...(borderRadius !== undefined && { borderRadius }),
+  };
+};
+
 export const buildOptions = (argv: Partial<CliArgs>): BuildOptionsResult => ({
   template: (argv.template as 'macos' | 'windows' | 'minimal') ?? 'macos',
   fontSize: argv['font-size'] ?? 14,
@@ -183,4 +201,5 @@ export const buildOptions = (argv: Partial<CliArgs>): BuildOptionsResult => ({
   ...(argv['font-family'] !== undefined && { fontFamily: argv['font-family'] }),
   ...({ header: buildHeaderFooter(argv['header-height'], argv['header-color']) }),
   ...({ footer: buildHeaderFooter(argv['footer-height'], argv['footer-color']) }),
+  ...(argv['background'] !== undefined && { background: buildBackground(argv['background'], argv['background-padding'], argv['background-radius']) }),
 });
